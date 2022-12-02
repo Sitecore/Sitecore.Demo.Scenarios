@@ -1,0 +1,9 @@
+# This is the ticket upsell scenario
+
+It's really cool but you have to have either the cdp custom integration OR the fallback-cdp. This scenario wouldn't even show up if you selected "remove CDP/Personalize from my instance" (when there is no CDP integration).
+
+Base scenario here on the front-end only
+
+This is the continuation of the scenario after the for sure common stuff is handled:
+
+Click here: [./ticket-upsell/index.md](ticket-upsell/index.md)
