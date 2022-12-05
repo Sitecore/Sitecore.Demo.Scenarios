@@ -24,4 +24,4 @@ PLAY! Summit Demo supports the following integrations:
 - [PLAY! Summit Website](https://{{demoName}}-{{demoUid}}-website.vercel.app)
 - [PLAY! Summit Kiosk](https://{{demoName}}-{{demoUid}}-kiosks.vercel.app)
 - [PLAY! Summit TV](https://{{demoName}}-{{demoUid}}-tv.vercel.app)
-- [Content Management (XM)](https://{{demoName}}-cm.sitecoredemo.com)
+- [Content Management (XM)](https://{{demoName}}-cm.sitecoredemo.com/sitecore)
