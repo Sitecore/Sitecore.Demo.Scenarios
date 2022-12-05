@@ -1,3 +1,5 @@
+# Content Localization in Content Hub
+
 1. Log in to your Content Hub instance.
 
 2. Click the Content link.

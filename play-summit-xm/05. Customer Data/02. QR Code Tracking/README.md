@@ -1,3 +1,5 @@
+# QR Code Tracking
+
 1. Log in to your PLAY! Summit demo instance.
 2. Click the "TV" link.
 > ![](./media/image1.png)

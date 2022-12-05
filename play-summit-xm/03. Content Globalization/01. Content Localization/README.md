@@ -1,4 +1,6 @@
-# Part 1. Introduction
+# Content Localization
+
+## Part 1. Introduction
 
 1. Go to the "PLAY! Summit" website and you will see a language picker
     it the right top corner of the page.
@@ -23,7 +25,7 @@
 
 > ![A picture containing text](./media/image4.png)
 
-# Part 2. Add your own language.
+## Part 2. Add your own language
 
 1. Log in to Sitecore Launchpad.
 

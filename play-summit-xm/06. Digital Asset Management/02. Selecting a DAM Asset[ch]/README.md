@@ -1,4 +1,4 @@
-#Selecting DAM Assets in Sitecore XM
+# Selecting DAM Assets in Sitecore XM
 
 1. Go to Sitecore Launchpad.
 
