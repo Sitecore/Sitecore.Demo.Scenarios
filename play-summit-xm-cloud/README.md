@@ -22,4 +22,4 @@ PLAY! Summit Demo supports the following integrations:
 
 ## Important links
 
-- [PLAY! Summit Website](https://{{demoName}}-website.sitecoredemo.com)
+- [PLAY! Summit Website](https://{{demoName}}-{{demoUid}}-website.vercel.app)
