@@ -23,6 +23,3 @@ PLAY! Summit Demo supports the following integrations:
 ## Important links
 
 - [PLAY! Summit Website](https://{{demoName}}-website.sitecoredemo.com)
-- [PLAY! Summit Kiosk](https://{{demoName}}-kiosks.sitecoredemo.com)
-- [PLAY! Summit TV](https://{{demoName}}-tv.sitecoredemo.com)
-- [Content Management (XM)](https://{{demoName}}-cm.sitecoredemo.com)
