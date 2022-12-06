@@ -1,0 +1,34 @@
+# Selecting DAM Assets in Sitecore XM
+
+1. Go to Sitecore Launchpad.
+
+2. Click on the "Experience Editor" application.
+
+> ![Graphical user interface, text, application, website](./media/image1.png)
+
+3. Scroll down to the "Speaker Line-up" section at the home page, click
+    on one of the speakers.
+
+> ![Graphical user interface, application, PowerPoint](./media/image2.png)
+
+4. Choose DAM image.
+
+> ![Graphical user interface, application](./media/image3.png)
+
+5. Select the image you want from Sitecore DAM.
+
+> ![Selected image](./media/image4.png)
+
+6. Click the "Save" button.
+
+7. Click the "Select" button in a "Choose file to insert" pop-up
+    window.
+
+> ![Graphical user interface, text, application, email](./media/image5.png)
+
+8. You will see a new image in a "Speaker Line-up" section.
+
+> ![New image](./media/image6.png)
+>
+> This scenario shows how to use images from Sitecore Content Hub in
+> Sitecore XM.
