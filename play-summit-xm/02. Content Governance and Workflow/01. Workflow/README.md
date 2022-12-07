@@ -41,7 +41,7 @@
 
 1. Click "OK" button.
 
-2. You will see a title, introduction text, body text and image, which can be updated.
+1. You will see a title, introduction text, body text and image, which can be updated.
 ![Page Preview](./media/image10.png)
 
 1. Save all your changes by clicking Save icon in the top left corner of the panel.

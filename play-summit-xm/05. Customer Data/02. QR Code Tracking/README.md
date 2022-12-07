@@ -1,9 +1,6 @@
 # QR Code Tracking
 
-1. Log in to your PLAY! Summit demo instance.
-
-1. Click the "TV" link.
-![](./media/image1.png)
+1. Go to [PLAY! Summit TV](https://{{demoName}}-{{demoUid}}-tv.vercel.app)
 
 1. Choose one of the sessions.
 ![](./media/image2.png)
@@ -26,8 +23,8 @@
 1. You will see guest data there.
 ![](./media/image8.png)
 
-1. If you have an access to Sitecore CDP, go to app-us.boxever.com, log in
-![](./media/image9.png) and click the "Customer Data" link.
+1. If you have an access to Sitecore CDP, go to app-us.boxever.com, log in and click the "Customer Data" link.
+![](./media/image9.png)
 
 1. Click "Guests" link.
 ![](./media/image10.png)
