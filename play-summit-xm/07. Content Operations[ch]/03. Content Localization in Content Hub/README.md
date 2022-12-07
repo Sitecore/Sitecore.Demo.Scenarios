@@ -67,7 +67,7 @@
 
 1. Click the "Confirm" button to approve and send content to the connector.
 
-1. Go to the Launchpad Sitecore.
+1. Go to the [Sitecore Launchpad](https://{{demoName}}-cm.sitecoredemo.com/sitecore).
 
 1. Click the Content Editor tile.
 ![Graphical user interface, application](./media/image21.png)

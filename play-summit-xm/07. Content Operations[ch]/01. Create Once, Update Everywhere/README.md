@@ -28,8 +28,7 @@
 1. You will see the notification under the session image that session content has been approved.
 ![Graphical user interface, text](./media/image7.png)
 
-1. Return to the details page of your instance and click the "Kiosk" link.
-![Diagram, text](./media/image8.png)
+1. Go to [PLAY! Summit Kiosk](https://{{demoName}}-{{demoUid}}-kiosks.vercel.app)
 
 1. Click the screen with Play! Summit hero image.
 ![Graphical user interface](./media/image9.png)
@@ -42,14 +41,12 @@
 1. You will see the updated name of session.
 ![Updated name of session](./media/image11.png)
 
-1. Return to the details page of your instance and click the "TV" link.
-![Graphical user interface, text](./media/image12.png)
+1. Go to [PLAY! Summit TV](https://{{demoName}}-{{demoUid}}-tv.vercel.app).
 
 1. You will see the updated title of session here as well.
 ![Graphical user interface](./media/image13.png)
 
-1. Return to the details page of your instance and click the "Website" link.
-![Graphical user interface, diagram, text](./media/image14.png)
+1. Go to [PLAY! Summit Website](https://{{demoName}}-{{demoUid}}-website.vercel.app)
 
 1. Click the "Sessions" section.
 ![Sessions section](./media/image15.png)

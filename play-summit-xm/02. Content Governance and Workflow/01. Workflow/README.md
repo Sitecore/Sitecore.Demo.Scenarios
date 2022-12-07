@@ -7,8 +7,7 @@
 1. You will see available types of users and their usernames. In this scenario we are going to log in as user Minnie.
 ![Graphical user interface](./media/image1.png)
 
-1. Go to <https://{{demoName}}-cm.sitecoredemo.com/sitecore>.
-![User types](./media/image2.png)
+1. Go to <https://{{demoName}}-cm.sitecoredemo.com/sitecore/login>.
 
 1. Enter "Minnie" into the "User Name" field and copy password into the "Password" field.
 ![Login screen](./media/image3.png)
