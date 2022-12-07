@@ -48,4 +48,4 @@
 
     > ![Hero banner with name](./media/image9.png)
 
-## This demonstrates that you can be identified on any device, i.e., your mobile phone or your work laptop when you follow a link from the email message
+This demonstrates that you can be identified on any device, i.e., your mobile phone or your work laptop when you follow a link from the email message
