@@ -1,6 +1,6 @@
 # Home Page Banner
 
-1. Open the PLAY! Summit website in a new browsing session. 
+1. Open the [PLAY! Summit Website](https://{{demoName}}-{{demoUid}}-website.vercel.app) in a new browsing session.
 
 1. You will see a random hero banner on the webpage.
 

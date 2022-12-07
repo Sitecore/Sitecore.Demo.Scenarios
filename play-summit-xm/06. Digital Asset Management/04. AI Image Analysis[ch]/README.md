@@ -10,7 +10,7 @@ If you need to set up image analysis:
 
 2. Click the "Create" link.
 
-> ![Main menu](./media/image1.png)
+![Main menu](./media/image1.png)
 
 1. You will see the asset there by default, click on it.
 ![Asset example](./media/image3.png)
