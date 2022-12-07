@@ -25,7 +25,7 @@
 
 ## Part 2. Add your own language
 
-1. Log in to Sitecore Launchpad.
+1. Log in to [Sitecore Launchpad](https://{{demoName}}-cm.sitecoredemo.com/sitecore).
 
 1. Go to Content Editor application.
 

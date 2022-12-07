@@ -1,7 +1,7 @@
 # Create once, publish everywhere
 
 1. Go to your instance details page at
-    <https://portal.sitecoredemo.com>.
+    <https://portal.sitecoredemo.com/instance/{{demoId}}>.
 
 2. Click "Instance Url" in the Content Hub section.
 
