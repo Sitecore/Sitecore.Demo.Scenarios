@@ -1,6 +1,6 @@
 # Selecting DAM Assets in Sitecore XM
 
-1. Go to [Sitecore Launchpad](https://{{demoName}}-cm.sitecoredemo.com/sitecore).
+1. Go to Sitecore Launchpad.
 
 1. Click on the "Experience Editor" application.
 ![Graphical user interface, text, application, website](./media/image1.png)
