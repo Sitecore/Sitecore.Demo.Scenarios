@@ -8,8 +8,7 @@ If you need to set up image analysis:
 
 1. Go to your Content Hub instance.
 
-2. Click the "Create" link.
-
+1. Click the "Create" link.
 ![Main menu](./media/image1.png)
 
 1. You will see the asset there by default, click on it.

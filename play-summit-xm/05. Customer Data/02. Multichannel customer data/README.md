@@ -1,4 +1,4 @@
-# QR Code Tracking
+# Multichannel customer data
 
 1. Go to [PLAY! Summit TV](https://{{demoName}}-{{demoUid}}-tv.vercel.app)
 

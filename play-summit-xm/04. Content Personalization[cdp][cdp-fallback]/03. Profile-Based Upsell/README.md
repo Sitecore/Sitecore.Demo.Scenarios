@@ -1,5 +1,11 @@
 # Ticket Upsell
 
+<!--`TODO:Overall intro text here`-->
+
+## Single-channel tracking
+
+<!--`TODO: single channel intro.. This demonstrates use of personalization for upselling during the checkout process`-->
+
 1. Open the [PLAY! Summit Website](https://{{demoName}}-{{demoUid}}-website.vercel.app) in a new browsing session.
 
 1. Click the section "Sessions".
@@ -24,4 +30,7 @@
 
     ![Graphical user interface, text](./media/image5.png)
 
-## This demonstrates use of personalization for upselling during the checkout process
+## Multichannel tracking
+
+<!--TODO: multichannel intro`
+`this should be the buy regular ticket from Kiosk and the browse premium session`-->

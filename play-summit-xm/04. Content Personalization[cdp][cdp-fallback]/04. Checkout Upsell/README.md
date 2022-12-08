@@ -1,5 +1,9 @@
 # Ticket checkout vip upsell
 
+<!--TODO: This demonstrates that all actions performed by the visitor are tracked and can be used for upselling or other purposes within the current session-->
+
+## Single channel
+<!-- TODO: Intro text -->
 1. Open the [PLAY! Summit Website](https://{{demoName}}-{{demoUid}}-website.vercel.app) in a new browsing session.
 
 1. Click a button "Book Tickets".
@@ -24,4 +28,7 @@
 
     ![Personalized offer](./media/image5.png)
 
-## This demonstrates that all actions performed by the visitor are tracked and can be used for upselling or other purposes within the current session
+## Multichannel tracking
+
+<!--TODO: multichannel intro`
+`this should be the buy regular ticket from Kiosk and the browse premium session`-->

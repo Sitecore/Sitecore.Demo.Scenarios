@@ -1,4 +1,4 @@
-# Create once, publish everywhere
+# Create content once, publish everywhere
 
 1. Go to your instance details page at
     <https://portal.sitecoredemo.com/instance/{{demoId}}>.

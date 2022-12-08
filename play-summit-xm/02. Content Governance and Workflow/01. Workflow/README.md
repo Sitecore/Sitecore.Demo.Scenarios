@@ -1,5 +1,7 @@
 # Workflow creation scenario
 
+<!-- TODO: This scenario shows that Sitecore CMS allows different types of users to work on content and collaborate with each other during the content creation process. -->
+
 ## Part 1. Minnie (content author) creates a news article and submits it for approval.
 
 1. Go to your instance details page at <https://portal.sitecoredemo.com/instance/{{demoId}}>.
@@ -85,6 +87,4 @@
 1. You will see your "News Page Test" article among other news.
 ![News item](./media/image22.png)
 
-> This scenario shows that Sitecore CMS allows different types of users
-> to work on content and collaborate with each other during the content
-> creation process.
+
