@@ -1,4 +1,4 @@
-# Customer journey
+# Customer Journey
 
 1. Go to your Lighthouse XP Demo instance.
 2. Open the "Content Delivery" link in incognito mode.

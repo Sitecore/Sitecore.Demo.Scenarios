@@ -1,4 +1,4 @@
-# A/B test
+# Multivariate Testing
 
 1. Log in to your Lighthouse XP demo instance.
 2. Go to the demo website.
