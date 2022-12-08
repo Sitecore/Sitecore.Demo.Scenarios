@@ -1,4 +1,6 @@
-> This scenario shows Sitecore Discover functionality in the demo.
+# Product Discovery Overview
+
+This describes the Sitecore Discover functionality available on the front-end of PLAY! SHOP.
 
 1. Go to "Play! Shop" website.
 
