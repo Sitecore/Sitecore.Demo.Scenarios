@@ -12,7 +12,7 @@ This scenario shows how to create an asset to be used with Sitecore DAM.
 1. Once uploaded you will see the thumbnail generate and the media is ready to be submitted for approval.
 ![Graphical user interface, application](./media/image2.png)
 
-1. Once approved click on "Review" on the top menu.
+1. Once submitted click on "Review" on the top menu.
 ![Selected image](./media/image3.png)
 
 1. "Approve" or "Reject" the asset.
