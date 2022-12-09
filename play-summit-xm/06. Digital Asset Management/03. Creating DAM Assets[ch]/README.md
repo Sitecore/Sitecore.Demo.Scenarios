@@ -1,5 +1,7 @@
 # Creating DAM Assets in Content Hub
 
+This scenario shows how to create an asset to be used with Sitecore DAM.
+
 1. Go to your Content Hub instance.
 
 1. Click on "Create" on the top menu.
@@ -20,5 +22,3 @@
 ![Graphical user interface, text, application, email](./media/image5.png)
 
 1. This asset is now ready to be used with DAM.
-
->This scenario shows how to create an asset to be used with Sitecore DAM.
