@@ -6,7 +6,7 @@ If you're looking for documentation on running the demo locally or developing - 
 
 ## Available integrations
 
-PLAY! Summit Demo supports the following integrations:
+Lighthouse Demo supports the following integrations:
 
 - GitHub
 - Content Hub
