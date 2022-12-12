@@ -1,5 +1,7 @@
 # Experience Analytics
 
+Experience Analytics provides useful insights on overall website performance, visit and vistors, campaigns, etc.
+
 1. Go to the [Sitecore Launchpad](https://{{demoName}}-cm.sitecoredemo.com/sitecore) and login as 'superuser'.
 
 1. Click the "Experience Analytics" application in the "Marketing Applications" section.

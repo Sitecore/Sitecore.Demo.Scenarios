@@ -1,4 +1,4 @@
-# Content Creator
+# Creating Content
 
 This scenario shows how content author can easily create the content and submit it for review.
 

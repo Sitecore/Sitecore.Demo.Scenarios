@@ -1,4 +1,6 @@
-# Content Approver
+# Approving Content
+
+This scenario shows how the updated content can be easily reviewed and approved by the content approver.
 
 1. Copy password for "Pete" user.
 ![](./media/image16.png)
@@ -31,5 +33,3 @@
 
 1. You have received the mail, that Minnie's article was approved by Pete as well.
 ![](./media/image26.png)
-
-This scenario shows how the updated content can be easily reviewed and approved by the content approver.

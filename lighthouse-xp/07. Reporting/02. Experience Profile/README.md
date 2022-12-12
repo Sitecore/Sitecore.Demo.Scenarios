@@ -1,5 +1,7 @@
 # Experience Profile
 
+Experience Profile allows to review the detailed information about each visitor and interact with it.
+
 1. Go to the [Sitecore Launchpad](https://{{demoName}}-cm.sitecoredemo.com/sitecore).
 
 1. Click the "Experience Profile" application in the "Marketing Applications" section.
@@ -22,5 +24,3 @@
 
 1. You will see the activity of this person there.
 ![](./media/image16.png)
-
-This tool shows how to overview the individual information of each visitor and interact with it.
