@@ -21,3 +21,4 @@ Lighthouse Demo supports the following integrations:
 
 - [Content Delivery](https://{{demoName}}.sitecoredemo.com)
 - [Content Management (XP)](https://{{demoName}}-cm.sitecoredemo.com/sitecore)
+- [Mail Server](https://{{demoName}}-smtp.sitecoredemo.com)
