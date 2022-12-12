@@ -19,5 +19,5 @@ PLAY! Summit Demo supports the following integrations:
 
 ## Important links
 
-- [Lighthouse Demo Website](https://{{demoName}}.sitecoredemo.com)
-- [Content Management (XM)](https://{{demoName}}-cm.sitecoredemo.com/sitecore)
+- [Content Delivery](https://{{demoName}}.sitecoredemo.com)
+- [Content Management (XP)](https://{{demoName}}-cm.sitecoredemo.com/sitecore)
