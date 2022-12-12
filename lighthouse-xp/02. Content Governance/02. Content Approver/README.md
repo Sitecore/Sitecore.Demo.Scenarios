@@ -7,10 +7,12 @@ This scenario shows how the updated content can be easily reviewed and approved 
 
 1. Go to the [Sitecore Launchpad](https://{{demoName}}-cm.sitecoredemo.com/sitecore/login).
 
-1. Log in as Pete to Lighthouse XP Demo, Mail Server service.
+1. Log in as Pete.
 ![](./media/image17.png)
 
-1. You will see the mail, which alerts you, that you have an item awaiting approval, click on it.
+1. Go to the [Mail Server](https://{{demoName}}-smtp.sitecoredemo.com).
+
+1. You will see the message telling you, that you have an item awaiting approval, click on it.
 ![](./media/image19.png)
 
 1. There is a mesage, that the item was submitting for approval by content author (Minnie). Click the "Sitecore Workbox" link to approve this item.

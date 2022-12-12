@@ -40,11 +40,7 @@ This scenario shows how we can track our customer's journies on different device
 1. Click the "Engagement" tab and you will see, that you were placed to "Onboarding Customer Journey" engagement plan.
 ![Engagement plan](./media/image12.png)
 
-1. To view this automation plan, you should go to the back-end of the website by clicking the "Content Management" link and using "superuser" name and its password.
-![Content Management service](./media/image13.png)
-
-1. Click the "Launchpad" icon in the left-top corner of the page.
-![Launchpad icon](./media/image14.png)
+1. To view this automation plan, go to [Sitecore Launchpad](https://{{demoName}}-cm.sitecoredemo.com/sitecore) and login as 'superuser'.
 
 1. Click the "Marketing Automation" application in the "Marketing Applications" section.
 ![Marketing Automation application](./media/image15.png)
