@@ -2,7 +2,7 @@
 
 1. Log in to your Lighthouse XP demo instance.
 2. Click the "Content Management" link, use "superuser" name and its password.
-> ![Content Management link](./media/image1.png)
+![Content Management link](./media/image1.png)
 
 3. Click the "Launchpad" icon in the left-top corner of the page.
 ![](./media/image2.png)
