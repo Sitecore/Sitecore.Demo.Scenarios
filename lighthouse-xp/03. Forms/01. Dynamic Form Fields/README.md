@@ -1,6 +1,6 @@
-# Dynamic Form Fields functionality
+# Dynamic Form Fields
 
-This scenario shows the dynamic form fields functionality in Lighthouse demo.
+This scenario shows the dynamic form fields feature in Lighthouse demo.
 
 1. Go to the <https://{{demoName}}.sitecoredemo.com>
 
