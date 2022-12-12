@@ -17,7 +17,7 @@ This scenario shows that the provided information in the questionnaire helps you
 ![Fitness Tech icon](./media/image14.png)
 
 1. You will see the content, recommended for you, based on what answers you have provided in the questionnaire.
-   ![3 recommended articles](./media/image15.png)
+![3 recommended articles](./media/image15.png)
 
 1. Click the visit details panel.
 ![Visit details icon](./media/image16.png)  
