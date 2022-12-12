@@ -2,7 +2,8 @@
 
 This scenario shows how content author can easily create the content and submit it for review.
 
-1. Login to your Lighthouse XP Demo instance.
+1. Go to your instance details page <https://portal.sitecoredemo.com/instance/{{demoId}}>.
+
 1. Copy password for user "Minnie" (content author).
 ![](./media/image2.png)
 

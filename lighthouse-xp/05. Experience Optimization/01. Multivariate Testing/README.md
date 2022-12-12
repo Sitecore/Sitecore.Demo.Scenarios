@@ -31,10 +31,7 @@ This scenario shows how to use a multi-variant test and identify the variant, wh
 1. Then, you will see the same variant of the test, because you are the same visitor of the website.
 ![Test image](./media/image9.png)
 
-1. Return to your Lighthouse XP demo instance.
-
-1. Click the "Content Management" link.
-![Content Management link](./media/image10.png)
+1. Go to [Sitecore Launchpad](https://{{demoName}}-cm.sitecoredemo.com/sitecore).
 
 1. Click the "Experience Optimization" application in the "Marketing Applications" section.
 ![Experience Optimization application](./media/image11.png)

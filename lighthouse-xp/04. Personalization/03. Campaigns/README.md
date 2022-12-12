@@ -43,8 +43,7 @@ This scenario shows how you can provide the personalized content to your custome
 1. Open the visit details panel, click the "Referral" tab again and you will see the details of current campaign.
 ![Foodie campaign](./media/image13.png)
 
-1. Return to your Lighthouse XP demo instance and click the "Content Management" link, use "superuser" name and its password.
-![Content Management link](./media/image14.png)
+1. Go to [Sitecore Launchpad](https://{{demoName}}-cm.sitecoredemo.com/sitecore) and login as 'superuser'.
 
 1. Click the "Launchpad" icon in the left-top corner of the page.
 ![Launchpad icon](./media/image15.png)
