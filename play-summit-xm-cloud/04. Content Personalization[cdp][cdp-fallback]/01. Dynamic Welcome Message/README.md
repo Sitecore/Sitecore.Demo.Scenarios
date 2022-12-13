@@ -1,6 +1,6 @@
 # Dynamic welcome message
 
-1. Open the PLAY! Summit website in a new browsing session.
+1. Open the [PLAY! Summit Website](https://{{demoName}}-{{demoUid}}-website.vercel.app) in a new browsing session.
 
 1. You see the message "Welcome to PLAY! Summit, we do not know who you are yet, and we see you are visiting us from..." (depends on Geolocation API).
 ![Graphical user interface ](./media/image1.png)

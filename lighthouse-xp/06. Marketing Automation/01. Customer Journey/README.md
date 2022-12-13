@@ -22,8 +22,7 @@ This scenario shows how we can track our customer's journies on different device
 1. Click the "Personal Information" tab and you will see your data there.
 ![Personal Information tab](./media/image7.png)
 
-1. Check your demo inbox.
-![Mail Server link](./media/image27.png) 
+1. Go to the [Mail Server](https://{{demoName}}-smtp.sitecoredemo.com).
 
 1. You will see the newsletter there.
 ![Newsletter](./media/image8.png)
@@ -64,7 +63,9 @@ This scenario shows how we can track our customer's journies on different device
 1. Return to the "Marketing Automation" application and you will see the updated path of the "Onboarding Customer Journey" campaign. It has been shown, that you completed the "Clicked Email Link" step.
 ![Clicked Email Link step](./media/image22.png)
 
-1. Check your demo inbox and you will see an email there, prompting you to register. Click the "Register Now" button.
+1. Go to the [Mail Server](https://{{demoName}}-smtp.sitecoredemo.com).
+
+1. You will see an email there, prompting you to register. Click the "Register Now" button.
 ![Register Now button](./media/image25.png)
 
 1. You can fill out the "Register" form. Notice, that your "Email" field is already pre-populated.
