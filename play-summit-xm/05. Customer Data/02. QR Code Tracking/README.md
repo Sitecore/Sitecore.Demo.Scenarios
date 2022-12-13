@@ -17,7 +17,7 @@
 1. You will see the description of the session. Click the "Guest Data" icon on the right.
 ![](./media/image6.png)
 
-1. Click the arrow in the "web open session" field.
+1. Click the question mark in the "web open session" field.
 ![](./media/image7.png)
 
 1. You will see guest data there.
