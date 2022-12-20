@@ -1,6 +1,6 @@
 # Updating product details
 
-This scenario shows how to manage products stored in Sitecore OrderCloud platform.
+This scenario shows how to update the price and other details of products stored in Sitecore OrderCloud.
 
 1. Go to your instance details page <https://portal.sitecoredemo.com/instance/{{demoId}}>.
 
@@ -25,7 +25,8 @@ This scenario shows how to manage products stored in Sitecore OrderCloud platfor
 1. Scroll down the page and click the "Save Changes" button.
 ![Save changes](./media/save-changes.png)
 
-1. Go to the [PLAY! Shop](https://{{demoName}}-{{demoUid}}-shop.vercel.app).
+1. Go to the [PLAY! Shop](https://{{demoName}}-{{demoUid}}-shop.vercel.app/shop).
+
 1. Type "bike cover" in the searchbox.
 ![Bike cover](./media/bike-cover.png)
 

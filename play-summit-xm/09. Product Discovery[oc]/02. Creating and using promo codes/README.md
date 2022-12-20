@@ -1,6 +1,6 @@
 # Creating and using promo codes
 
-This scenario shows flexibility of the promotion codes management process using Sitecore OrderCloud platform.
+This scenario shows flexibility of the promo codes management process using Sitecore OrderCloud.
 
 1. Go to your instance details page <https://portal.sitecoredemo.com/instance/{{demoId}}>.
 
@@ -55,8 +55,7 @@ This scenario shows flexibility of the promotion codes management process using 
 1. You will see the summary. Click the "Create" button.
 ![Summary](./media/summary-field.png)
 
-1. Click the "Shop" service in your instance.
-![Shop](./media/shop.png)
+1. Go to [PLAY! Shop](https://{{demoName}}-{{demoUid}}-website.vercel.app/shop)
 
 1. Choose the interested shop trending category.
 ![Category](./media/category.png)
@@ -131,5 +130,3 @@ This scenario shows flexibility of the promotion codes management process using 
 
 1. You will see the applied promo codes. You can delete one of them clicking the "Delete" button and proceed to checkout.
 ![Applied promo codes](./media/applied-promo.png)
-
-
