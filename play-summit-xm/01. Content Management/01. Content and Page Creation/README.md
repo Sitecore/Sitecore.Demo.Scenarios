@@ -5,10 +5,10 @@ This scenario shows how to create new and manage existing content pages.
 1. Go to the [Sitecore Launchpad](https://{{demoName}}-cm.sitecoredemo.com/sitecore/login).
 
 1. Click Experience Editor.
-![Experience Editor](./media/../experience-editor.png)
+![Experience Editor](./media/experience-editor.png)
 
 1. Open the "Home" tab.
-![Home tab](./media/../home-tab.png)
+![Home tab](./media/home-tab.png)
 
 1. Expand the "Home" node in the breadcrumb and click the "News" section.
 ![News section](./media/news-section.png)
