@@ -1,8 +1,10 @@
 # Creating and using promo codes
 
-1. Log in to your PLAY! Shop instance.
+This scenario shows flexibility of the promotion codes management process using Sitecore OrderCloud platform.
 
-1. Copy password of the "Headstart Admin" user type.
+1. Go to your instance details page <https://portal.sitecoredemo.com/instance/{{demoId}}>.
+
+1. Copy password of the "Headstart Admin" user.
 ![Copy password](./media/copy-password.png)
 
 1. Click the "Headstart Seller UI" service.
@@ -20,7 +22,7 @@
 1. Click the "Create New Promotion" button in the left top corner of the page.
 ![Create New Promotion](./media/create-new-promotion.png)
 
-1. Fill in the "Discount Code", "Fine Print" fields.
+1. Fill in the "Discount Code".
 ![New promotion](./media/new-promotion.png)
 
 1. Mark the "Type" field, fill in the "Value" field and set minimum requirements for promotion.
@@ -108,4 +110,26 @@
 1. You will see that your promo code didn't apply, because the total amount of your order is less than 100$, as it was indicated in this promo.
 ![Not valid promo](./media/not-valid-promo.png)
 
-This scenario shows flexibility of the promotion codes management process using Sitecore OrderCloud platform.
+1. Return to the PLAY! Shop home page.
+1. Choose the interested shop trending category.
+![Machines](./media/machines.png)
+
+1. Choose the interested item.
+![Treadmill](./media/treadmill.png)
+
+1. Click the "Add To Cart" button under the price.
+![Call to action](./media/call-to-action.png)
+
+1. Click the "Cart" icon in the right top corner of the page.
+![Cart](./media/cart-button.png)
+
+1. Click the "View full cart" button.
+![View full cart](./media/view-full-cart-action.png)
+
+1. Add the second promo code and click the "Apply promotion" button.
+![Second promo code](./media/second-promo-code.png)
+
+1. You will see the applied promo codes. You can delete one of them clicking the "Delete" button and proceed to checkout.
+![Applied promo codes](./media/applied-promo.png)
+
+
