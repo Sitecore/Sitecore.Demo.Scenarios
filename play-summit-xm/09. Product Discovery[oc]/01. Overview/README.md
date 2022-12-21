@@ -2,7 +2,7 @@
 
 This describes the Sitecore Discover functionality available on the front-end of PLAY! SHOP.
 
-1. Go to "Play! Shop" website.
+1. Go to [PLAY! Shop](https://{{demoName}}-{{demoUid}}-website.vercel.app/shop).
 
 1. You will see different Shop Trending Categories there and recommended products for you by default.
 ![Images of recommended products](./media/image1.png)

@@ -1,12 +1,9 @@
 # Digital Rights Management functionality in Content Hub
 
-{% if contenthubInstance == "https://playsummit.sitecoresandbox.cloud" %}
-We will write this **first version**
-{% else %}
-_Second version_
-{% endif %}
+This scenario shows how to add assets to your DRM contract and how these assets can be applied depending on digital or traditional way of usage.
 
 1. Go to your Content Hub instance.
+
 1. Click the "Assets" tab.
 ![Main menu](./media/image3.png)
 
@@ -57,5 +54,3 @@ _Second version_
 
 1. You will see the changed number of items.
 ![The changed number of items](./media/image17.png)
-
-This scenario shows how to add assets to your DRM contract and how these assets can be applied depending on digital or traditional way of usage.
