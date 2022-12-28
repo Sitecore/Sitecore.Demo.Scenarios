@@ -1,6 +1,6 @@
 # Use collections to group and share groups of assets​
 
-Use collections to share assets and speed projects​ using Content Hub DAM to control access for third parties.
+> This scenario describes how a user can create collections to group and share assets to speed-up projects​ using Content Hub DAM and control access for third parties.
 
 1. Go to your Content Hub instance.
 
