@@ -40,10 +40,10 @@ In this scenario we will create, design and send a regular email campaign using 
 1. Give your campaign a name, subject line, pick a sender from the list and click "Next".
 ![Campaign Name](./media/campaign-name.png)
 
-1. Choose and email list and click "Next".
+1. Choose an email list and click "Next".
 ![Choose List](./media/choose-list.png)
 
-1. Now it's time to get creative! Click "Start designing" and create your own email template or pick and existing one.
+1. Now it's time to get creative! Click "Start designing" and create your own email template or pick an existing one.
 ![Email Templates](./media/email-templates.png)
 
 1. When ready, click "Update campaign & continue" at the top right corner of the screen and confirm.
@@ -58,5 +58,5 @@ In this scenario we will create, design and send a regular email campaign using 
 1. You'll see the confirmation screen.
 ![Confirmation](./media/did-it.png)
 
-1. Check your email inbox - you'll receive and email shortly.
+1. Check your email inbox - you'll receive an email shortly.
 ![Confirmation](./media/inbox.png)
