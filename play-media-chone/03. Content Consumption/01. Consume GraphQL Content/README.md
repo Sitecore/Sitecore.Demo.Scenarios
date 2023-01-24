@@ -1,81 +1,48 @@
-# Content and Page Creation
+# Consume GraphQL Content
 
-This scenario shows how to create new and manage existing content pages.
+This scenario will demonstrate how to use the built-in GraphQL playground to perfrom quaries against Content Hub ONE and receive content as GraphQL responses.
 
-1. Go to the [Sitecore Launchpad](https://{{demoName}}-cm.sitecoredemo.com/sitecore/login).
+1. Navigate to the "API Keys" management page in Content Hub ONE. You can access the API Keys page by navigating directly from the Sitecore Cloud Portal or using the "Settings->API Keys" menu option in Content Hub ONE.
+![Cloud Portal Navigation - API Keys](./media/gql-chone-1.jpg)
 
-1. Click Experience Editor.
-![Experience Editor](./media/experience-editor.png)
+    ![Experience Editor](./media/gql-chone-2.jpg)
 
-1. Open the "Home" tab.
-![Home tab](./media/home-tab.png)
+1. Create a new Delivery API Key by clicking on the **"+ Add API Key"** button in the top right corner.
+![Content Hub ONE Navigation - API Keys](./media/gql-chone-5.jpg)
 
-1. Expand the "Home" node in the breadcrumb and click the "News" section.
-![News section](./media/news-section.png)
+1. Ensure you select the "Delivery" option when creating the API Key. Copy and save the Delivery API Key that is generated. (**Note:** You can use the Preview API Key but this the GraphQL playground links will differ from this scenario. [More info here about using the Preview API Key.](https://doc.sitecore.com/ch-one/en/developers/content-hub-one/graphql--preview-and-delivery-apis.html))
+![Delivery API Key Options](./media/gql-chone-3.jpg)
 
-1. Click the "Go" button in the breadcrumb.
-![Go button](./media/go.png)
+1. Open the GraphQL playground (also referred to as the "API IDE" in documentation) by opening the following URL in your browser: [https://edge.sitecorecloud.io/api/graphql/ide](https://edge.sitecorecloud.io/api/graphql/ide).
 
-1. Open the "Home" tab again.
+1. After opening the GraphQL playground, ensure the API endpoint is set correctly to: https://edge.sitecorecloud.io/api/graphql/v1. (**Note:** The API endpoint URL is different than the browser URL.)
+![GraphQL Playground Endpoint](./media/gql-chone-9.jpg)
 
-1. Click the "Insert page" button.
-![Insert page](./media/insert-page.png)
+1. Use the Delivery API Key that was generated in a previous step as the **"X-GQL-Token"** that is added to the **HTTP HEADERS** tab at the bottom of the playground window.
+![GraphQL Playground Token](./media/gql-chone-10.jpg)
 
-1. You will see the "Insert Item" pop-up window. Fill in the "Name" field and click the "OK" button.
-![Insert item pop-up window](./media/insert-item.png)
+    The format for the X-GQL-Token should be:
 
-1. Fill in the "Excerpt" and "Content" fields, clicking [NO TEXT IN FIELD].
-![Excerpt field](./media/title.png)
+        {
+        "X-GQL-Token": "[YOUR_DELIVERY_API_TOKEN]"
+        }
 
-1. Click the image and you will see the "Image" field. Click the "Choose DAM image" button.
-![Image](./media/image.png)
+1. Add a GraphQL request such as the following to access content from your Content Hub ONE instance.
+![GraphQL Playground Request](./media/gql-chone-11.jpg)
 
-1. You will see the "Insert from Sitecore DAM" pop-up window.
-![Insert image](./media/insert.png)
+    Here is the GraphQL query snippet to copy. [Here are other GraphQL examples for Content Hub ONE](https://doc.sitecore.com/ch-one/en/developers/content-hub-one/graphql--graphql-query-examples.html).
 
-1. Scroll down the slider and click the image, you want.
-![DAM](./media/DAM.png)
+        {
+            allAthlete {
+                total
+                results {
+                    name
+                    athleteQuote
+                }
+            }
+        }
 
-1. You will see the "File to insert" pop-up window. Click the "Select" button.
-![File to insert](./media/file-to-insert.png)
+1. Click on the button in the middle of the playground window to execute the GraphQL query.
+![GraphQL Playground Execute Button](./media/gql-chone-8.jpg)
 
-1. You will see the updated changes in your news article.
-![Your news article](./media/your-article.png)
-
-1. Click the "Save changes" button.
-![Save button](./media/save.png)
-
-1. Click the "OK" button in the "Message" pop-up window.
-![Message pop-up-window](./media/message-pop-up.png)
-
-1. Click the "Submit" button.
-![Submit](./media/submit.png)
-
-1. Click the "OK" button in the "Enter a comment" pop-up window.
-![Enter a comment](./media/enter-a-comment.png)
-
-1. Click the "Approve" button.
-![Approve button](./media/approve.png)
-
-1. Click the "OK" button in the "Enter a comment" pop-up window.
-![Enter a comment](./media/enter-a-comment.png)
-
-1. Open the "Home" tab and click the "Publish" button.
-![Publish button](./media/publish.png)
-
-1. You will see the "Publish Item" pop-up window. Click the "Publish" button.
-![Publish item pop-up window](./media/publish-pop-up-window.png)
-
-1. Click the "OK" button in the "Message" pop-up window.
-![Message pop-up window](./media/message.png)
-
-1. Click the "Close" button in the "Publish Item" pop-up window.
-![Close button](./media/close.png)
-
-1. Go to the [PLAY! Summit Website](https://{{demoName}}-{{demoUid}}-website.vercel.app).
-
-1. Scroll down the page and click the "View All News" button.
-![View all news](./media/view-all-news.png)
-
-1. You will see the created news article there.
-![New news article](./media/new-news-article.png)
+While this scenario uses the GraphQL playground to perform queries, the same approach would be done for web apps to consume content and assets from Content Hub ONE.
