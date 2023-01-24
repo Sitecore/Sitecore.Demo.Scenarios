@@ -4,7 +4,7 @@ This scenario shows how to update an existing piece of content in Content Hub ON
 
 1. Log into the [Sitecore Cloud Portal](https://portal.sitecorecloud.io/) to access your Content Hub ONE instances.
 
-2. Navigate to your Content Hub ONE instance using the left (top corner) navigation menu and select the "Manage content" link option.
+1. Navigate to your Content Hub ONE instance using the left (top corner) navigation menu and select the "Manage content" link option.
 ![Cloud Portal Navigation](./media/chone-cms-update-content-1.jpg)
 
 1. Select an existing piece of content to update. You can filter based on content type.
@@ -15,12 +15,12 @@ This scenario shows how to update an existing piece of content in Content Hub ON
 
 1. After updating a field, click the "Save" button in the top right corner.
 
-2. Don't forget to click the the "Publish" button after the save is complete.
+1. Don't forget to click the the "Publish" button after the save is complete.
 ![Publish Content Update](./media/chone-cms-update-content-4.jpg)
 
-1. Navigate to the [demo web app](https://{{demoName}}-media.sitecoredemo.com) and find the appropriate page to view your content update.
+1. Navigate to the PLAY! Media demo web app and find the appropriate page to view your content update.
 
-2. Perform a [hard refresh in your web browser](https://www.documate.org/resources/what-is-a-hard-refresh-how-to-do-a-hard-refresh-in-any-browser) to ensure your page content is not cached.
+1. Perform a [hard refresh in your web browser](https://www.documate.org/resources/what-is-a-hard-refresh-how-to-do-a-hard-refresh-in-any-browser) to ensure your page content is not cached.
 ![Refresh Content](./media/chone-cms-update-content-5.jpg)
 
 This scenario demostrated how to update an existing piece of content and publish to downstream channels.
