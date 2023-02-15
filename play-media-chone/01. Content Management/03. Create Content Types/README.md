@@ -158,5 +158,7 @@ United Kingdom
 27. Open the file and find `CONTENT_BLOCK_IDS` (line 44). Change the IDs to match the ones of your Content Block items. You can find them by going to your content item and looking at the gray box on the right.
     ![Content Block IDs](./media/content-types-23.png)
     ![ID in CH1](./media/content-types-24.png)
+28. Showing the results:
 
-TODO: Documentation about deploying.
+- You can always show the changes in your local environment. Just save the files (this should reload the site) and show the new page.
+- If you are using **your own GitHub repo** you can commit the changes and that should trigger a Vercel deployment. Once done, you can show the changes on your Vercel website.
