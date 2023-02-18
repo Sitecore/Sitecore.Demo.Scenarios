@@ -5,7 +5,7 @@ In this scenario you will examine an existing landing page. The example landing 
 ## Preview an Existing Landing Page
 
 1. Go to <https://sitecoresendemo.sitecoresend.io/lead-generation/landing-pages/list/1> and click on the landig page named **"PLAY! Summit - Sample landing page with form"**. Ensure the status for the landing page is set to **"Published"**. Review the configuration steps for the landing page to see an example of what needs to be configured.
-1. ![Review landing page](./media/landing-pages-1.jpg)
+![Review landing page](./media/landing-pages-1.jpg)
 
 1. Return to the landing pages listing (Go to <https://sitecoresendemo.sitecoresend.io/lead-generation/landing-pages/list/1>) and click on the vertical elipsis beside the landing page. Click on the **"Preview"** option.
 ![Preview landing page](./media/landing-pages-2.jpg)

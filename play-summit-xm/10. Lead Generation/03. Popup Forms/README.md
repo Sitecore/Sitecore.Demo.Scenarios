@@ -11,9 +11,9 @@ This scenario will examine a pre-configured popup form.
 ![Hide for returning visitors](./media/popup-website-3.jpg)
 
 1. The popup form is also configured to hide if the current visitor has already submitted the form. You can turn off this setting for demo purposes if you would like the popup to display in the same browsing session after form submission.
-![Hide fis form submitted](./media/popup-website-5.jpg)
+![Hide if form submitted](./media/popup-website-5.jpg)
 
-1. Go to your [demo instance overview page](https://portal.sitecoredemo.com/instance/{{demoId}}) and click on the **"Website"** link.
+1. Go to your [demo instance overview page](https://portal.sitecoredemo.com/instance/{{demoId}}) and click on the **"Website"** link to open the PLAY! Summit demo website.
 ![Open website](./media/popup-website-1.jpg)
 
 1. Go to the **"About Us"** page on the PLAY! Summit website by clicking on the **"About Us"** option in the navigation. You should see the popup form appear after a short delay. If you do not see the popup form appear, try opening the **"About Us"** page in incognito mode in your browser.
