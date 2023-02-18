@@ -10,7 +10,7 @@ This scenario will demostrate how to configure a campaign to be manually or auto
 ![Send Card](./media/manually-resend-campaign.jpg)
 
 1. A new campaign will be created that has a sub-heading "Non-openers of campaign with ID". Click on the newly created campaign.
-![Send Card](./media/manually-resend-campaign-2.jpg))
+![Send Card](./media/manually-resend-campaign-2.jpg)
 
 1. The new campaign is preconfigured and ready to send to all list members who did not open the previous email campaign. You can update any of the campaign settings (subject line, etc.) or design before sending.
 
