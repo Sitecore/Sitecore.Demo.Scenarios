@@ -16,12 +16,12 @@ This scenario will examine a pre-configured popup call-to-actions (CTA).
 1. Go to your [demo instance overview page](https://portal.sitecoredemo.com/instance/{{demoId}}) and click on the **"Website"** link.
 ![Open website](./media/popup-website-1.jpg)
 
-1. Go to the **"About Us"** page on the PLAY! Summit website by clicking on the **"About Us"** option in the navigation. You should see the popup CTA appear after a short delay. If you do not see the popup CTA appear, try opening the **"About Us"** page in incognito mode in your browser.
+1. Go to the **"Sponsors"** page on the PLAY! Summit website by clicking on the **"Sponsors"** option in the navigation. You should see the popup CTA appear after a short delay. If you do not see the popup CTA appear, try opening the **"Sponsors"** page in incognito mode in your browser.
 ![Navigate to sponsor page](./media/cta-website-3.jpg)
 
 1. Click on the **"Become A Sponsor"** button in the popup CTA.
 
-1. The popup CTA will take you to another webpage.
+1. The popup CTA will take you to another webpage and help surface important website content.
 ![Sample List](./media/cta-website-4.jpg)
 
 The purpose of this type of popup is to alert visitors of important areas that you want to highlight.
