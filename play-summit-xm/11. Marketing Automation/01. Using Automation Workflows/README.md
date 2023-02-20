@@ -4,10 +4,10 @@ To see examples of Automation, you can review the pre-configured Automation Work
 
 ## Submit a Marketing Form
 
-1. Go to the landing pages listing (<https://sitecoresendemo.sitecoresend.io/lead-generation/landing-pages/list/1>) and click on the vertical elipsis beside the landing page named **"PLAY! Summit - Sample landing page with form"**. Click on the **"Preview"** option.
+1. Go to the landing pages listing (<https://sitecoresendemo.sitecoresend.io/lead-generation/landing-pages/list/1>) and click on the vertical ellipsis beside the landing page named **"PLAY! Summit - Sample landing page with form"**. Click on the **"Preview"** option.
 ![Preview landing page](./media/landing-pages-2.jpg)
 
-1. Complete and submit the lead generation form on the landing page. For the purpose of this scenario you should use a real email in order to receive an email from the Automation.
+1. Complete and submit the lead generation form on the landing page. For the purpose of this scenario, you should use a real email to receive an email from the Automation.
 
 ## Email List
 

@@ -1,10 +1,10 @@
 # Duplicate Campaign for Non-openers
 
-This scenario will demostrate how to configure a campaign to be manually or automatically resent to contacts who did not open a previosuly sent campaign.
+This scenario will demonstrate how to configure a campaign to be manually or automatically resent to contacts who did not open a previously sent campaign.
 
 ## Manually Duplicate for Non-openers
 
-1. Go to <https://sitecoresendemo.sitecoresend.io/campaigns/list/Regular/1> and find the campaign named **"PLAY! Summit - Generated for Email Activity"**. This campaign has been pre-sent and collected some basic open/click statistics.
+1. Go to <https://sitecoresendemo.sitecoresend.io/campaigns/list/Regular/1> and find the campaign named **"PLAY! Summit - Generated for Email Activity"**. This campaign has been present and collected some basic open/click statistics.
 
 1. Hover over the vertical ellipsis beside this campaign and select the "Duplicate for non-openers" option in the popup.
 ![Send Card](./media/manually-resend-campaign.jpg)
