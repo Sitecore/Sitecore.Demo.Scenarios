@@ -1,8 +1,8 @@
 # Creating and sending your first campaign
 
-In this scenario we will create, design and send a regular email campaign using Sitecore Send.
+In this scenario, we will create, design and send a regular email campaign using Sitecore Send.
 
-## Logging in to Sitecore Send
+## Logging into Sitecore Send
 
 1. Go to your instance details page <https://portal.sitecoredemo.com/instance/{{demoId}}>.
 
@@ -12,7 +12,7 @@ In this scenario we will create, design and send a regular email campaign using 
 1. Go to [Sitecore Send](https://sitecoresendemo.sitecoresend.io) and login with your username and password.
 ![Send Card](./media/send-login.png)
 
-1. You'll see the dashboard with sample campaign and it's statistics.
+1. You'll see the dashboard with the sample campaign and statistics.
 ![Send Home](./media/send-home.png)
 
 ## Creating an email list
@@ -23,12 +23,12 @@ In this scenario we will create, design and send a regular email campaign using 
 1. Give it a name and click "Create".
 ![Sample List](./media/sample-list.png)
 
-1. Click "Add Member" button in the center of the screen.
+1. Click the "Add Member" button in the center of the screen.
 
 1. Enter your email address and don't forget to check the "Consent Confirmation" checkbox.
 ![List Details](./media/list-details.png)
 
-1. Click "Save member" button at the bottom of the screen.
+1. Click the "Save member" button at the bottom of the screen.
 
 ## Creating campaign
 
@@ -52,7 +52,7 @@ In this scenario we will create, design and send a regular email campaign using 
 1. At the next screen, you can choose whether to send an email now or schedule delivery, leave the default values and click "Next".
 ![Options](./media/options.png)
 
-1. Now you're all set - review the settings and send your campaign by clicking "Send" button.
+1. Now you're all set - review the settings and send your campaign by clicking the "Send" button.
 ![All set](./media/all-set.png)
 
 1. You'll see the confirmation screen.

@@ -10,7 +10,7 @@ This scenario will examine a pre-configured popup call-to-actions (CTA).
 1. This popup is also using the **"Conditional rules for hiding the form"** visibility setting.
 ![Visibility settings](./media/cta-website-2.jpg)
 
-1. The popup is configured to hide for returning vistors for 1 hour after viewing the popup. For demo purposes you can open the webpage in incognito mode in order to always see the popup as a new visitor or you can update the settings so return visitors always see the popup. For example, you can set the time to 1 second and return visitors will always see the popup again.
+1. The popup is configured to hide for returning visitors for 1 hour after viewing the popup. For demo purposes, you can open the webpage in incognito mode to always see the popup as a new visitor or you can update the settings so return visitors always see the popup. For example, you can set the time to 1 second and return visitors will always see the popup again.
 ![Hide for returning visitors](./media/popup-website-3.jpg)
 
 1. Go to your [demo instance overview page](https://portal.sitecoredemo.com/instance/{{demoId}}) and click on the **"Website"** link.

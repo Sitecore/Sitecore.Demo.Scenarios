@@ -7,7 +7,7 @@ This scenario will examine a pre-configured popup form.
 1. You can review the configuration steps. The **"Set Visibility Settings"** are used to define where and when a popup form appears on a connected website. This popup form is configured to appear on the website for any pages that include **"about-us"** in the URL.
 ![Open website](./media/popup-website-2.jpg)
 
-1. The popup form is configured to hide for returning vistors for 1 hour after viewing the popup. For demo purposes you can open the webpage in incognito mode in order to always see the popup as a new visitor or you can update the settings so return visitors always see the form. For example, you can set the time to 1 second and return visitors will always see the form popup again.
+1. The popup form is configured to hide for returning visitors for 1 hour after viewing the popup. For demo purposes, you can open the webpage in incognito mode to always see the popup as a new visitor or you can update the settings so return visitors always see the form. For example, you can set the time to 1 second and return visitors will always see the form popup again.
 ![Hide for returning visitors](./media/popup-website-3.jpg)
 
 1. The popup form is also configured to hide if the current visitor has already submitted the form. You can turn off this setting for demo purposes if you would like the popup to display in the same browsing session after form submission.
