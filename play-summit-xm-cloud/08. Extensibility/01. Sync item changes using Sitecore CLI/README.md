@@ -1,8 +1,8 @@
 # Save item changes to Git using Sitecore CLI
 
-If you've made some content changes and want to pull them to your own Git repository, you can use Sitecore CLI.
+If you've made some content changes and want to pull them into your own Git repository, you can use Sitecore CLI.
 
-1. Clone the repo you want to sync the data to. This should be the same repo that is used for XM Cloud demo instance deployment.
+1. Clone the repo you want to sync the data to. This should be the same repo you've used for XM Cloud demo instance deployment.
 
 1. Go to the project folder and type: `dotnet sitecore cloud login`
     ![CLI](./media/cli.JPG)
