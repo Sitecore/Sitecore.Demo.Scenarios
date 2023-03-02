@@ -19,17 +19,17 @@ This scenario will demonstrate how to add a Sitecore Send embedded form to a lan
 1. Navigate to the **"Landing Page with Send Form"** webpage. Click on the hierarchy icon to open up the content tree and navigate under **"Landing Pages"**. Click on **"Landing Page with Send Form"** to open the webpage. Alternatively, you can use the navigation in the ribbon and click the **"Go"** button.
 ![Navigate in Experience Editor](./media/ebedded-website-5.jpg)
 
-1. Scroll down the landing page and find the area that contains the **"Action required"** text. Click anywhere in the container around the **"Action required"** text to open up the component dialogue. Click on the **"More"** button to expand sub-options and then click on the **"Edit component properties"** button.
-![Open component properties](./media/ebedded-website-6.jpg)
+1. Scroll down the landing page and find the component that contains the **"Sitecore Send Form Component"** heading text and **"Sitecore Send Form ID"** label text.
+![Open component properties](./media/embedded-website-6.jpg)
 
-1. Fill in the **"Sitecore Send Form ID"** field with the embedded form ID you copied and saved in **"Step 2"**. Click the **"OK"** button to save the field update.
-![Fill form ID field](./media/ebedded-website-7.jpg)
+1. Click on the **"No text in field"** field and fill it with the embedded form ID you copied and saved in **"Step 2"**.
+![Fill form ID field](./media/embedded-website-7.jpg)
 
-1. Save your changes on the page by clicking on the save icon in the top-left corner of the screen.
-![Save changes](./media/ebedded-website-9.jpg)
+1. Save your changes to the page by clicking on the save icon in the top-left corner of the screen.
+![Save changes](./media/embedded-website-8.jpg)
 
-1. Expand the Sitecore ribbon (if not already) by clicking on the downward-facing arrow in the top-right corner of the screen.
-![Open Sitecore ribbon](./media/ebedded-website-8.jpg)
+1. Expand the Sitecore ribbon (if not already expanded) by clicking on the downward-facing arrow in the top-right corner of the screen.
+![Open Sitecore ribbon](./media/embedded-website-9.jpg)
 
 1. Click on the **"Home"** tab of the Sitecore ribbon and click on the **"Publish"** button to publish your changes to the website.
 ![Publish changes](./media/ebedded-website-10.jpg)
