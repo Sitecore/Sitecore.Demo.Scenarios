@@ -1,6 +1,6 @@
 # Create Content
 
-This scenario demonstrates creating a new content type, creating and publishing a new pieces of content in Content Hub ONE and displaying them on a new page of the website.
+This scenario demonstrates creating a new content type, creating and publishing new pieces of content in Content Hub ONE and displaying them on a new page of the website.
 
 1. Log into the [Sitecore Cloud Portal](https://portal.sitecorecloud.io/) to access your Content Hub ONE instances.
 
@@ -161,4 +161,4 @@ United Kingdom
 28. Showing the results:
 
 - You can always show the changes in your local environment. Just save the files (this should reload the site) and show the new page.
-- If you are using **your own GitHub repo** you can commit the changes and that should trigger a Vercel deployment. Once done, you can show the changes on your Vercel website.
+- If you are using **your own GitHub repo** you can commit and push the changes and that should trigger a Vercel deployment. Once done, you can show the changes on your Vercel website.
