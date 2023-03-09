@@ -2,11 +2,25 @@
 
 This scenario demonstrates creating a new content type, creating and publishing new pieces of content in Content Hub ONE, and displaying them on a new page of the website.
 
-There are two ways to create the content types and items needed for this demo: manually or using the Content Hub ONE CLI via the prepared serialization scripts.
+There are two ways to create and publish the content types and items needed for this scenario:
 
-To push the content types and items from the serialized files follow sections 1-5 outlined in `.\serialization\README.md`. Then you can continue the scenario starting with step 24.
+1. [Using the Content Hub ONE CLI](#create-and-publish-content-types-and-items-using-the-content-hub-one-cli)
+2. [Manually](#manually-create-and-publish-content-types-and-items)
 
-To create the content items manually follow all of the steps below.
+## Create and Publish Content Types and Items Using the Content Hub ONE CLI
+
+To push and publish the content types and items from the serialized files, you must execute these steps from the [Content Hub ONE demo serialization documentation](https://github.com/Sitecore/Sitecore.Demo.CHONE/blob/main/serialization/README.md):
+
+1. Getting Started
+1. Connecting a Content Hub ONE instance to the CLI
+1. Pushing additional assets to Content Hub ONE (currently ContentBlock and Location)
+1. Publishing Content Hub ONE assets
+
+Then you can continue this scenario starting at [Modifying the Code](#modifying-the-code).
+
+## Manually Create and Publish Content Types and Items
+
+**Note:** *Do not execute these steps if you used the Content Hub ONE CLI to create and publish the content types and items.*
 
 1. Log into the [Sitecore Cloud Portal](https://portal.sitecorecloud.io/) to access your Content Hub ONE instances.
 
@@ -95,7 +109,7 @@ To create the content items manually follow all of the steps below.
 21. Go back to the content list and filter by "Content Block" content type. You should see your three Content Blocks.
     ![Created Content Blocks](./media/content-types-19.png)
 
-22. Create two locations by clicking on the **"+ Add content"** button in the top right corner and selecting "Location". Use the following content:
+22. Create two location items by clicking on the **"+ Add content"** button in the top right corner and selecting "Location". For each one, click **Save** and **Publish**. Use the following content:
     ![Create Content Items](./media/content-types-20.png)
 
     1. First location item
@@ -145,15 +159,22 @@ To create the content items manually follow all of the steps below.
 23. Go back to the content list and filter by "Content Block" content type. You should see your two Locations.
     ![Created Locations](./media/content-types-21.png)
 
-24. Open your code repo in your editor of choice.
-25. Go to `play-media\src\components\Header\Header.tsx`, uncomment the "About us" link (lines 53-57) and save.
-    ![Enable Header Link](./media/content-types-22.png)
+## Modifying the Code
 
-26. Go to `play-media\src\pages`, find the `about-us.tsx.demo` file and rename it to `about-us.tsx`.
-27. Open the file and find `CONTENT_BLOCK_IDS` (line 44). Change the IDs to match the ones of your Content Block items. You can find them by going to your content item and looking at the gray box on the right.
-    ![Content Block IDs](./media/content-types-23.png)
-    ![ID in CH1](./media/content-types-24.png)
+1. Open your PLAY! Media code repository in your editor of choice.
+2. Open the `play-media\src\components\Header\Header.tsx` file.
+3. Uncomment the "About us" link (lines 53-57) and save.
+   ![Enable Header Link](./media/content-types-22.png)
 
-28. Show the results
-    - You can always show the changes in your local environment. Just save the files (this should reload the site) and show the new page.
-    - If you are using **your own GitHub repo** you can commit and push the changes and that should trigger a Vercel deployment. Once done, you can show the changes on your Vercel website.
+4. In the `play-media\src\pages` folder, rename the `about-us.tsx.demo` file to `about-us.tsx` and open it.
+5. If you manually created the content items:
+   1. Find `CONTENT_BLOCK_IDS` (line 44).
+   2. Change the IDs to match the ones of your Content Block items and save the file.
+      - You can find them by going to your content item and looking at the gray box on the right.
+        ![Content Block IDs](./media/content-types-23.png)
+        ![ID in CH1](./media/content-types-24.png)
+
+## Showing the Results
+
+- You can show the changes in your local environment. Just save the files (this should reload the site) and show the new page.
+- If you are using **your own GitHub repo** you can commit and push the changes. That should trigger a Vercel deployment. Once done, you can show the changes on your Vercel website.
