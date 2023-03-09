@@ -2,6 +2,12 @@
 
 This scenario demonstrates creating a new content type, creating and publishing new pieces of content in Content Hub ONE, and displaying them on a new page of the website.
 
+There are two ways to create the content types and items needed for this demo: manually or using the Content Hub ONE CLI via the prepared serialization scripts.
+
+To push the content types and items from the serialized files follow sections 1-5 outlined in `.\serialization\README.md`. Then you can continue the scenario starting with step 24.
+
+To create the content items manually follow all of the steps below.
+
 1. Log into the [Sitecore Cloud Portal](https://portal.sitecorecloud.io/) to access your Content Hub ONE instances.
 
 2. Navigate to your Content Hub ONE instance using the left (top corner) navigation menu and select the "Manage content types" link option.
@@ -52,36 +58,39 @@ This scenario demonstrates creating a new content type, creating and publishing 
     ![Create Content Items](./media/content-types-17.png)
 
 17. Use the following to fill out your first content item:
+
     - Name and Title
 
-       > The go-to source for sports news
+      > The go-to source for sports news
 
     - Body
 
-       > An outstanding team of journalists is available 24/7 to ensure you never miss a performance of your favorite athlete. With us, you will discover many new items every day and make them available using the best and latest technology.
-       >
-       > Our goal is to provide interesting, current, and reliable information about sports. We are always on-site at the event and monitor it for you. It doesn't matter to us whether it's a local tournament or a world championship. If your favorite team or athlete is in it, we're there broadcasting for you.
-       >
-       > Every fan can find something for themselves: news, commentary, analysis, statistics, and interviews with some of the most interesting personalities in sports - athletes, coaches, and fans.
-       >
-       > Our services include providing packages of sports information categorized by topic and consisting of news, commentary, analysis, and live scores.
+      > An outstanding team of journalists is available 24/7 to ensure you never miss a performance of your favorite athlete. With us, you will discover many new items every day and make them available using the best and latest technology.
+      >
+      > Our goal is to provide interesting, current, and reliable information about sports. We are always on-site at the event and monitor it for you. It doesn't matter to us whether it's a local tournament or a world championship. If your favorite team or athlete is in it, we're there broadcasting for you.
+      >
+      > Every fan can find something for themselves: news, commentary, analysis, statistics, and interviews with some of the most interesting personalities in sports - athletes, coaches, and fans.
+      >
+      > Our services include providing packages of sports information categorized by topic and consisting of news, commentary, analysis, and live scores.
 
 18. Once you're done click **Save** and **Publish**. Your item should look something like the following screenshot (the ID will be different and that is OK). Next you can go back to the content list.
     ![Create Content Items](./media/content-types-18.png)
 
 19. Repeat steps 16 to 18 to create another content item. Use the following content:
+
     - Name and Title
 
-       > The PLAY! Media History
+      > The PLAY! Media History
 
     - Body
 
-       > The **PLAY!** Media magazine was first launched in 1883 as a lightweight publication mostly centered on sports humor, but after it was purchased by John Jonah Jameson Jr. in 1936, it became a crucial weekly sports news publication in the United States focused on sports photojournalism. Until 2000, **PLAY!** Media commissioned more than 120,000 stories and 10 million photographs. Throughout the decades, many generations of photographers passed through the magazine, as well as some of the greatest writers, editors, illustrators, and cartoonists of its time.
+      > The **PLAY!** Media magazine was first launched in 1883 as a lightweight publication mostly centered on sports humor, but after it was purchased by John Jonah Jameson Jr. in 1936, it became a crucial weekly sports news publication in the United States focused on sports photojournalism. Until 2000, **PLAY!** Media commissioned more than 120,000 stories and 10 million photographs. Throughout the decades, many generations of photographers passed through the magazine, as well as some of the greatest writers, editors, illustrators, and cartoonists of its time.
 
 20. Repeat steps 16 to 18 to create another content item which will have only a title. Use the following content:
+
     - Name and Title
 
-       > Our locations
+      > Our locations
 
 21. Go back to the content list and filter by "Content Block" content type. You should see your three Content Blocks.
     ![Created Content Blocks](./media/content-types-19.png)
@@ -90,6 +99,7 @@ This scenario demonstrates creating a new content type, creating and publishing 
     ![Create Content Items](./media/content-types-20.png)
 
     1. First location item
+
        - Name and Title
 
          > America - HQ
@@ -111,6 +121,7 @@ This scenario demonstrates creating a new content type, creating and publishing 
          > 1 800 123-4567
 
     2. Second location item
+
        - Name and Title
 
          > Europe - HQ
