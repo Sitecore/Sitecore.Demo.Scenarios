@@ -1,6 +1,6 @@
 # Use collections to group and share groups of assets​
 
-> This scenario describes how a user can create collections to group and share assets to speed-up projects​ using Content Hub DAM and control access for third parties.
+This scenario describes how a user can create collections to group and share assets using Content Hub DAM to speed-up projects​ and control access for third parties.
 
 1. Go to your Content Hub instance.
 
@@ -11,7 +11,7 @@
 1. Use a proper name, description and type for the collection so it's easier for contributors to distinguish.
 ![proper collection detail](./media/2-collection-detail.png)
 
-1. Once created, click on "add" to add assets to the collection.
+1. Once created, click on the "add" button to add assets to the collection.
 1. There are two ways to add assets to a collection. You can either paste images that have been copied from any source or add already uploaded assets from this instance.
 ![add assets to collection](./media/3-add-assets.png)
 
