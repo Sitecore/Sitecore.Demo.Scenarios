@@ -1,6 +1,20 @@
-# Save item changes to Git using Sitecore CLI
+# Save item changes to Git
 
-If you've made some content changes and want to pull them into your own Git repository, you can use Sitecore CLI.
+If you're deploying a demo into XM Cloud Shared organization, your instance will be shutdown automatically (deallocated). All modifications need to be saved to the Git repo attached to the instance.
+
+## Automated item sync on instance shutdown
+
+1. When the instance is stopped (manually or on schedule), all demo items (referenced in the `*.module.json` files located directly under the `src` folder) will be pulled from XM Cloud instance and pushed into your GitHub repository.
+
+    ![Commits](./media/commits.JPG)
+
+2. If you are making changes to the item paths that are not setup in PLAY! Summit repository, you might need to add them in the `*.module.json` files located directly under the `src` folder.
+
+    ![Paths](./media/paths.JPG)
+
+## Manual sync using Sitecore CLI
+
+If you've made some content changes and want to immediately pull them into your own Git repository, you can use Sitecore CLI.
 
 1. Clone the repo you want to sync the data to. This should be the same repo you've used for XM Cloud demo instance deployment.
 
