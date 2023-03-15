@@ -1,0 +1,11 @@
+version: "2.4"
+services:
+  scenarios:
+    isolation: default
+    image: sitecore-demo-scenarios
+    build:
+      context: .
+    volumes:
+      - .\docs:/home/site/wwwroot/site
+    ports:
+      - 7071:7071
