@@ -11,14 +11,16 @@
 1. Click on the icon to open the DAM image dialog.
 ![Graphical user interface, application](./media/image3.png)
 
-1. If not already logged into Content Hub DAM, click on the **"If nothing happens, clikc here"** link in the popup window.
+1. If not already logged into Content Hub DAM, click on the **"If nothing happens, click here"** link in the popup window.
 
 1. The Sitecore XM demo site is connected to a shared instance of Sitecore Content Hub DAM. You can log into the shared Content Hub DAM instance with read-only access using one of the following login methods.
 
-- **Sign in with SAML** - Use your Sitecore single sign-on account
-- **Sign in with standard login** - Use the following user credentials
-  - **username**: assets read only
-  - **password**: v36Gvd7FVY3M9M7
+> **Sign in with SAML** - Use your Sitecore single sign-on account
+>
+> **Sign in with standard login** - Use the following user credentials
+>
+> * **username**: assets read only
+> * **password**: v36Gvd7FVY3M9M7
 
 ![Selected image](./media/image7.png)
 
