@@ -1,6 +1,6 @@
 # Consume GraphQL Content
 
-This scenario will demonstrate how to use the built-in GraphQL playground to perfrom quaries against Content Hub ONE and receive content as GraphQL responses.
+This scenario will demonstrate how to use the built-in GraphQL playground to perform queries against Content Hub ONE and receive content as GraphQL responses.
 
 1. Navigate to the "API Keys" management page in Content Hub ONE. You can access the API Keys page by navigating directly from the Sitecore Cloud Portal or using the "Settings->API Keys" menu option in Content Hub ONE.
 ![Cloud Portal Navigation - API Keys](./media/gql-chone-1.jpg)
@@ -15,7 +15,7 @@ This scenario will demonstrate how to use the built-in GraphQL playground to per
 
 1. Open the GraphQL playground (also referred to as the "API IDE" in documentation) by opening the following URL in your browser: [https://edge.sitecorecloud.io/api/graphql/ide](https://edge.sitecorecloud.io/api/graphql/ide).
 
-1. After opening the GraphQL playground, ensure the API endpoint is set correctly to: https://edge.sitecorecloud.io/api/graphql/v1. (**Note:** The API endpoint URL is different than the browser URL.)
+1. After opening the GraphQL playground, ensure the API endpoint is set correctly to: `https://edge.sitecorecloud.io/api/graphql/v1`. (**Note:** The API endpoint URL is different than the browser URL.)
 ![GraphQL Playground Endpoint](./media/gql-chone-9.jpg)
 
 1. Use the Delivery API Key that was generated in a previous step as the **"X-GQL-Token"** that is added to the **HTTP HEADERS** tab at the bottom of the playground window.
