@@ -29,7 +29,8 @@
 2. On your physical phone:
     1. Open the "Expo Go" application.
     2. Click the "Scan QR code" button.
-    3. Point your phone to the QR code in your computer's PowerShell terminal.
+    3. If asked, allow the application to use your phone camera.
+    4. Point your phone to the QR code in your computer's PowerShell terminal.
         - The Expo development server will compile the application, send it to your phone, and your phone will open the application.
 
 ## Run on an Android Emulator

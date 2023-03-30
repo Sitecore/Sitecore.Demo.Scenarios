@@ -20,7 +20,7 @@ This is the easiest option when using a physical phone.
     ![Demo portal Content Hub ONE integration](./media/portal-integration.png)
 2. In the mobile application:
     1. Click the "QR Code" button.
-    2. If asked, Allow the application to use your phone camera.
+    2. If asked, allow the application to use your phone camera.
 
         > **Note:** If you are using a phone emulator, the camera view could be showing green noise instead of your webcam video feed. If that happens, click the back button and click again on the "QR Code" button. You should now see your webcam video feed.
 
