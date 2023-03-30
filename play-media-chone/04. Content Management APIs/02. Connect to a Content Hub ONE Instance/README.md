@@ -21,7 +21,13 @@ This is the easiest option when using a physical phone.
 2. In the mobile application:
     1. Click the "QR Code" button.
     2. If asked, Allow the application to use your phone camera.
+
+        > **Note:** If you are using a phone emulator, the camera view could be showing green noise instead of your webcam video feed. If that happens, click the back button and click again on the "QR Code" button. You should now see your webcam video feed.
+
     3. Point your phone camera to the demo portal QR code.
+
+        > **Note:** If you are using a phone emulator and an external webcam, point the webcam to the demo portal QR code on your screen. If you do not have an external webcam, you can print the demo portal QR code and place the printed QR code in front of your integrated computer webcam.
+
         - If there is any error while validating the connection details or connecting to the Content Hub ONE instance, the error details will be displayed.
 
         ![Scanning QR Code](./media/connect-chone-5.png)
