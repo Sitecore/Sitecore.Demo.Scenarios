@@ -1,5 +1,7 @@
 # Create Draft Content
 
+## Adding a New Athlete
+
 1. Open the PLAY! Media mobile application.
 ![Events list](./media/draft-content-1.png)
 1. Go to the athletes listing screen.
@@ -21,7 +23,7 @@
         ![Camera view](./media/draft-content-8.png)
         1. Confirm the picture by clicking the checkmark button.
         ![Camera photo confirmation screen](./media/draft-content-9.png)
-    2. Device:
+    1. Device:
         1. If asked, allow the application to access your device media.
         1. Select a picture from your device library.
         ![Device library](./media/draft-content-21.png)
@@ -32,16 +34,26 @@
 ![New media form](./media/draft-content-11.png)
 1. Click the "Add Media" button.
 ![New media form after fields are filled](./media/draft-content-12.png)
-1. If you wish, you can stop the scenario at this moment by clicking the "Save Draft" button. Or you can continue by clicking the "Add Details" button.
+1. If you wish, you can stop the scenario at this moment by clicking the "Save Draft" button.
 ![New athlete form after profile photo added](./media/draft-content-13.png)
+    1. Wait for the new media items and new athlete to be uploaded to Content Hub ONE as draft.
+    1. Go to the [Finding the New Athlete and Media Items](#finding-the-new-athlete-and-media-items) section.
+1. Otherwise, you can continue by clicking the "Add Details" button.
 1. Optionally add additional details about the new athlete.
 ![New athlete details form](./media/draft-content-14.png)
-1. If you wish, you can stop the scenario at this moment by clicking the "Save Draft" button. Or you can continue by clicking the "Preview" button.
+1. If you wish, you can stop the scenario at this moment by clicking the "Save Draft" button.
 ![New athlete details form after fields are filled](./media/draft-content-15.png)
+    1. Wait for the new media items and new athlete to be uploaded to Content Hub ONE as draft.
+    1. Go to the [Finding the New Athlete and Media Items](#finding-the-new-athlete-and-media-items) section.
+1. Otherwise, you can continue by clicking the "Preview" button.
 1. Review the new athlete detail page.
 ![New athlete review screen](./media/draft-content-16.png)
 1. Click the "Save as Draft" button.
 1. Wait for the new media items and new athlete to be uploaded to Content Hub ONE as draft.
+1. Go to the [Finding the New Athlete and Media Items](#finding-the-new-athlete-and-media-items) section.
+
+## Finding the New Athlete and Media Items
+
 1. Scroll the athletes list and find your new athlete.
 ![New athlete in the athletes list](./media/draft-content-17.png)
 1. Go to the Media listing screen.
