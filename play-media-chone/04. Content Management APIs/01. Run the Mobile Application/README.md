@@ -3,11 +3,11 @@
 ## Global Prerequisites
 
 1. On your computer, clone the [https://github.com/Sitecore/Sitecore.Demo.CHONE](https://github.com/Sitecore/Sitecore.Demo.CHONE) GitHub repository on your computer.
-2. In an elevated PowerShell terminal:
-    1. Go to the mobile app project folder:
-        - `cd .\play-media-native`
-    2. Install the NPM packages:
-        - `npm install`
+2. Open an elevated PowerShell terminal.
+3. Go to the mobile app project folder:
+    - `cd .\play-media-native`
+4. Install the NPM packages:
+    - `npm install`
 
 ## Run on a Physical Phone
 
@@ -16,22 +16,39 @@
 1. On the physical phone, open the iOS app store or Android play store.
 2. Search for "Expo Go" and install it.
 
-### Starting the PLAY! Media Application on a Physical Phone
+### Starting the PLAY! Media Development Server
 
-1. On your computer, in an elevated PowerShell terminal:
-    1. Start the Expo development server:
-        - `npm start`
+On your computer:
 
-        > **Note:** If you get an error saying "CommandError: ngrok tunnel took too long to connect.", you can retry the `npm start` command a few times. It might also help to disconnect from the VPN. If after multiple attempts, you are unable to get past that error, it is recommended to switch to running the mobile application on an Android emulator.
+1. Open an elevated PowerShell terminal.
+2. Go to the mobile app project folder:
+    - `cd .\play-media-native`
+3. Start the Expo development server:
+    - `npm start`
 
-        You should see a QR code in your PowerShell terminal.
+> **Note:** If you get an error saying "CommandError: ngrok tunnel took too long to connect.", you can retry the `npm start` command a few times. It might also help to disconnect from the VPN. If after multiple attempts, you are unable to get past that error, it is recommended to switch to running the mobile application on an Android emulator.
 
-2. On your physical phone:
-    1. Open the "Expo Go" application.
-    2. Click the "Scan QR code" button.
-    3. If asked, allow the application to use your phone camera.
-    4. Point your phone to the QR code in your computer's PowerShell terminal.
-        - The Expo development server will compile the application, send it to your phone, and your phone will open the application.
+You should see a QR code in your PowerShell terminal.
+
+### Starting the PLAY! Media Application on a Physical Android Phone
+
+On your physical Android phone:
+
+1. Open the "Expo Go" application.
+2. Click the "Scan QR code" button.
+3. If asked, allow the application to use your phone camera.
+4. Point your phone to the QR code in your computer's PowerShell terminal.
+    - The Expo development server will compile the application, send it to your phone, and your phone will open the application.
+
+### Starting the PLAY! Media Application on a Physical iOS Phone
+
+On your physical iOS phone:
+
+1. Open your camera application.
+2. Point your phone to the QR code in your computer's PowerShell terminal.
+3. On the phone screen, click the "Open in Expo Go" button that appears near the QR code.
+    - The Expo Go application will open on your phone.
+    - The Expo development server will compile the application, send it to your phone, and your phone will open the application.
 
 ## Run on an Android Emulator
 

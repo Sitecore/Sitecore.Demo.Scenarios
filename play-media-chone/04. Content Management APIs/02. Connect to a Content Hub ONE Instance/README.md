@@ -26,7 +26,11 @@ This is the easiest option when using a physical phone.
 
     3. Point your phone camera to the demo portal QR code.
 
-        > **Note:** If you are using a phone emulator and an external webcam, point the webcam to the demo portal QR code on your screen. If you do not have an external webcam, you can print the demo portal QR code and place the printed QR code in front of your integrated computer webcam.
+        > **Note:** If you are using a phone emulator and a webcam you can either:
+        >
+        >    1. Point the computer webcam to the demo portal QR code on your screen.
+        >    2. Open the demo portal instance details page QR code on a mobile device of your own, and place the phone in front of the computer webcam.
+        >    3. Print the demo portal QR code and place the printed QR code in front of the computer webcam.
 
         - If there is any error while validating the connection details or connecting to the Content Hub ONE instance, the error details will be displayed.
 

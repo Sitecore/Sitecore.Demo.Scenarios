@@ -33,8 +33,8 @@ Ensure you are saving the new athlete as draft, and you do not publish at the en
 1. Review the new event detail page.
 ![New event review screen](./media/publish-multiple-13.png)
 1. Click the "Publish" button.
-2. Wait for the new media items, and new event to be uploaded to Content Hub ONE as draft, then for the draft media items, draft athlete, and draft event to be published.
-3. Go to the [Finding the New Event and Media Items](#finding-the-new-event-and-media-items) section.
+1. Wait for the new media items, and new event to be uploaded to Content Hub ONE as draft, then for the draft media items, draft athlete, and draft event to be published.
+1. Go to the [Finding the New Event and Media Items](#finding-the-new-event-and-media-items) section.
 
 ## Finding the New Event and Media Items
 

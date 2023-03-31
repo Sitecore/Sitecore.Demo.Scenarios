@@ -18,18 +18,33 @@
 1. Choose one of the following options:
 ![New athlete form after the add profile photo button is clicked](./media/draft-content-7.png)
     1. Camera
-        1. If asked, allow the application to use your phone camera.
-        1. Take a picture by clicking the camera button.
-        ![Camera view](./media/draft-content-8.png)
-        1. Confirm the picture by clicking the checkmark button.
-        ![Camera photo confirmation screen](./media/draft-content-9.png)
+        - If asked, allow the application to use your phone camera.
+        - On Android:
+            1. Take a picture by clicking the camera button.
+            ![Camera view](./media/draft-content-8.png)
+            1. Confirm the picture by clicking the checkmark button.
+            ![Camera photo confirmation screen](./media/draft-content-9.png)
+            1. Adjust the picture to your needs.
+            ![Camera photo adjustment screen](./media/draft-content-10.png)
+            1. Click the "Crop" button.
+        - On iOS:
+            1. Take a picture by clicking the shutter button.
+            ![Camera view](./media/ios-take-picture.jpg)
+            1. Confirm the picture by clicking the "Use Photo" button.
+            ![Camera photo confirmation screen](./media/ios-adjust-picture.jpg)
     1. Device:
-        1. If asked, allow the application to access your device media.
-        1. Select a picture from your device library.
-        ![Device library](./media/draft-content-21.png)
-1. Adjust the picture to your needs.
-1. Click the "Crop" button.
-![Camera photo adjustment screen](./media/draft-content-10.png)
+        - If asked, allow the application to access your device media.
+        - On Android:
+            1. Select a picture from your device library.
+            ![Device library](./media/draft-content-21.png)
+            1. Adjust the picture to your needs.
+            ![Camera photo adjustment screen](./media/draft-content-10.png)
+            1. Click the "Crop" button.
+        - On iOS:
+            1. Select a picture from your device library.
+            ![Device library](./media/ios-device-library.jpg)
+            1. Confirm the picture by clicking the "Choose" button.
+            ![Device photo confirmation screen](./media/ios-use-picture-from-device.jpg)
 1. Optionally add a title and a description to your new media.
 ![New media form](./media/draft-content-11.png)
 1. Click the "Add Media" button.
