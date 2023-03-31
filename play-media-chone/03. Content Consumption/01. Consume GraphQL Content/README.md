@@ -1,6 +1,6 @@
 # Consume GraphQL Content
 
-This scenario will demonstrate how to use the built-in GraphQL playground to perfrom quaries against Content Hub ONE and receive content as GraphQL responses.
+This scenario will demonstrate how to use the built-in GraphQL playground to perform queries against Content Hub ONE and receive content as GraphQL responses.
 
 1. Navigate to the "API Keys" management page in Content Hub ONE. You can access the API Keys page by navigating directly from the Sitecore Cloud Portal or using the "Settings->API Keys" menu option in Content Hub ONE.
 ![Cloud Portal Navigation - API Keys](./media/gql-chone-1.jpg)
@@ -15,32 +15,32 @@ This scenario will demonstrate how to use the built-in GraphQL playground to per
 
 1. Open the GraphQL playground (also referred to as the "API IDE" in documentation) by opening the following URL in your browser: [https://edge.sitecorecloud.io/api/graphql/ide](https://edge.sitecorecloud.io/api/graphql/ide).
 
-1. After opening the GraphQL playground, ensure the API endpoint is set correctly to: https://edge.sitecorecloud.io/api/graphql/v1. (**Note:** The API endpoint URL is different than the browser URL.)
+1. After opening the GraphQL playground, ensure the API endpoint is set correctly to: `https://edge.sitecorecloud.io/api/graphql/v1`. (**Note:** The API endpoint URL is different than the browser URL.)
 ![GraphQL Playground Endpoint](./media/gql-chone-9.jpg)
 
 1. Use the Delivery API Key that was generated in a previous step as the **"X-GQL-Token"** that is added to the **HTTP HEADERS** tab at the bottom of the playground window.
 ![GraphQL Playground Token](./media/gql-chone-10.jpg)
 
-    The format for the X-GQL-Token should be:
+    - The format for the X-GQL-Token should be:
 
-        {
-        "X-GQL-Token": "[YOUR_DELIVERY_API_TOKEN]"
-        }
+            {
+                "X-GQL-Token": "[YOUR_DELIVERY_API_TOKEN]"
+            }
 
 1. Add a GraphQL request such as the following to access content from your Content Hub ONE instance.
 ![GraphQL Playground Request](./media/gql-chone-11.jpg)
 
-    Here is the GraphQL query snippet to copy. [Here are other GraphQL examples for Content Hub ONE](https://doc.sitecore.com/ch-one/en/developers/content-hub-one/graphql--graphql-query-examples.html).
+    - Here is the GraphQL query snippet to copy. [Here are other GraphQL examples for Content Hub ONE](https://doc.sitecore.com/ch-one/en/developers/content-hub-one/graphql--graphql-query-examples.html).
 
-        {
-            allAthlete {
-                total
-                results {
-                    name
-                    athleteQuote
+            {
+                allAthlete {
+                    total
+                    results {
+                        name
+                        athleteQuote
+                    }
                 }
             }
-        }
 
 1. Click on the button in the middle of the playground window to execute the GraphQL query.
 ![GraphQL Playground Execute Button](./media/gql-chone-8.jpg)
