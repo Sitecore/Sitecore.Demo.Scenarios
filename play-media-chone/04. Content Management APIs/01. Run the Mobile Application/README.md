@@ -1,6 +1,6 @@
 # Run the Mobile Application
 
-## Global Prerequisites
+## Global Prerequisites for Running the PLAY! Media App from Source
 
 1. On your computer, clone the [https://github.com/Sitecore/Sitecore.Demo.CHONE](https://github.com/Sitecore/Sitecore.Demo.CHONE) GitHub repository on your computer.
 2. Open an elevated PowerShell terminal.
@@ -9,14 +9,14 @@
 4. Install the NPM packages:
     - `npm install`
 
-## Run on a Physical Phone
+### Run on a Physical Phone
 
-### Physical Phone Prerequisites
+#### Physical Phone Prerequisites
 
 1. On the physical phone, open the iOS app store or Android play store.
 2. Search for "Expo Go" and install it.
 
-### Starting the PLAY! Media Development Server
+#### Starting the PLAY! Media Development Server
 
 On your computer:
 
@@ -30,7 +30,7 @@ On your computer:
 
 You should see a QR code in your PowerShell terminal.
 
-### Starting the PLAY! Media Application on a Physical Android Phone
+#### Starting the PLAY! Media Application on a Physical Android Phone
 
 On your physical Android phone:
 
@@ -40,7 +40,7 @@ On your physical Android phone:
 4. Point your phone to the QR code in your computer's PowerShell terminal.
     - The Expo development server will compile the application, send it to your phone, and your phone will open the application.
 
-### Starting the PLAY! Media Application on a Physical iOS Phone
+#### Starting the PLAY! Media Application on a Physical iOS Phone
 
 On your physical iOS phone:
 
@@ -50,7 +50,7 @@ On your physical iOS phone:
     - The Expo Go application will open on your phone.
     - The Expo development server will compile the application, send it to your phone, and your phone will open the application.
 
-## Run on an Android Emulator
+### Run on an Android Emulator
 
 ### Android Emulator Prerequisites
 
@@ -96,11 +96,10 @@ On your physical iOS phone:
     2. Type the "a" keyboard key to tell Expo to start the application on your Android emulator.
         - The Expo development server will install Expo Go on your Android emulator, compile the application, send it to your Android emulator, and your Android emulator will open the application.
 
-### Installing a PLAY! Media APK on a physical Android phone
+## Installing a PLAY! Media APK file on a Physical Android Phone
 
-1. Download a PLAY! Media APK to your Android phone from the releases section on GitHub [https://github.com/Sitecore/Sitecore.Demo.CHONE/releases](https://github.com/Sitecore/Sitecore.Demo.CHONE/releases).
-2. Enable installing apps from unknown sources in your phone's settings.
-3. Find the APK file in your downloads folder.
-4. Click on it and when prompted click install.
-5. In case you get a warning by Google Play Protect click install anyway.
-6. Click on PLAY! Media to open the app. Enjoy!
+1. Enable installing apps from unknown sources in your phone's settings.
+2. Locate the APK file in your phone's storage.
+3. Click on it and when prompted click install.
+4. In case you get a warning by Google Play Protect click install anyway.
+5. Click on PLAY! Media to open the app. Enjoy!
