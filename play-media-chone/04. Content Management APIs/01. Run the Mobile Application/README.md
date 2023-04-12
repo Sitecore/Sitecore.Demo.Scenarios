@@ -95,3 +95,12 @@ On your physical iOS phone:
         - `npm run android`
     2. Type the "a" keyboard key to tell Expo to start the application on your Android emulator.
         - The Expo development server will install Expo Go on your Android emulator, compile the application, send it to your Android emulator, and your Android emulator will open the application.
+
+### Installing a PLAY! Media APK on a physical Android phone
+
+1. Download a PLAY! Media APK to your Android phone from the releases section on GitHub [https://github.com/Sitecore/Sitecore.Demo.CHONE/releases](https://github.com/Sitecore/Sitecore.Demo.CHONE/releases).
+2. Enable installing apps from unknown sources in your phone's settings.
+3. Find the APK file in your downloads folder.
+4. Click on it and when prompted click install.
+5. In case you get a warning by Google Play Protect click install anyway.
+6. Click on PLAY! Media to open the app. Enjoy!
