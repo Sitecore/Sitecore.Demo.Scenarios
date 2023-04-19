@@ -75,17 +75,17 @@ Then you can continue this scenario starting at [Modifying the Code](#modifying-
 
     - Name and Title
 
-      > The go-to source for sports news
+        > The go-to source for sports news
 
     - Body
 
-      > An outstanding team of journalists is available 24/7 to ensure you never miss a performance of your favorite athlete. With us, you will discover many new items every day and make them available using the best and latest technology.
-      >
-      > Our goal is to provide interesting, current, and reliable information about sports. We are always on-site at the event and monitor it for you. It doesn't matter to us whether it's a local tournament or a world championship. If your favorite team or athlete is in it, we're there broadcasting for you.
-      >
-      > Every fan can find something for themselves: news, commentary, analysis, statistics, and interviews with some of the most interesting personalities in sports - athletes, coaches, and fans.
-      >
-      > Our services include providing packages of sports information categorized by topic and consisting of news, commentary, analysis, and live scores.
+        > An outstanding team of journalists is available 24/7 to ensure you never miss a performance of your favorite athlete. With us, you will discover many new items every day and make them available using the best and latest technology.
+        >
+        > Our goal is to provide interesting, current, and reliable information about sports. We are always on-site at the event and monitor it for you. It doesn't matter to us whether it's a local tournament or a world championship. If your favorite team or athlete is in it, we're there broadcasting for you.
+        >
+        > Every fan can find something for themselves: news, commentary, analysis, statistics, and interviews with some of the most interesting personalities in sports - athletes, coaches, and fans.
+        >
+        > Our services include providing packages of sports information categorized by topic and consisting of news, commentary, analysis, and live scores.
 
 18. Once you're done click **Save** and **Publish**. Your item should look something like the following screenshot (the ID will be different and that is OK). Next you can go back to the content list.
     ![Create Content Items](./media/content-types-18.png)
@@ -94,17 +94,17 @@ Then you can continue this scenario starting at [Modifying the Code](#modifying-
 
     - Name and Title
 
-      > The PLAY! Media History
+        > The PLAY! Media History
 
     - Body
 
-      > The **PLAY!** Media magazine was first launched in 1883 as a lightweight publication mostly centered on sports humor, but after it was purchased by John Jonah Jameson Jr. in 1936, it became a crucial weekly sports news publication in the United States focused on sports photojournalism. Until 2000, **PLAY!** Media commissioned more than 120,000 stories and 10 million photographs. Throughout the decades, many generations of photographers passed through the magazine, as well as some of the greatest writers, editors, illustrators, and cartoonists of its time.
+        > The **PLAY!** Media magazine was first launched in 1883 as a lightweight publication mostly centered on sports humor, but after it was purchased by John Jonah Jameson Jr. in 1936, it became a crucial weekly sports news publication in the United States focused on sports photojournalism. Until 2000, **PLAY!** Media commissioned more than 120,000 stories and 10 million photographs. Throughout the decades, many generations of photographers passed through the magazine, as well as some of the greatest writers, editors, illustrators, and cartoonists of its time.
 
 20. Repeat steps 16 to 18 to create another content item which will have only a title. Use the following content:
 
     - Name and Title
 
-      > Our locations
+        > Our locations
 
 21. Go back to the content list and filter by "Content Block" content type. You should see your three Content Blocks.
     ![Created Content Blocks](./media/content-types-19.png)
@@ -114,47 +114,47 @@ Then you can continue this scenario starting at [Modifying the Code](#modifying-
 
     1. First location item
 
-       - Name and Title
+        - Name and Title
 
-         > America - HQ
+            > America - HQ
 
-       - Address
+        - Address
 
-         > Why Worry Lane
+            > Why Worry Lane
 
-       - City
+        - City
 
-         > Arizona city
+            > Arizona city
 
-       - Country
+        - Country
 
-         > USA
+            > USA
 
-       - Phone
+        - Phone
 
-         > 1 800 123-4567
+            > 1 800 123-4567
 
     2. Second location item
 
-       - Name and Title
+        - Name and Title
 
-         > Europe - HQ
+            > Europe - HQ
 
-       - Address
+        - Address
 
-         > Ha-Ha Road
+            > Ha-Ha Road
 
-       - City
+        - City
 
-         > London
+            > London
 
-       - Country
+        - Country
 
-         > United Kingdom
+            > United Kingdom
 
-       - Phone
+        - Phone
 
-         > 044 773663
+            > 044 773663
 
 23. Go back to the content list and filter by "Content Block" content type. You should see your two Locations.
     ![Created Locations](./media/content-types-21.png)
@@ -168,11 +168,11 @@ Then you can continue this scenario starting at [Modifying the Code](#modifying-
 
 4. In the `play-media\src\pages` folder, rename the `about-us.tsx.demo` file to `about-us.tsx` and open it.
 5. If you manually created the content items:
-   1. Find `CONTENT_BLOCK_IDS` (line 44).
-   2. Change the IDs to match the ones of your Content Block items and save the file.
-      - You can find them by going to your content item and looking at the gray box on the right.
-        ![Content Block IDs](./media/content-types-23.png)
-        ![ID in CH1](./media/content-types-24.png)
+    1. Find `CONTENT_BLOCK_IDS` (line 44).
+    2. Change the IDs to match the ones of your Content Block items and save the file.
+        - You can find them by going to your content item and looking at the gray box on the right.
+          ![Content Block IDs](./media/content-types-23.png)
+          ![ID in CH1](./media/content-types-24.png)
 
 ## Showing the Results
 

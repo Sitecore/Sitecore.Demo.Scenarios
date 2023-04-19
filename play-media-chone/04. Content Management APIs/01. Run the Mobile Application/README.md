@@ -1,22 +1,40 @@
 # Run the Mobile Application
 
-## Global Prerequisites
+There are 2 options to run the PLAY! Media mobile application:
 
-1. On your computer, clone the [https://github.com/Sitecore/Sitecore.Demo.CHONE](https://github.com/Sitecore/Sitecore.Demo.CHONE) GitHub repository on your computer.
+1. [On Android, download and install the application on your phone](#option-1-download-and-install-the-application-on-a-physical-android-phone).
+1. [On iOS or Android, run the application from source code on your phone or an emulator](#option-2-running-from-source-code).
+
+## Option 1: Download and Install the Application on a Physical Android Phone
+
+1. Download a PLAY! Media APK file to your Android phone from the [releases section on GitHub](https://github.com/Sitecore/Sitecore.Demo.CHONE/releases).
+2. Enable installing apps from unknown sources in your phone's settings.
+3. Locate the APK file in your phone's storage.
+4. Click on it and when prompted click install.
+5. In case you get a warning by Google Play Protect click install anyway.
+6. Locate the installed PLAY! Media app.
+7. Click on it to open the app.
+8. Enjoy!
+
+## Option 2: Running from Source Code
+
+### Running from Source Code Prerequisites
+
+1. On your computer, clone the [PLAY! Media GitHub repository](https://github.com/Sitecore/Sitecore.Demo.CHONE) on your computer.
 2. Open an elevated PowerShell terminal.
 3. Go to the mobile app project folder:
     - `cd .\play-media-native`
 4. Install the NPM packages:
     - `npm install`
 
-## Run on a Physical Phone
+### Run on a Physical Phone
 
-### Physical Phone Prerequisites
+#### Physical Phone Prerequisites
 
 1. On the physical phone, open the iOS app store or Android play store.
 2. Search for "Expo Go" and install it.
 
-### Starting the PLAY! Media Development Server
+#### Starting the PLAY! Media Development Server
 
 On your computer:
 
@@ -30,7 +48,7 @@ On your computer:
 
 You should see a QR code in your PowerShell terminal.
 
-### Starting the PLAY! Media Application on a Physical Android Phone
+#### Starting the PLAY! Media Application on a Physical Android Phone
 
 On your physical Android phone:
 
@@ -40,7 +58,7 @@ On your physical Android phone:
 4. Point your phone to the QR code in your computer's PowerShell terminal.
     - The Expo development server will compile the application, send it to your phone, and your phone will open the application.
 
-### Starting the PLAY! Media Application on a Physical iOS Phone
+#### Starting the PLAY! Media Application on a Physical iOS Phone
 
 On your physical iOS phone:
 
@@ -50,9 +68,9 @@ On your physical iOS phone:
     - The Expo Go application will open on your phone.
     - The Expo development server will compile the application, send it to your phone, and your phone will open the application.
 
-## Run on an Android Emulator
+### Run on an Android Emulator
 
-### Android Emulator Prerequisites
+#### Android Emulator Prerequisites
 
 1. On your computer, download and install Android Studio from [https://developer.android.com/studio](https://developer.android.com/studio)
 2. Validate the `adb` executable is in your PATH:
@@ -86,7 +104,7 @@ On your physical iOS phone:
         3. For both the front and back cameras, select the "Webcam0" or "Device" option for the emulator to use your computer webcam as the phone cameras.
         4. Click the "Finish" button.
 
-### Starting the PLAY! Media Application on an Android Emulator
+#### Starting the PLAY! Media Application on an Android Emulator
 
 1. In the Android Studio device manager:
     1. Start your virtual device using the "play" triangle icon button next to it in the device list.
