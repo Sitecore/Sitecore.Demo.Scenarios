@@ -12,6 +12,8 @@ This scenario shows how the website visitors can subscribe to your email campaig
 1. Fill in the "First name", "Last name", "Email" fields and click the "Subscribe" button.
 ![Subscribe](./media/subscribe.png)
 
+**For the purposes of this scenario, you should use a real email address that you can access, in order to receive the automated email.**
+
 1. You will see the "Thank You" pop-up window.
 ![Thank you](./media/thank-you.png)
 
