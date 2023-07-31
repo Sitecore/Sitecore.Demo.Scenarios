@@ -14,6 +14,8 @@
 
 ![Graphical user interface, text, application](./media/image3.png)
 
+**For the purposes of this scenario, you should use a real email address that you can access, in order to receive the automated email.**
+
 1. Click the pink button in the side bar on the right of the screen.
 
 ![A picture containing text](./media/image4.png)
