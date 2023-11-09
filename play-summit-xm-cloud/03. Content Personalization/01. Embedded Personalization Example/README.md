@@ -18,7 +18,7 @@
 
 	![Default content displayed on page](./media/ep_landing_pages_default.png)
 
-1. Next, click on the "Explore sessions" button to view the /sessions page and trigger a different persolization variant.
+1. Next, click on the "Explore sessions" button to view the /sessions page and trigger a different personalization variant.
 
     ![Click on button to view page](./media/ep_landing_pages_sessions.png)
 
