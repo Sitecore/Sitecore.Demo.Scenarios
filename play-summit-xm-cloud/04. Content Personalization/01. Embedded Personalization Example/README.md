@@ -1,6 +1,4 @@
-# Content Personalization
-
-## Embedded Personalization Example
+# Embedded Personalization Example
 
 1. Go to the [PLAY! Summit Website](https://{{demoName}}-{{demoUid}}-website.vercel.app) and navigate and click on the "Landing Pages" link in the footer to see the list of available landing pages.
 
@@ -8,7 +6,7 @@
 
 1. Click on the "Embedded Personalization Example" landing page.
 
-    ![List of landing pages](.\media\ep_landing_pages_list.png)
+    ![List of landing pages](./media/ep_landing_pages_list.png)
 
 1. Review the instructions on the landing page that describe how to trigger the 3 different personalization variants of the page.
 
@@ -16,7 +14,7 @@
 
 1. The content is displayed for the default audience when navigating to the page as a new visitor (ie: Incognito mode)
 
-	![Default content displayed on page](./media/ep_landing_pages_default.png)
+    ![Default content displayed on page](./media/ep_landing_pages_default.png)
 
 1. Next, click on the "Explore sessions" button to view the /sessions page and trigger a different personalization variant.
 
@@ -34,4 +32,4 @@
 
     ![Personalization variant content](./media/ep_landing_pages_campaign.png)
 
-## This scenario is an easy way to show off Embedded Personalization within Pages and on the front-end of a website.
+> This scenario is an easy way to show off Embedded Personalization within Pages and on the front-end of a website.
