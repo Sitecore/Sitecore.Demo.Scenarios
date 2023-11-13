@@ -1,6 +1,4 @@
-# Content Personalization
-
-## Embedded Personalization Example
+# Embedded Personalization Example
 
 1. Go to the [PLAY! Summit Website](https://{{demoName}}-{{demoUid}}-website.vercel.app) and navigate and click on the "Landing Pages" link in the footer to see the list of available landing pages.
 
@@ -34,4 +32,4 @@
 
     ![Personalization variant content](./media/ep_landing_pages_campaign.png)
 
-## This scenario is an easy way to show off Embedded Personalization within Pages and on the front-end of a website.
+> This scenario is an easy way to show off Embedded Personalization within Pages and on the front-end of a website.
