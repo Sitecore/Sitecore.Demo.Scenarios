@@ -4,6 +4,7 @@ The "PLAY! Summit XM Cloud Plus" demo includes an example integration with Conte
 
 - The Demo Team's default is a read-only Content Hub ONE instance with sample content.
 - If you provide your own Content Hub ONE instance (existing instance) – it will be automatically populated with sample content and media.
+
 ![Create a demo](./media/cho-1.png)
 
 1. If you are deploying the **"PLAY! Summit (XM Cloud Plus - Shared Organization)"** demo type, Sitecore Components will be automatically wired up to the Content Hub ONE instance (default or your own) and you will be able to use Content Hub ONE data in the Sitecore Components.
