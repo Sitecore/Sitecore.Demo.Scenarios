@@ -1,3 +1,4 @@
+import { SAVED_SCENARIOS_KEY } from '@/constants/scenario';
 import { ProductOptions } from '@/interfaces/scenario';
 
 export const productIcons = {
@@ -22,3 +23,23 @@ export const productIcons = {
   [ProductOptions.taxonomy_productoptions_xmCloud]:
     'https://ch.sitecoredemo.com/api/public/content/4eab402a23724aafb9813fe73adcc826?v=0381a9f3',
 };
+
+// Save a scenario ID to localStorage
+export const saveScenarioID = (scenarioID: string) => {
+  const savedScenarioIDs = localStorage.getItem(SAVED_SCENARIOS_KEY)?.split(',') ?? [];
+
+  localStorage.setItem(SAVED_SCENARIOS_KEY, [...savedScenarioIDs, scenarioID].join(','));
+};
+
+// Remove a scenario ID from localStorage
+export const unsaveScenarioID = (scenarioID: string) => {
+  const savedScenarioIDs = localStorage.getItem(SAVED_SCENARIOS_KEY)?.split(',') ?? [];
+
+  localStorage.setItem(
+    SAVED_SCENARIOS_KEY,
+    savedScenarioIDs.filter((id) => id !== scenarioID).join(',')
+  );
+};
+
+export const isSavedScenario = (scenarioID: string) =>
+  localStorage.getItem(SAVED_SCENARIOS_KEY)?.split(',').includes(scenarioID) ?? false;
