@@ -8,9 +8,10 @@ import { useEffect, useState } from 'react';
 
 type BookmarkIconProps = {
   scenarioID: string;
+  onClick?: () => void;
 };
 
-export default function BookmarkIcon({ scenarioID }: BookmarkIconProps) {
+export default function BookmarkIcon({ scenarioID, onClick = () => undefined }: BookmarkIconProps) {
   const [isScenarioBookmarked, setIsScenarioBookmarked] = useState(false);
 
   useEffect(() => setIsScenarioBookmarked(isSavedScenario(scenarioID)), []);
@@ -22,6 +23,7 @@ export default function BookmarkIcon({ scenarioID }: BookmarkIconProps) {
       onClick={() => {
         setIsScenarioBookmarked(!isScenarioBookmarked);
         unsaveScenarioID(scenarioID);
+        onClick();
       }}
     />
   ) : (
@@ -31,6 +33,7 @@ export default function BookmarkIcon({ scenarioID }: BookmarkIconProps) {
       onClick={() => {
         setIsScenarioBookmarked(!isScenarioBookmarked);
         saveScenarioID(scenarioID);
+        onClick();
       }}
     />
   );
