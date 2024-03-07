@@ -8,7 +8,7 @@ export default async function Home() {
 
   return (
     <main>
-      <section className="mt-16 ml-64 sticky">
+      <section className="mt-16 mx-64 sticky">
         <h1 className="text-5xl font-bold text-black-light">Browse</h1>
         <div className="relative w-96">
           <input
@@ -19,7 +19,7 @@ export default async function Home() {
           <FontAwesomeIcon icon={faSearch} className="h-4 absolute right-4 bottom-3" />
         </div>
       </section>
-      <section className="flex flex-row gap-6 ml-64 mt-10">
+      <section className="flex flex-row gap-6 mx-64 mt-10">
         {scenarios && scenarios.length > 0 ? (
           <ScenarioGrid scenarios={scenarios} />
         ) : (
