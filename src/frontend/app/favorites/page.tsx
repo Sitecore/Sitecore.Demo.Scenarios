@@ -7,10 +7,10 @@ export default async function FavoritesPage() {
 
   return (
     <main>
-      <section className="mt-16 ml-64 sticky">
+      <section className="mt-16 mx-64 sticky">
         <h1 className="text-5xl font-bold text-black-light">Saved</h1>
       </section>
-      <section className="flex flex-row gap-6 ml-64 mt-10">
+      <section className="flex flex-row gap-6 mx-64 mt-10">
         {scenarios && scenarios.length > 0 && <SavedScenarioGrid scenarios={scenarios} />}
       </section>
     </main>
