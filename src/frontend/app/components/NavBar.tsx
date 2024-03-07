@@ -11,7 +11,7 @@ export default function NavBar() {
   const pathname = usePathname();
 
   return (
-    <nav className="w-24 bg-white">
+    <aside className="w-24 h-full bg-white fixed">
       <Image
         src="/sitecore.svg"
         alt="Sitecore Logo"
@@ -30,6 +30,6 @@ export default function NavBar() {
           <FontAwesomeIcon icon={faBookmark} className="h-6 w-6 m-9" />
         </Link>
       </div>
-    </nav>
+    </aside>
   );
 }
