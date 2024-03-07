@@ -17,8 +17,12 @@ const config: Config = {
       white: {
         DEFAULT: '#ffffff',
         dark: '#F9F9F9',
+        darkest: '#F1F1F1',
       },
-      black: '#000000',
+      black: {
+        light: '#090909',
+        DEFAULT: '#000000',
+      },
       violet: {
         DEFAULT: '#5548D9',
         dark: '#333378',
