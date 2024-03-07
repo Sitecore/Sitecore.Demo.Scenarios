@@ -13,7 +13,7 @@ export default function NavBar() {
   return (
     <nav className="w-24 bg-white">
       <Image
-        src="sitecore.svg"
+        src="/sitecore.svg"
         alt="Sitecore Logo"
         width={40}
         height={40}
