@@ -52,6 +52,9 @@ const config: Config = {
       fontSize: {
         '3xl': '2rem',
       },
+      backgroundImage: {
+        'brand-refresh': "url('/2022-brand-refresh-desktop-teams-background-2@2x.png')",
+      },
     },
   },
   plugins: [],
