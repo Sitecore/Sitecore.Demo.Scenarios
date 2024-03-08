@@ -9,7 +9,7 @@ export default async function Home() {
   return (
     <main>
       <section className="mt-16 ml-64 sticky">
-        <h1 className="text-5xl font-bold">Browse</h1>
+        <h1 className="text-5xl font-bold text-black-light">Browse</h1>
         <div className="relative w-96">
           <input
             className="w-full mt-6 rounded-[20px] px-5 h-10 shadow cursor-pointer focus:outline-none placeholder:text-black-light"

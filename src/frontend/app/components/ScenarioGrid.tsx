@@ -6,9 +6,8 @@ import {
   Scenario,
   TemplateOptions,
 } from '@/interfaces/scenario';
-import { faBookmark } from '@fortawesome/free-regular-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Tag from './Tag';
+import BookmarkIcon from './BookmarkIcon';
 
 type ScenarioGridProps = {
   scenarios: Scenario[];
@@ -22,7 +21,7 @@ export default function ScenarioGrid({ scenarios }: ScenarioGridProps) {
           key={index}
           className="group w-96 bg-white rounded-lg pt-10 pl-8 pr-10 pb-8 text-black-light cursor-pointer relative"
         >
-          <FontAwesomeIcon icon={faBookmark} className="h-6 absolute right-5 top-5" />
+          <BookmarkIcon scenarioID={scenario.id} />
           <h3 className="uppercase text-sm mb-2">
             {CategoryOptions[scenario.category.results[0].id]}
           </h3>
