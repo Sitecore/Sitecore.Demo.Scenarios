@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import './globals.css';
-import NavBar from './components/NavBar';
 
 export const metadata: Metadata = {
   title: 'Sitecore Demo Scenarios',
@@ -14,10 +13,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="flex bg-brand-refresh">
-        <NavBar />
-        {children}
-      </body>
+      <body className="flex bg-brand-refresh">{children}</body>
     </html>
   );
 }
