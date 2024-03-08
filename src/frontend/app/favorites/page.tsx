@@ -9,7 +9,7 @@ export default async function FavoritesPage() {
   return (
     <>
       <NavBar />
-      <main>
+      <main className="p-16 mx-24">
         <section className="sticky">
           <h1 className="text-5xl font-bold text-black-light">Saved</h1>
         </section>
