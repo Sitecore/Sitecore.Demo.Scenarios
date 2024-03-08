@@ -11,9 +11,10 @@ import BookmarkIcon from './BookmarkIcon';
 
 type ScenarioGridProps = {
   scenarios: Scenario[];
+  onBookmarkIconClick?: () => void;
 };
 
-export default function ScenarioGrid({ scenarios }: ScenarioGridProps) {
+export default function ScenarioGrid({ scenarios, onBookmarkIconClick }: ScenarioGridProps) {
   return (
     <>
       {scenarios.map((scenario, index) => (
@@ -21,7 +22,7 @@ export default function ScenarioGrid({ scenarios }: ScenarioGridProps) {
           key={index}
           className="group w-96 bg-white rounded-lg pt-10 pl-8 pr-10 pb-8 text-black-light cursor-pointer relative"
         >
-          <BookmarkIcon scenarioID={scenario.id} />
+          <BookmarkIcon scenarioID={scenario.id} onClick={onBookmarkIconClick} />
           <h3 className="uppercase text-sm mb-2">
             {CategoryOptions[scenario.category.results[0].id]}
           </h3>
