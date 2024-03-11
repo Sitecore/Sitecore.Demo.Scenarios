@@ -45,8 +45,8 @@ const config: Config = {
       },
     },
     fontFamily: {
-      sans: '"AvenirNext", "OpenSans", Helvetica, Arial, system-ui, -apple-system, sans-serif, "Apple Color Emoji", "Segoe UI Emoji"',
-      mono: '"SF Mono", monospace',
+      sans: 'var(--font-avenir-next)',
+      mono: 'var(--font-sf-mono)',
     },
     extend: {
       fontSize: {
