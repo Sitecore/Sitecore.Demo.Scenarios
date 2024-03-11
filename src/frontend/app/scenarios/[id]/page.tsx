@@ -1,4 +1,22 @@
+import { getScenarioByID } from '@/api/queries/scenarios';
+import NavBar from '@/app/components/NavBar';
+import ParentPage from '@/app/components/ParentPage';
+import FavoritesPage from '@/app/favorites/page';
+import Home from '@/app/page';
+import { notFound } from 'next/navigation';
+
 // `app/scenarios/[id]/page.tsx` is the UI for the `/scenarios/[id]` URL
-export default function ScenarioDetailsPage() {
-  return <h1>Hello, Scenario Details Page!</h1>;
+export default async function ScenarioDetailsPage({ params }: { params: { id: string } }) {
+  const scenario = await getScenarioByID(params.id);
+
+  if (!scenario) return notFound();
+
+  return (
+    <>
+      <NavBar />
+      <div className="max-w-2xl">
+        <ParentPage homePage={<Home />} favoritesPage={<FavoritesPage />} />
+      </div>
+    </>
+  );
 }

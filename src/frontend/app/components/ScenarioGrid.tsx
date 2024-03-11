@@ -8,6 +8,7 @@ import {
 } from '@/interfaces/scenario';
 import Tag from './Tag';
 import BookmarkIcon from './BookmarkIcon';
+import Link from 'next/link';
 
 type ScenarioGridProps = {
   scenarios: Scenario[];
@@ -18,9 +19,11 @@ export default function ScenarioGrid({ scenarios, onBookmarkIconClick }: Scenari
   return (
     <>
       {scenarios.map((scenario, index) => (
-        <div
+        <Link
           key={index}
-          className="group w-96 bg-white rounded-lg pt-10 pl-8 pr-10 pb-8 text-black-light cursor-pointer relative"
+          className="group bg-white rounded-lg pt-10 pl-8 pr-10 pb-8 text-black-light cursor-pointer relative max-w-lg"
+          href={`/scenarios/${scenario.id}`}
+          scroll={false}
         >
           <BookmarkIcon scenarioID={scenario.id} onClick={onBookmarkIconClick} />
           <h3 className="uppercase text-sm mb-2">
@@ -45,7 +48,7 @@ export default function ScenarioGrid({ scenarios, onBookmarkIconClick }: Scenari
               <Tag key={persona.id} label={PersonaOptions[persona.id]} />
             ))}
           </div>
-        </div>
+        </Link>
       ))}
     </>
   );
