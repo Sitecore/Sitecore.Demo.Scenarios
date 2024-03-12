@@ -17,22 +17,24 @@ type ScenarioGridProps = {
 
 export default function ScenarioGrid({ scenarios, onBookmarkIconClick }: ScenarioGridProps) {
   return (
-    <>
+    <div className="flex flex-wrap gap-6 py-4 grid-container">
       {scenarios.map((scenario, index) => (
         <Link
           key={index}
-          className="group bg-white rounded-lg pt-10 pl-8 pr-10 pb-8 text-black-light cursor-pointer relative max-w-lg"
+          className="group relative bg-white rounded-lg shadow-card py-10 px-8 basis-[calc(33.33%-1rem)] flex-grow min-w-96 transition-all cursor-pointer hover:shadow-card-hover"
           href={`/scenarios/${scenario.id}`}
           scroll={false}
         >
           <BookmarkIcon scenarioID={scenario.id} onClick={onBookmarkIconClick} />
-          <h3 className="uppercase text-sm mb-2">
+          <h3 className="uppercase text-sm mb-1 tracking-wider font-medium">
             {CategoryOptions[scenario.category.results[0].id]}
           </h3>
-          <h2 className="capitalize text-base font-bold mb-4 w-fit group-hover:bg-white-darkest duration-300 ease-out">
-            {scenario.title}
+          <h2 className="capitalize text-2xl font-bold mb-2">
+            <span className="text-highlight group-hover:text-highlight-hover">
+              {scenario.title}
+            </span>
           </h2>
-          <p className="line-clamp-3 mb-4">{scenario.summary}</p>
+          <p className="line-clamp-3 mb-3">{scenario.summary}</p>
           <div className="flex flex-row flex-wrap gap-2">
             {scenario.products.results.map((product) => (
               <Tag
@@ -50,6 +52,8 @@ export default function ScenarioGrid({ scenarios, onBookmarkIconClick }: Scenari
           </div>
         </Link>
       ))}
-    </>
+      <div className="basis-[calc(33.33%-1rem)] flex-grow min-w-96"></div>
+      <div className="basis-[calc(33.33%-1rem)] flex-grow min-w-96"></div>
+    </div>
   );
 }

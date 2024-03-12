@@ -29,9 +29,13 @@ export default function SavedScenarioGrid({ scenarios }: SavedScenarioGridProps)
 
   if (isLoading) {
     return (
-      <div className="flex gap-6">
-        <Skeleton count={15} containerClassName="w-96 flex-1" />
-        <Skeleton count={15} containerClassName="w-96 flex-1" />
+      <div className="grid-container">
+        <Skeleton
+          count={5}
+          className="h-72"
+          containerClassName="grid grid-cols-3 gap-6 py-4"
+          inline={true}
+        />
       </div>
     );
   }
@@ -39,6 +43,7 @@ export default function SavedScenarioGrid({ scenarios }: SavedScenarioGridProps)
   return savedScenarios?.length > 0 ? (
     <ScenarioGrid scenarios={savedScenarios} onBookmarkIconClick={fetchSavedScenarios} />
   ) : (
-    <h1 className="font-bold text-4xl">No saved scenarios available</h1>
+    // TODO: Implement empty state as in prototype
+    <h1 className="grid-container font-bold text-4xl">No saved scenarios available</h1>
   );
 }

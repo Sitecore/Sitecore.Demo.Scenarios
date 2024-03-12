@@ -1,5 +1,4 @@
 import { getScenarioByID } from '@/api/queries/scenarios';
-import NavBar from '@/app/components/NavBar';
 import ParentPage from '@/app/components/ParentPage';
 import FavoritesPage from '@/app/favorites/page';
 import Home from '@/app/page';
@@ -13,8 +12,7 @@ export default async function ScenarioDetailsPage({ params }: { params: { id: st
 
   return (
     <>
-      <NavBar />
-      <div className="max-w-2xl">
+      <div className="max-w-lg">
         <ParentPage homePage={<Home />} favoritesPage={<FavoritesPage />} />
       </div>
     </>
