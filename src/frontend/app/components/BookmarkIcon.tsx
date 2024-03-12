@@ -19,7 +19,7 @@ export default function BookmarkIcon({ scenarioID, onClick = () => undefined }: 
   return isScenarioBookmarked ? (
     <FontAwesomeIcon
       icon={faBookmarkSolid}
-      className="h-6 absolute right-5 top-5"
+      className="h-6 absolute right-5 top-5 text-violet"
       onClick={() => {
         setIsScenarioBookmarked(!isScenarioBookmarked);
         unsaveScenarioID(scenarioID);

@@ -21,26 +21,26 @@ export default function NavBar() {
   }, []);
 
   return (
-    <aside className="w-24 h-full bg-white fixed">
+    <aside className="w-24 h-full bg-white">
       <Image
         src="/sitecore.svg"
         alt="Sitecore Logo"
         width={40}
         height={40}
-        className="absolute mt-14 mx-7"
+        className="absolute mt-16 mx-7"
         priority
       />
       <div className="flex flex-col items-center justify-center h-full">
         <Link
           href="/"
-          className={`h-24 w-24 ${!isFavoritesRoute && !isSavedScenarioDetailsPage && 'bg-white-dark'}`}
+          className={`h-24 w-24 ${!isFavoritesRoute && !isSavedScenarioDetailsPage && 'active'} navbutton`}
           scroll={false}
         >
           <FontAwesomeIcon icon={faSearch} className="h-6 w-6 m-9" />
         </Link>
         <Link
           href="/favorites"
-          className={`h-24 w-24 ${(isFavoritesRoute || isSavedScenarioDetailsPage) && 'bg-white-dark'}`}
+          className={`h-24 w-24 ${(isFavoritesRoute || isSavedScenarioDetailsPage) && 'active'} navbutton`}
           scroll={false}
         >
           <FontAwesomeIcon icon={faBookmark} className="h-6 w-6 m-9" />
