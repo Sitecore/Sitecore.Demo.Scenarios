@@ -53,7 +53,17 @@ const config: Config = {
         '3xl': '2rem',
       },
       backgroundImage: {
-        'brand-refresh': "url('/2022-brand-refresh-desktop-teams-background-2@2x.png')",
+        'logo-composition-40': "url('/logo-composition-40@2x.png')",
+        'logo-composition-80': "url('/logo-composition-80@2x.png')",
+      },
+      maxWidth: {
+        'grid-container': '88rem',
+      },
+      boxShadow: {
+        card: '1px 3px 10px rgb(0 0 0 / 0.05)',
+        'card-hover': '1px 3px 15px rgb(0 0 0 / 0.15)',
+        element: '1px 3px 10px rgb(0 0 0 / 0.1)',
+        'card-large': '0px 12px 40px rgb(0 0 0 / 0.12)',
       },
     },
   },

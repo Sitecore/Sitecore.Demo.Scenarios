@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
+import NavBar from './components/NavBar';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -62,7 +63,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`flex bg-brand-refresh ${AvenirNext.variable} ${SFMono.variable} font-sans`}>
+      <body
+        className={`flex bg-white-dark text-black-light ${AvenirNext.variable} ${SFMono.variable} font-sans`}
+      >
+        <NavBar />
         {children}
       </body>
     </html>
