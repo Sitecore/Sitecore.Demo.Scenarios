@@ -1,3 +1,5 @@
+import { JSONContent } from '@tiptap/react';
+
 export enum CategoryOptions {
   taxonomy_categoryoptions_commerce = 'Commerce',
   taxonomy_categoryoptions_content = 'Content',
@@ -65,11 +67,8 @@ export interface ScenarioImage {
 export interface ScenarioSection {
   id: string;
   name: string;
-  text: {
-    type: string;
-    content: unknown[];
-  };
-  images: ScenarioImage[];
+  text: TextField;
+  images: ImagesField;
 }
 
 export interface Scenario {
@@ -88,20 +87,26 @@ export interface Scenario {
   personas: {
     results: Persona[];
   };
-  text1: {
-    type: string;
-    content: unknown[];
-  };
-  images1: {
-    results: ScenarioImage[];
-  };
-  text2: {
-    type: string;
-    content: unknown[];
-  };
-  images2: {
-    results: ScenarioImage[];
-  };
+  text1: TextField;
+  images1: ImagesField;
+  text2: TextField;
+  images2: ImagesField;
+  text3: TextField;
+  images3: ImagesField;
+  text4: TextField;
+  images4: ImagesField;
+  text5: TextField;
+  images5: ImagesField;
+  text6: TextField;
+  images6: ImagesField;
+  text7: TextField;
+  images7: ImagesField;
+  text8: TextField;
+  images8: ImagesField;
+  text9: TextField;
+  images9: ImagesField;
+  text10: TextField;
+  images10: ImagesField;
   scenarioSection: {
     results: ScenarioSection[];
   };
@@ -119,4 +124,13 @@ export interface ScenarioResponse {
   data: {
     scenario: Scenario;
   };
+}
+
+export interface TextField {
+  type: string;
+  content: JSONContent[];
+}
+
+export interface ImagesField {
+  results: ScenarioImage[];
 }

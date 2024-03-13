@@ -9,9 +9,14 @@ import { useEffect, useState } from 'react';
 type BookmarkIconProps = {
   scenarioID: string;
   onClick?: () => void;
+  className?: string;
 };
 
-export default function BookmarkIcon({ scenarioID, onClick = () => undefined }: BookmarkIconProps) {
+export default function BookmarkIcon({
+  scenarioID,
+  onClick = () => undefined,
+  className,
+}: BookmarkIconProps) {
   const [isScenarioBookmarked, setIsScenarioBookmarked] = useState(false);
 
   useEffect(() => setIsScenarioBookmarked(isSavedScenario(scenarioID)), []);
@@ -19,7 +24,7 @@ export default function BookmarkIcon({ scenarioID, onClick = () => undefined }: 
   return isScenarioBookmarked ? (
     <FontAwesomeIcon
       icon={faBookmarkSolid}
-      className="h-6 absolute right-5 top-5 text-violet"
+      className={`text-violet ${className}`}
       onClick={() => {
         setIsScenarioBookmarked(!isScenarioBookmarked);
         unsaveScenarioID(scenarioID);
@@ -29,7 +34,7 @@ export default function BookmarkIcon({ scenarioID, onClick = () => undefined }: 
   ) : (
     <FontAwesomeIcon
       icon={faBookmark}
-      className="h-6 absolute right-5 top-5"
+      className={className}
       onClick={() => {
         setIsScenarioBookmarked(!isScenarioBookmarked);
         saveScenarioID(scenarioID);
