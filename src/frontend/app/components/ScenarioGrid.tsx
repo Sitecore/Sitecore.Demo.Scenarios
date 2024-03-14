@@ -1,3 +1,5 @@
+'use client';
+
 import { productIcons } from '@/helpers/scenario';
 import {
   CategoryOptions,
@@ -9,6 +11,8 @@ import {
 import Tag from './Tag';
 import BookmarkIcon from './BookmarkIcon';
 import Link from 'next/link';
+import { MouseEvent, useCallback } from 'react';
+import { useRouter } from 'next/navigation';
 
 type ScenarioGridProps = {
   scenarios: Scenario[];
@@ -16,6 +20,21 @@ type ScenarioGridProps = {
 };
 
 export default function ScenarioGrid({ scenarios, onBookmarkIconClick }: ScenarioGridProps) {
+  const router = useRouter();
+
+  const handleScenarioClick = useCallback((e: MouseEvent) => {
+    e.preventDefault();
+
+    // Check if bookmark icon was clicked and return with no redirect
+    const tagName = (e.target as HTMLElement).tagName;
+    if (tagName === 'path' || tagName === 'svg') {
+      return;
+    }
+
+    const href = (e?.currentTarget as HTMLAnchorElement).href;
+    router.push(href, { scroll: false });
+  }, []);
+
   return (
     <div className="flex flex-wrap gap-6 py-4 grid-container">
       {scenarios.map((scenario, index) => (
@@ -23,7 +42,7 @@ export default function ScenarioGrid({ scenarios, onBookmarkIconClick }: Scenari
           key={index}
           className="group relative bg-white rounded-lg shadow-card py-10 px-8 basis-[calc(33.33%-1rem)] flex-grow min-w-96 transition-all cursor-pointer hover:shadow-card-hover"
           href={`/scenarios/${scenario.id}`}
-          scroll={false}
+          onClick={handleScenarioClick}
         >
           <BookmarkIcon scenarioID={scenario.id} onClick={onBookmarkIconClick} />
           <h3 className="uppercase text-sm mb-1 tracking-wider font-medium">
