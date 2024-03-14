@@ -7,9 +7,9 @@ type TagProps = {
 
 export default function Tag({ label, iconUrl }: TagProps) {
   return (
-    <div className="flex flex-row gap-1 items-center rounded-[20px] bg-white-darkest px-4 py-2 h-8">
-      {iconUrl && <Image src={iconUrl} alt={label} height={14} width={14} unoptimized />}
-      <span className="text-black-light">{label}</span>
+    <div className="flex flex-row gap-[0.375rem] items-center rounded-full bg-white-darkest px-4 py-[0.375rem]">
+      {iconUrl && <Image src={iconUrl} alt={label} height={16} width={16} unoptimized />}
+      <span className="text-sm">{label}</span>
     </div>
   );
 }

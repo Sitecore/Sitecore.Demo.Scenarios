@@ -1,3 +1,5 @@
+'use client';
+
 import { productIcons } from '@/helpers/scenario';
 import {
   CategoryOptions,
@@ -6,30 +8,52 @@ import {
   Scenario,
   TemplateOptions,
 } from '@/interfaces/scenario';
-import { faBookmark } from '@fortawesome/free-regular-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Tag from './Tag';
+import BookmarkIcon from './BookmarkIcon';
+import Link from 'next/link';
+import { MouseEvent, useCallback } from 'react';
+import { useRouter } from 'next/navigation';
 
 type ScenarioGridProps = {
   scenarios: Scenario[];
+  onBookmarkIconClick?: () => void;
 };
 
-export default function ScenarioGrid({ scenarios }: ScenarioGridProps) {
+export default function ScenarioGrid({ scenarios, onBookmarkIconClick }: ScenarioGridProps) {
+  const router = useRouter();
+
+  const handleScenarioClick = useCallback((e: MouseEvent) => {
+    e.preventDefault();
+
+    // Check if bookmark icon was clicked and return with no redirect
+    const tagName = (e.target as HTMLElement).tagName;
+    if (tagName === 'path' || tagName === 'svg') {
+      return;
+    }
+
+    const href = (e?.currentTarget as HTMLAnchorElement).href;
+    router.push(href, { scroll: false });
+  }, []);
+
   return (
-    <>
+    <div className="flex flex-wrap gap-6 py-4 grid-container">
       {scenarios.map((scenario, index) => (
-        <div
+        <Link
           key={index}
-          className="group w-96 bg-white rounded-lg pt-10 pl-8 pr-10 pb-8 text-black-light cursor-pointer relative"
+          className="group relative bg-white rounded-lg shadow-card py-10 px-8 basis-[calc(33.33%-1rem)] flex-grow min-w-96 transition-all cursor-pointer hover:shadow-card-hover"
+          href={`/scenarios/${scenario.id}`}
+          onClick={handleScenarioClick}
         >
-          <FontAwesomeIcon icon={faBookmark} className="h-6 absolute right-5 top-5" />
-          <h3 className="uppercase text-sm mb-2">
+          <BookmarkIcon scenarioID={scenario.id} onClick={onBookmarkIconClick} />
+          <h3 className="uppercase text-sm mb-1 tracking-wider font-medium">
             {CategoryOptions[scenario.category.results[0].id]}
           </h3>
-          <h2 className="capitalize text-base font-bold mb-4 w-fit group-hover:bg-white-darkest duration-300 ease-out">
-            {scenario.title}
+          <h2 className="capitalize text-2xl font-bold mb-2">
+            <span className="text-highlight group-hover:text-highlight-hover">
+              {scenario.title}
+            </span>
           </h2>
-          <p className="line-clamp-3 mb-4">{scenario.summary}</p>
+          <p className="line-clamp-3 mb-3">{scenario.summary}</p>
           <div className="flex flex-row flex-wrap gap-2">
             {scenario.products.results.map((product) => (
               <Tag
@@ -45,8 +69,10 @@ export default function ScenarioGrid({ scenarios }: ScenarioGridProps) {
               <Tag key={persona.id} label={PersonaOptions[persona.id]} />
             ))}
           </div>
-        </div>
+        </Link>
       ))}
-    </>
+      <div className="basis-[calc(33.33%-1rem)] flex-grow min-w-96"></div>
+      <div className="basis-[calc(33.33%-1rem)] flex-grow min-w-96"></div>
+    </div>
   );
 }

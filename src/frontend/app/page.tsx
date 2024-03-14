@@ -7,25 +7,30 @@ export default async function Home() {
   const scenarios = await getAllScenarios();
 
   return (
-    <main>
-      <section className="mt-16 ml-64 sticky">
-        <h1 className="text-5xl font-bold">Browse</h1>
-        <div className="relative w-96">
-          <input
-            className="w-full mt-6 rounded-[20px] px-5 h-10 shadow cursor-pointer focus:outline-none placeholder:text-black-light"
-            type="text"
-            placeholder="Search"
-          />
-          <FontAwesomeIcon icon={faSearch} className="h-4 absolute right-4 bottom-3" />
+    <>
+      <main className="main-grid-layout">
+        <div className="max-h-full flex flex-col gap-6">
+          <section className="grid-container">
+            <h1 className="text-5xl font-bold mb-6">Browse</h1>
+            <div className="relative max-w-96">
+              <input
+                className="w-full rounded-full pl-5 pr-10 pt-1 h-10 shadow-element cursor-pointer focus:outline-none placeholder:text-black-light"
+                type="text"
+                placeholder="Search"
+              />
+              <FontAwesomeIcon icon={faSearch} className="h-4 absolute right-4 bottom-3" />
+            </div>
+          </section>
+          <section className="overflow-auto custom-scrollbar">
+            {scenarios && scenarios.length > 0 ? (
+              <ScenarioGrid scenarios={scenarios} />
+            ) : (
+              // TODO: Implement empty state as in prototype
+              <h1 className="grid-container font-bold text-4xl">No scenarios available</h1>
+            )}
+          </section>
         </div>
-      </section>
-      <section className="flex flex-row gap-6 ml-64 mt-10">
-        {scenarios && scenarios.length > 0 ? (
-          <ScenarioGrid scenarios={scenarios} />
-        ) : (
-          <h1 className="font-bold text-4xl">No scenarios available</h1>
-        )}
-      </section>
-    </main>
+      </main>
+    </>
   );
 }
