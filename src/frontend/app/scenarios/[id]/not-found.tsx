@@ -5,7 +5,7 @@ export default function NotFound() {
   return (
     <div className="main-grid-layout w-full flex flex-col justify-between">
       <div className="flex flex-col max-w-4xl ml-64">
-        <h2 className="font-bold text-5xl text-black-light mt-8">
+        <h2 className="font-bold text-5xl text-black-light mt-8 mb-6">
           Oops! Looks like you've wandered off the digital path.
         </h2>
         <p className="text-2xl text-black-light">
