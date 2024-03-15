@@ -2,6 +2,8 @@ import { getAllScenarios } from '@/api/queries/scenarios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import ScenarioGrid from './components/ScenarioGrid';
+import { CONTACT_US_URL } from '@/constants/scenario';
+import Link from 'next/link';
 
 export default async function Home() {
   const scenarios = await getAllScenarios();
@@ -25,8 +27,21 @@ export default async function Home() {
             {scenarios && scenarios.length > 0 ? (
               <ScenarioGrid scenarios={scenarios} />
             ) : (
-              // TODO: Implement empty state as in prototype
-              <h1 className="grid-container font-bold text-4xl">No scenarios available</h1>
+              <div className="grid-container flex flex-col bg-white rounded-lg items-center py-20 px-16 max-w-fit transition-all shadow-card hover:shadow-card-hover">
+                <h2 className="font-bold text-3xl text-black-light">
+                  Oops, we haven't found anything.
+                </h2>
+                <p className="text-xl text-black-light">
+                  Try simplifying your search or drop us a line telling us what you need.
+                </p>
+                <Link
+                  className="text-lg text-white mt-8 py-4 px-10 rounded-full bg-violet"
+                  href={CONTACT_US_URL}
+                  target="_blank"
+                >
+                  Contact us
+                </Link>
+              </div>
             )}
           </section>
         </div>
