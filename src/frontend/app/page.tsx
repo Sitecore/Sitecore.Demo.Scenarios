@@ -27,20 +27,22 @@ export default async function Home() {
             {scenarios && scenarios.length > 0 ? (
               <ScenarioGrid scenarios={scenarios} />
             ) : (
-              <div className="grid-container flex flex-col bg-white rounded-lg items-center py-20 px-16 max-w-fit transition-all shadow-card hover:shadow-card-hover">
-                <h2 className="font-bold text-3xl text-black-light">
-                  Oops, we haven't found anything.
-                </h2>
-                <p className="text-xl text-black-light">
-                  Try simplifying your search or drop us a line telling us what you need.
-                </p>
-                <Link
-                  className="text-lg text-white mt-8 py-4 px-10 rounded-full bg-violet"
-                  href={CONTACT_US_URL}
-                  target="_blank"
-                >
-                  Contact us
-                </Link>
+              <div className="grid-container max-w-fit">
+                <div className="bg-white flex flex-col items-center rounded-lg py-20 px-16 transition-all shadow-card hover:shadow-card-hover">
+                  <h2 className="font-bold text-3xl text-black-light">
+                    Oops, we haven't found anything.
+                  </h2>
+                  <p className="text-xl text-black-light">
+                    Try simplifying your search or drop us a line telling us what you need.
+                  </p>
+                  <Link
+                    className="text-lg text-white mt-8 py-4 px-10 rounded-full bg-violet"
+                    href={CONTACT_US_URL}
+                    target="_blank"
+                  >
+                    Contact us
+                  </Link>
+                </div>
               </div>
             )}
           </section>
