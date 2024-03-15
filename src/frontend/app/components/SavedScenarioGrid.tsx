@@ -6,6 +6,8 @@ import ScenarioGrid from './ScenarioGrid';
 import { useCallback, useEffect, useState } from 'react';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
+import Link from 'next/link';
+import Image from 'next/image';
 
 type SavedScenarioGridProps = {
   scenarios: Scenario[];
@@ -43,7 +45,25 @@ export default function SavedScenarioGrid({ scenarios }: SavedScenarioGridProps)
   return savedScenarios?.length > 0 ? (
     <ScenarioGrid scenarios={savedScenarios} onBookmarkIconClick={fetchSavedScenarios} />
   ) : (
-    // TODO: Implement empty state as in prototype
-    <h1 className="grid-container font-bold text-4xl">No saved scenarios available</h1>
+    <div className="grid-container max-w-fit">
+      <div className="bg-white flex flex-col items-center rounded-lg py-20 px-16 transition-all shadow-card hover:shadow-card-hover">
+        <Image
+          src="/undraw_add_notes_re_ln36.svg"
+          alt="No saved scenarios logo"
+          width={300}
+          height={300}
+          className="w-auto"
+          priority
+          unoptimized
+        />
+        <h2 className="font-bold text-3xl text-black-light mt-16">There's nothing here yet.</h2>
+        <p className="text-xl text-black-light">
+          Browse all scenarios to find your favorites and save them for easy access.{' '}
+        </p>
+        <Link className="text-lg text-white mt-8 py-4 px-10 rounded-full bg-violet" href="/">
+          Browse all
+        </Link>
+      </div>
+    </div>
   );
 }
