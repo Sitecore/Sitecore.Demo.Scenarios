@@ -14,15 +14,15 @@ type CodeBlockProps = {
 };
 
 export default function CodeBlock({ code, language }: CodeBlockProps) {
-  const [copied, setCopied] = useState(false);
+  const [isCopied, setIsCopied] = useState(false);
   const notify = () => {
     copy();
   };
 
   const copy = () => {
-    setCopied(true);
+    setIsCopied(true);
     setTimeout(() => {
-      setCopied(false);
+      setIsCopied(false);
     }, 3000);
   };
 
@@ -45,7 +45,7 @@ export default function CodeBlock({ code, language }: CodeBlockProps) {
     <div className="code-block">
       <button>
         <CopyToClipboard text={code} onCopy={() => notify()}>
-          {copied ? (
+          {isCopied ? (
             <FontAwesomeIcon icon={faCheck} className="check-icon" />
           ) : (
             <FontAwesomeIcon icon={faCopy} className="copy-icon" />
