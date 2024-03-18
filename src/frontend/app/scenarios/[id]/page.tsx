@@ -17,7 +17,6 @@ export async function generateMetadata(
     openGraph: {
       title: scenario?.title,
       description: scenario?.summary,
-      type: 'article',
     },
   };
 }
