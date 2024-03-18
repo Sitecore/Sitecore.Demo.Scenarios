@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
-import NavBar from './components/NavBar';
 import './globals.css';
+import { SidebarContextProvider } from './context/sidebar';
 
 export const metadata: Metadata = {
   title: 'Sitecore Demo Scenarios',
@@ -66,7 +66,7 @@ export default function RootLayout({
       <body
         className={`flex bg-white-dark text-black-light ${AvenirNext.variable} ${SFMono.variable} font-sans`}
       >
-        {children}
+        <SidebarContextProvider>{children}</SidebarContextProvider>
       </body>
     </html>
   );

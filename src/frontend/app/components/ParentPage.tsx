@@ -1,8 +1,6 @@
 'use client';
 
-import { isSavedScenario } from '@/helpers/scenario';
-import { useEffect, useState } from 'react';
-import { useParams } from 'next/navigation';
+import { useSidebarContext } from '../context/sidebar';
 
 export default function ParentPage({
   homePage,
@@ -11,13 +9,7 @@ export default function ParentPage({
   homePage: JSX.Element;
   favoritesPage: JSX.Element;
 }) {
-  const { id } = useParams();
-  const [showFavoritesPage, setShowFavoritesPage] = useState(false);
+  const { page } = useSidebarContext();
 
-  // Check if current route belongs to a saved scenario details page
-  useEffect(() => {
-    setShowFavoritesPage(isSavedScenario(id as string));
-  }, []);
-
-  return <>{showFavoritesPage ? favoritesPage : homePage}</>;
+  return <>{page === 'home' ? homePage : favoritesPage}</>;
 }

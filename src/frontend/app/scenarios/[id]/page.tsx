@@ -1,8 +1,8 @@
 import { getScenarioByID } from '@/api/queries/scenarios';
 import ParentPage from '@/app/components/ParentPage';
 import ScenarioContent from '@/app/components/ScenarioContent';
-import FavoritesPage from '@/app/favorites/page';
-import Home from '@/app/page';
+import FavoritesPage from '@/app/(dashboard)/favorites/page';
+import Home from '@/app/(dashboard)/page';
 import { notFound } from 'next/navigation';
 
 // `app/scenarios/[id]/page.tsx` is the UI for the `/scenarios/[id]` URL
