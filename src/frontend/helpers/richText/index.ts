@@ -20,7 +20,7 @@ import { Link, LinkOptions } from '@tiptap/extension-link';
 import { Text } from '@tiptap/extension-text';
 import { Underline, UnderlineOptions } from '@tiptap/extension-underline';
 import { ImagesField, TextField } from '@/interfaces/scenario';
-import { generateHTML } from '@tiptap/react';
+import { generateHTML } from '@tiptap/html';
 
 export interface richTextOptions {
   blockquote: Partial<BlockquoteOptions> | false;
