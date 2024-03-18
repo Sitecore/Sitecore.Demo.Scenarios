@@ -76,7 +76,7 @@ body {
   }
 
   .button {
-    @apply inline-block py-4 px-10 text-lg font-semibold text-white rounded-full bg-violet transition-colors hover:bg-violet-dark;
+    @apply inline-block py-3 px-10 text-lg font-semibold text-white rounded-full bg-violet transition-colors hover:bg-violet-dark;
   }
 
   .code-block {

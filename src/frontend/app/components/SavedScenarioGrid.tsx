@@ -45,22 +45,24 @@ export default function SavedScenarioGrid({ scenarios }: SavedScenarioGridProps)
   return savedScenarios?.length > 0 ? (
     <ScenarioGrid scenarios={savedScenarios} onBookmarkIconClick={fetchSavedScenarios} />
   ) : (
-    <div className="grid-container max-w-fit">
-      <div className="bg-white flex flex-col items-center rounded-lg py-20 px-16 transition-all shadow-card hover:shadow-card-hover">
+    <div className="grid-container h-full flex justify-center items-center pb-6">
+      <div className="flex flex-col items-center text-center max-w-[50rem] p-16 rounded-lg bg-white shadow-card-large">
         <Image
           src="/undraw_add_notes_re_ln36.svg"
           alt="No saved scenarios logo"
           width={300}
           height={300}
-          className="w-auto"
+          className="w-72"
           priority
           unoptimized
         />
-        <h2 className="font-bold text-3xl text-black-light mt-16">There's nothing here yet.</h2>
-        <p className="text-xl text-black-light">
+        <h2 className="text-2xl leading-normal font-bold mt-16 md:text-3xl md:leading-normal">
+          There's nothing here yet.
+        </h2>
+        <p className="text-xl">
           Browse all scenarios to find your favorites and save them for easy access.{' '}
         </p>
-        <Link className="text-lg text-white mt-8 py-4 px-10 rounded-full bg-violet" href="/">
+        <Link className="button mt-6" href="/">
           Browse all
         </Link>
       </div>
