@@ -24,26 +24,22 @@ export async function generateMetadata(
   const categories = scenario.category.results
     .map(function (k) {
       return CategoryOptions[k.id];
-    })
-    .join(',');
+    });
 
   const products = scenario.products.results
     .map(function (k) {
       return ProductOptions[k.id];
-    })
-    .join(',');
+    });
 
   const personas = scenario.personas.results
     .map(function (k) {
       return PersonaOptions[k.id];
-    })
-    .join(',');
+    });
 
   const templates = scenario.templates.results
     .map(function (k) {
       return TemplateOptions[k.id];
-    })
-    .join(',');
+    });
 
   return {
     title: scenario?.title,
