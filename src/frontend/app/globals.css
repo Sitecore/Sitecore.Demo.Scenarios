@@ -25,6 +25,10 @@ body {
     @apply pt-16 h-full bg-logo-composition-40 bg-cover bg-no-repeat bg-center;
   }
 
+  .main-grid-layout-vivid {
+    @apply pt-16 h-full bg-logo-composition-80 bg-cover bg-no-repeat bg-center;
+  }
+
   .grid-container {
     @apply w-full max-w-grid-container px-16 mx-auto;
   }
@@ -53,6 +57,10 @@ body {
         @apply w-full h-full top-0 left-0 rounded-none;
       }
     }
+  }
+
+  .button {
+    @apply inline-block py-4 px-10 text-lg font-semibold text-white rounded-full bg-violet transition-colors hover:bg-violet-dark;
   }
 }
 
