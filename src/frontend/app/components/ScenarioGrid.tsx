@@ -1,18 +1,11 @@
 'use client';
 
-import { productIcons } from '@/helpers/scenario';
-import {
-  CategoryOptions,
-  PersonaOptions,
-  ProductOptions,
-  Scenario,
-  TemplateOptions,
-} from '@/interfaces/scenario';
-import Tag from './Tag';
-import BookmarkIcon from './BookmarkIcon';
-import Link from 'next/link';
 import { MouseEvent, useCallback } from 'react';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { CategoryOptions, Scenario } from '@/interfaces/scenario';
+import BookmarkIcon from './BookmarkIcon';
+import TagList from './TagList';
 
 type ScenarioGridProps = {
   scenarios: Scenario[];
@@ -44,7 +37,11 @@ export default function ScenarioGrid({ scenarios, onBookmarkIconClick }: Scenari
           href={`/scenarios/${scenario.id}`}
           onClick={handleScenarioClick}
         >
-          <BookmarkIcon scenarioID={scenario.id} onClick={onBookmarkIconClick} />
+          <BookmarkIcon
+            scenarioID={scenario.id}
+            onClick={onBookmarkIconClick}
+            className={'h-6 absolute right-5 top-5'}
+          />
           <h3 className="uppercase text-sm mb-1 tracking-wider font-medium">
             {CategoryOptions[scenario.category.results[0].id]}
           </h3>
@@ -54,21 +51,7 @@ export default function ScenarioGrid({ scenarios, onBookmarkIconClick }: Scenari
             </span>
           </h2>
           <p className="line-clamp-3 mb-3">{scenario.summary}</p>
-          <div className="flex flex-row flex-wrap gap-2">
-            {scenario.products.results.map((product) => (
-              <Tag
-                key={product.id}
-                label={ProductOptions[product.id]}
-                iconUrl={productIcons[ProductOptions[product.id]]}
-              />
-            ))}
-            {scenario.templates.results.map((template) => (
-              <Tag key={template.id} label={TemplateOptions[template.id]} />
-            ))}
-            {scenario.personas.results.map((persona) => (
-              <Tag key={persona.id} label={PersonaOptions[persona.id]} />
-            ))}
-          </div>
+          <TagList scenario={scenario} />
         </Link>
       ))}
       <div className="basis-[calc(33.33%-1rem)] flex-grow min-w-96"></div>

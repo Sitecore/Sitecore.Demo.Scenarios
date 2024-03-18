@@ -66,7 +66,6 @@ export default function RootLayout({
       <body
         className={`flex bg-white-dark text-black-light ${AvenirNext.variable} ${SFMono.variable} font-sans`}
       >
-        <NavBar />
         {children}
       </body>
     </html>
