@@ -2,6 +2,8 @@ import { getAllScenarios } from '@/api/queries/scenarios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import ScenarioGrid from './components/ScenarioGrid';
+import { CONTACT_US_URL } from '@/constants/scenario';
+import ErrorCard from './components/ErrorCard';
 
 export default async function Home() {
   const scenarios = await getAllScenarios();
@@ -9,7 +11,7 @@ export default async function Home() {
   return (
     <>
       <main className="main-grid-layout">
-        <div className="max-h-full flex flex-col gap-6">
+        <div className="h-full flex flex-col gap-6">
           <section className="grid-container">
             <h1 className="text-5xl font-bold mb-6">Browse</h1>
             <div className="relative max-w-96">
@@ -21,12 +23,15 @@ export default async function Home() {
               <FontAwesomeIcon icon={faSearch} className="h-4 absolute right-4 bottom-3" />
             </div>
           </section>
-          <section className="overflow-auto custom-scrollbar">
+          <section className="h-full overflow-auto custom-scrollbar">
             {scenarios && scenarios.length > 0 ? (
               <ScenarioGrid scenarios={scenarios} />
             ) : (
-              // TODO: Implement empty state as in prototype
-              <h1 className="grid-container font-bold text-4xl">No scenarios available</h1>
+              <ErrorCard
+                title="Oops, we haven't found anything."
+                subtitle="Try simplifying your search or drop us a line telling us what you need."
+                button={{ text: 'Contact us', href: CONTACT_US_URL, target: '_blank' }}
+              />
             )}
           </section>
         </div>
