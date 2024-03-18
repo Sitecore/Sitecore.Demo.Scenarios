@@ -64,6 +64,7 @@ const config: Config = {
         'card-hover': '1px 3px 15px rgb(0 0 0 / 0.15)',
         element: '1px 3px 10px rgb(0 0 0 / 0.1)',
         'card-large': '0px 12px 40px rgb(0 0 0 / 0.12)',
+        'card-large-hover': '0px 12px 40px rgb(0 0 0 / 0.2)',
       },
     },
   },
