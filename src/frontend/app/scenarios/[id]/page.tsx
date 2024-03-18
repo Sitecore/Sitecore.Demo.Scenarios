@@ -3,7 +3,23 @@ import ParentPage from '@/app/components/ParentPage';
 import ScenarioContent from '@/app/components/ScenarioContent';
 import FavoritesPage from '@/app/(dashboard)/favorites/page';
 import Home from '@/app/(dashboard)/page';
+import { Metadata, ResolvingMetadata } from 'next';
 import { notFound } from 'next/navigation';
+
+export async function generateMetadata(
+  { params }: { params: { id: string } },
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const scenario = await getScenarioByID(params.id);
+
+  return {
+    title: scenario?.title,
+    openGraph: {
+      title: scenario?.title,
+      description: scenario?.summary,
+    },
+  };
+}
 
 // `app/scenarios/[id]/page.tsx` is the UI for the `/scenarios/[id]` URL
 export default async function ScenarioDetailsPage({ params }: { params: { id: string } }) {
