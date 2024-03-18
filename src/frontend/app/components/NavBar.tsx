@@ -12,6 +12,7 @@ import { useState, useEffect } from 'react';
 export default function NavBar() {
   const pathname = usePathname();
   const isFavoritesRoute = pathname.includes('/favorites');
+  const isIntroRoute = pathname.includes('/intro');
 
   const [isSavedScenarioDetailsPage, setIsSavedScenarioDetailsPage] = useState(false);
 
@@ -19,6 +20,9 @@ export default function NavBar() {
   useEffect(() => {
     setIsSavedScenarioDetailsPage(isSavedScenario(pathname.split('/')[2]));
   }, []);
+
+  // TODO: Better solution when navigation in refined
+  if (isIntroRoute) return <></>;
 
   return (
     <aside className="w-24 h-full bg-white">

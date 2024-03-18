@@ -1,6 +1,31 @@
 import { fetchGraphQL } from '@/api';
 import { AllScenariosResponse, Scenario, ScenarioResponse } from '@/interfaces/scenario';
 
+const imagesQuery = `
+  results {
+    id
+    name
+    description
+    fileUrl
+  }
+`;
+
+const getFieldsQuery = () => {
+  const emptyArray = Array.from({ length: 10 });
+
+  const result = emptyArray.map((_, index) => {
+    const text = `
+      text${index + 1}
+      images${index + 1} {
+        ${imagesQuery}
+      }
+    `;
+    return text;
+  });
+
+  return result.join('');
+};
+
 const scenariosQuery = `
   {
     allScenario {
@@ -27,41 +52,6 @@ const scenariosQuery = `
         personas {
           results {
             id
-          }
-        }
-        text1
-        images1 {
-          results {
-            id
-            name
-            description
-            fileUrl
-          }
-        }
-        text2
-        images2 {
-          results {
-            id
-            name
-            description
-            fileUrl
-          }
-        }
-        scenarioSection {
-          results {
-          ... on ScenarioSection {
-              id
-              name
-              text
-              images {
-                results {
-                  id
-                  name
-                  description
-                  fileUrl
-                }
-              }
-            }
           }
         }
       }
@@ -105,24 +95,7 @@ const getScenarioByIDQuery = (id: string) => `
           id
         }
       }
-      text1
-      images1 {
-        results {
-          id
-          name
-          description
-          fileUrl
-        }
-      }
-      text2
-      images2 {
-        results {
-          id
-          name
-          description
-          fileUrl
-        }
-      }
+      ${getFieldsQuery()}
       scenarioSection {
         results {
         ... on ScenarioSection {
@@ -130,12 +103,7 @@ const getScenarioByIDQuery = (id: string) => `
             name
             text
             images {
-              results {
-                id
-                name
-                description
-                fileUrl
-              }
+              ${imagesQuery}
             }
           }
         }
