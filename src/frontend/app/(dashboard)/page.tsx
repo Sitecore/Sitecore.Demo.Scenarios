@@ -1,9 +1,9 @@
 import { getAllScenarios } from '@/api/queries/scenarios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import ScenarioGrid from './components/ScenarioGrid';
+import ScenarioGrid from '../components/ScenarioGrid';
 import { CONTACT_US_URL } from '@/constants/scenario';
-import ErrorCard from './components/ErrorCard';
+import ErrorCard from '../components/ErrorCard';
 
 export default async function Home() {
   const scenarios = await getAllScenarios();

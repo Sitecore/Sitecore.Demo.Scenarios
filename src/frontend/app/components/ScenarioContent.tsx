@@ -7,9 +7,12 @@ import ScenarioContentBody from './ScenarioContentBody';
 import BookmarkIcon from './BookmarkIcon';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUp, faClose } from '@fortawesome/free-solid-svg-icons';
+import { useSidebarContext } from '../context/sidebar';
+import Link from 'next/link';
 
 export default function ScenarioContent({ scenario }: { scenario: Scenario }) {
   const customScrollbarRef = useRef<HTMLDivElement>(null);
+  const { page } = useSidebarContext();
 
   const scrollToTop = () => {
     if (customScrollbarRef.current) {
@@ -30,10 +33,9 @@ export default function ScenarioContent({ scenario }: { scenario: Scenario }) {
         <TagList scenario={scenario} />
         <ScenarioContentBody scenario={scenario} />
       </div>
-      {/* TODO: Implement close  */}
-      <button className="button-round fixed top-8 right-6">
+      <Link href={page === 'home' ? '/' : '/saved'} className="button-round fixed top-8 right-6">
         <FontAwesomeIcon icon={faClose} />
-      </button>
+      </Link>
       <div className="fixed bottom-8 right-6">
         <button className="button-round mb-4">
           <BookmarkIcon scenarioID={scenario.id} />

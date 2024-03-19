@@ -1,8 +1,8 @@
 import { getScenarioByID } from '@/api/queries/scenarios';
 import ParentPage from '@/app/components/ParentPage';
 import ScenarioContent from '@/app/components/ScenarioContent';
-import FavoritesPage from '@/app/favorites/page';
-import Home from '@/app/page';
+import SavedPage from '@/app/(dashboard)/saved/page';
+import Home from '@/app/(dashboard)/page';
 import {
   CategoryOptions,
   PersonaOptions,
@@ -21,25 +21,21 @@ export async function generateMetadata(
     return {};
   }
 
-  const categories = scenario.category.results
-    .map(function (k) {
-      return CategoryOptions[k.id];
-    });
+  const categories = scenario.category.results.map(function (k) {
+    return CategoryOptions[k.id];
+  });
 
-  const products = scenario.products.results
-    .map(function (k) {
-      return ProductOptions[k.id];
-    });
+  const products = scenario.products.results.map(function (k) {
+    return ProductOptions[k.id];
+  });
 
-  const personas = scenario.personas.results
-    .map(function (k) {
-      return PersonaOptions[k.id];
-    });
+  const personas = scenario.personas.results.map(function (k) {
+    return PersonaOptions[k.id];
+  });
 
-  const templates = scenario.templates.results
-    .map(function (k) {
-      return TemplateOptions[k.id];
-    });
+  const templates = scenario.templates.results.map(function (k) {
+    return TemplateOptions[k.id];
+  });
 
   return {
     title: scenario?.title,
@@ -66,7 +62,7 @@ export default async function ScenarioDetailsPage({ params }: { params: { id: st
     <>
       <div className="flex w-full h-full">
         <div className="grid-sidebar basis-1/3 w-1/3 h-full max-w-lg">
-          <ParentPage homePage={<Home />} favoritesPage={<FavoritesPage />} />
+          <ParentPage homePage={<Home />} savedPage={<SavedPage />} />
         </div>
         <ScenarioContent scenario={scenario} />
       </div>
