@@ -50,7 +50,7 @@ export default function SavedScenarioGrid({ scenarios }: SavedScenarioGridProps)
         alt: 'No saved scenarios logo',
         width: 300,
         height: 300,
-        className: 'w-72',
+        className: 'w-72 max-w-[60%]',
       }}
       title="There's nothing here yet."
       subtitle="Browse all scenarios to find your favorites and save them for easy access."

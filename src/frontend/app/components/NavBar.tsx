@@ -6,10 +6,16 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useSidebarContext } from '../context/sidebar';
-import { useCallback } from 'react';
+import { useCallback, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 
 export default function NavBar({ noPageChange }: { noPageChange?: boolean }) {
   const { page, setPage } = useSidebarContext();
+  const pathname = usePathname();
+
+  useEffect(() => {
+    pathname.includes('/favorites') && setPage('saved');
+  }, []);
 
   const handleLinkClick = useCallback((page: 'home' | 'saved') => {
     setPage(page);
