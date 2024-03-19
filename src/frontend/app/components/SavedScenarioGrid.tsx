@@ -7,6 +7,7 @@ import { useCallback, useEffect, useState } from 'react';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import ErrorCard from './ErrorCard';
+import { useSidebarContext } from '../context/sidebar';
 
 type SavedScenarioGridProps = {
   scenarios: Scenario[];
@@ -15,6 +16,7 @@ type SavedScenarioGridProps = {
 export default function SavedScenarioGrid({ scenarios }: SavedScenarioGridProps) {
   const [savedScenarios, setSavedScenarios] = useState([] as Scenario[]);
   const [isLoading, setIsLoading] = useState(true);
+  const { setPage } = useSidebarContext();
 
   const fetchSavedScenarios = useCallback(() => {
     setIsLoading(true);
@@ -50,11 +52,17 @@ export default function SavedScenarioGrid({ scenarios }: SavedScenarioGridProps)
         alt: 'No saved scenarios logo',
         width: 300,
         height: 300,
-        className: 'w-72',
+        className: 'w-72 max-w-[60%]',
       }}
       title="There's nothing here yet."
       subtitle="Browse all scenarios to find your favorites and save them for easy access."
-      button={{ text: 'Browse all', href: '/' }}
+      button={{
+        text: 'Browse all',
+        href: '/',
+        onClick: () => {
+          setPage('home');
+        },
+      }}
     />
   );
 }

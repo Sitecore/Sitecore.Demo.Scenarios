@@ -17,6 +17,7 @@ type ErrorCardProps = {
     text: string;
     href: string;
     target?: '_blank';
+    onClick?: () => void;
   };
 };
 
@@ -39,7 +40,12 @@ export default function ErrorCard({ image, title, subtitle, button }: ErrorCardP
         )}
         <h2 className="text-2xl leading-normal font-bold md:text-3xl md:leading-normal">{title}</h2>
         <p className="text-xl">{subtitle}</p>
-        <Link className="button mt-6" href={button.href} target={button.target || '_self'}>
+        <Link
+          className="button mt-6"
+          href={button.href}
+          target={button.target || '_self'}
+          onClick={button.onClick}
+        >
           {button.text}
         </Link>
       </div>
