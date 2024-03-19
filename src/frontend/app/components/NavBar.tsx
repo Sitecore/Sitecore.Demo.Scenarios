@@ -14,7 +14,7 @@ export default function NavBar({ noPageChange }: { noPageChange?: boolean }) {
   const pathname = usePathname();
 
   useEffect(() => {
-    pathname.includes('/favorites') && setPage('saved');
+    pathname.includes('/saved') && setPage('saved');
   }, []);
 
   const handleLinkClick = useCallback((page: 'home' | 'saved') => {
@@ -58,7 +58,7 @@ export default function NavBar({ noPageChange }: { noPageChange?: boolean }) {
               <FontAwesomeIcon icon={faSearch} className="h-6 w-6 m-9" />
             </Link>
             <Link
-              href="/favorites"
+              href="/saved"
               className={`h-24 w-24 ${page === 'saved' && 'active'} navbutton`}
               scroll={false}
               onClick={() => handleLinkClick('saved')}

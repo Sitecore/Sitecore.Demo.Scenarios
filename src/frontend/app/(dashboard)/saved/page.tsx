@@ -1,8 +1,7 @@
-// `app/favorites/page.tsx` is the UI for the `/favorites` URL
 import { getAllScenarios } from '@/api/queries/scenarios';
 import SavedScenarioGrid from '../../components/SavedScenarioGrid';
 
-export default async function FavoritesPage() {
+export default async function SavedPage() {
   const scenarios = await getAllScenarios();
 
   return (

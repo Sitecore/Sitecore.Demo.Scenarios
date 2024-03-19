@@ -1,7 +1,7 @@
 import { getScenarioByID } from '@/api/queries/scenarios';
 import ParentPage from '@/app/components/ParentPage';
 import ScenarioContent from '@/app/components/ScenarioContent';
-import FavoritesPage from '@/app/(dashboard)/favorites/page';
+import SavedPage from '@/app/(dashboard)/saved/page';
 import Home from '@/app/(dashboard)/page';
 import { Metadata, ResolvingMetadata } from 'next';
 import { notFound } from 'next/navigation';
@@ -31,7 +31,7 @@ export default async function ScenarioDetailsPage({ params }: { params: { id: st
     <>
       <div className="flex w-full h-full">
         <div className="grid-sidebar basis-1/3 w-1/3 h-full max-w-lg">
-          <ParentPage homePage={<Home />} favoritesPage={<FavoritesPage />} />
+          <ParentPage homePage={<Home />} savedPage={<SavedPage />} />
         </div>
         <ScenarioContent scenario={scenario} />
       </div>
