@@ -33,7 +33,6 @@ export default function ScenarioContent({ scenario }: { scenario: Scenario }) {
         <TagList scenario={scenario} />
         <ScenarioContentBody scenario={scenario} />
       </div>
-      {/* TODO: Implement close  */}
       <Link
         href={page === 'home' ? '/' : '/favorites'}
         className="button-round fixed top-8 right-6"
