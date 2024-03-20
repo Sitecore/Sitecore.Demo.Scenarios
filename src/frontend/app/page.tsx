@@ -4,14 +4,14 @@ import IntroScreen from './components/IntroScreen';
 import BrowseScreen from './components/BrowseScreen';
 import NavBar from './components/NavBar';
 
-export default async function Home({ asSidebar }: { asSidebar?: boolean }) {
+export default async function Home() {
   const scenarios = await getAllScenarios();
   const cookieStore = cookies();
   const hasCookie = cookieStore.has('hasVisited');
 
-  return hasCookie || asSidebar ? (
+  return hasCookie ? (
     <>
-      {!asSidebar && <NavBar />}
+      <NavBar />
       <BrowseScreen scenarios={scenarios} />
     </>
   ) : (
