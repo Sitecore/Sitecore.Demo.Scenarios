@@ -8,9 +8,7 @@ export default async function SavedScreen({ scenarios }: { scenarios: Scenario[]
         <section className="grid-container">
           <h1 className="text-5xl font-bold">Saved</h1>
         </section>
-        <section className="h-full overflow-auto custom-scrollbar">
-          {scenarios && scenarios.length > 0 && <SavedScenarioGrid scenarios={scenarios} />}
-        </section>
+        {scenarios && scenarios.length > 0 && <SavedScenarioGrid scenarios={scenarios} />}
       </div>
     </main>
   );

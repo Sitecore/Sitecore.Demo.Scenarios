@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import './globals.css';
 import { SidebarContextProvider } from './context/sidebar';
+import { SavedScenariosProvider } from './context/savedScenarios';
+import { getAllScenarios } from '@/api/queries/scenarios';
 
 export const metadata: Metadata = {
   title: 'Sitecore Demo Scenarios',
@@ -56,17 +58,21 @@ const SFMono = localFont({
   fallback: ['monospace'],
 });
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const scenarios = await getAllScenarios();
+
   return (
     <html lang="en">
       <body
         className={`flex bg-white-dark text-black-light ${AvenirNext.variable} ${SFMono.variable} font-sans`}
       >
-        <SidebarContextProvider>{children}</SidebarContextProvider>
+        <SavedScenariosProvider scenarios={scenarios}>
+          <SidebarContextProvider>{children}</SidebarContextProvider>
+        </SavedScenariosProvider>
       </body>
     </html>
   );

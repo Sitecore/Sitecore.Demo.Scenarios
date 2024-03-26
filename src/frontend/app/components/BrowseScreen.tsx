@@ -2,12 +2,12 @@
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import ScenarioGrid from '../components/ScenarioGrid';
 import { CONTACT_US_URL } from '@/constants/scenario';
 import ErrorCard from '../components/ErrorCard';
 import { Scenario } from '@/interfaces/scenario';
 import { useEffect } from 'react';
 import { createHasVisitedCookie } from '../actions';
+import ScenarioGridWrapper from './ScenarioGridWrapper';
 
 export default function BrowseScreen({ scenarios }: { scenarios: Scenario[] | null }) {
   useEffect(() => {
@@ -28,17 +28,16 @@ export default function BrowseScreen({ scenarios }: { scenarios: Scenario[] | nu
             <FontAwesomeIcon icon={faSearch} className="h-4 absolute right-4 bottom-3" />
           </div>
         </section>
-        <section className="h-full overflow-auto custom-scrollbar">
-          {scenarios && scenarios.length > 0 ? (
-            <ScenarioGrid scenarios={scenarios} />
-          ) : (
+        <ScenarioGridWrapper
+          scenarios={scenarios}
+          errorCard={
             <ErrorCard
               title="Oops, we haven't found anything."
               subtitle="Try simplifying your search or drop us a line telling us what you need."
               button={{ text: 'Contact us', href: CONTACT_US_URL, target: '_blank' }}
             />
-          )}
-        </section>
+          }
+        />
       </div>
     </main>
   );
