@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import './globals.css';
 import { SidebarContextProvider } from './context/sidebar';
-import { SavedScenariosProvider } from './context/savedScenarios';
+import { SavedScenariosContextProvider } from './context/savedScenarios';
 import { getAllScenarios } from '@/api/queries/scenarios';
 
 export const metadata: Metadata = {
@@ -70,9 +70,9 @@ export default async function RootLayout({
       <body
         className={`flex bg-white-dark text-black-light ${AvenirNext.variable} ${SFMono.variable} font-sans`}
       >
-        <SavedScenariosProvider scenarios={scenarios}>
+        <SavedScenariosContextProvider scenarios={scenarios}>
           <SidebarContextProvider>{children}</SidebarContextProvider>
-        </SavedScenariosProvider>
+        </SavedScenariosContextProvider>
       </body>
     </html>
   );

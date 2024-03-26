@@ -11,18 +11,18 @@ import React, {
   useEffect,
 } from 'react';
 
-interface SavedScenariosContextType {
+interface ISavedScenariosContext {
   isLoading: boolean;
   savedScenarios: Scenario[];
   updateSavedScenarios: () => void;
 }
 
-const SavedScenariosContext = createContext<SavedScenariosContextType | undefined>(undefined);
+const SavedScenariosContext = createContext<ISavedScenariosContext | undefined>(undefined);
 
-export const useSavedScenarios = (): SavedScenariosContextType => {
+export const useSavedScenariosContext = (): ISavedScenariosContext => {
   const context = useContext(SavedScenariosContext);
   if (!context) {
-    throw new Error('useSavedScenarios must be used within a SavedScenariosProvider');
+    throw new Error('useSavedScenariosContext must be used within a SavedScenariosProvider');
   }
   return context;
 };
@@ -32,7 +32,10 @@ interface SavedScenariosProviderProps {
   scenarios: Scenario[] | null;
 }
 
-export const SavedScenariosProvider = ({ children, scenarios }: SavedScenariosProviderProps) => {
+export const SavedScenariosContextProvider = ({
+  children,
+  scenarios,
+}: SavedScenariosProviderProps) => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [savedScenarios, setSavedScenarios] = useState<Scenario[]>([]);
 

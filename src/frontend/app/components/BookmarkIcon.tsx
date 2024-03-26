@@ -5,7 +5,7 @@ import { faBookmark } from '@fortawesome/free-regular-svg-icons';
 import { faBookmark as faBookmarkSolid } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useEffect, useState } from 'react';
-import { useSavedScenarios } from '../context/savedScenarios';
+import { useSavedScenariosContext } from '../context/savedScenarios';
 
 type BookmarkIconProps = {
   scenarioID: string;
@@ -14,7 +14,7 @@ type BookmarkIconProps = {
 
 export default function BookmarkIcon({ scenarioID, className }: BookmarkIconProps) {
   const [isScenarioBookmarked, setIsScenarioBookmarked] = useState(false);
-  const { updateSavedScenarios } = useSavedScenarios();
+  const { updateSavedScenarios } = useSavedScenariosContext();
 
   useEffect(() => setIsScenarioBookmarked(isSavedScenario(scenarioID)), []);
 

@@ -7,7 +7,7 @@ import ErrorCard from './ErrorCard';
 import { useSidebarContext } from '../context/sidebar';
 import { useParams } from 'next/navigation';
 import ScenarioGridWrapper from './ScenarioGridWrapper';
-import { useSavedScenarios } from '../context/savedScenarios';
+import { useSavedScenariosContext } from '../context/savedScenarios';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 
@@ -21,7 +21,7 @@ export default function SavedScenarioGrid({ scenarios }: SavedScenarioGridProps)
   const scrollRef = useRef<HTMLAnchorElement>(null);
   const params = useParams<{ id: string }>();
   const { scrollPos } = useSidebarContext();
-  const { isLoading, savedScenarios } = useSavedScenarios();
+  const { isLoading, savedScenarios } = useSavedScenariosContext();
 
   useEffect(() => {
     if (!scrollRef.current || !params) return;
