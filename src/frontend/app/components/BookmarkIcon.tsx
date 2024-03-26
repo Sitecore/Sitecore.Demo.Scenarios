@@ -14,7 +14,7 @@ type BookmarkIconProps = {
 
 export default function BookmarkIcon({ scenarioID, className }: BookmarkIconProps) {
   const [isScenarioBookmarked, setIsScenarioBookmarked] = useState(false);
-  const { fetchSavedScenarios } = useSavedScenarios();
+  const { updateSavedScenarios } = useSavedScenarios();
 
   useEffect(() => setIsScenarioBookmarked(isSavedScenario(scenarioID)), []);
 
@@ -25,7 +25,7 @@ export default function BookmarkIcon({ scenarioID, className }: BookmarkIconProp
       onClick={() => {
         setIsScenarioBookmarked(!isScenarioBookmarked);
         unsaveScenarioID(scenarioID);
-        fetchSavedScenarios();
+        updateSavedScenarios();
       }}
     />
   ) : (
@@ -35,7 +35,7 @@ export default function BookmarkIcon({ scenarioID, className }: BookmarkIconProp
       onClick={() => {
         setIsScenarioBookmarked(!isScenarioBookmarked);
         saveScenarioID(scenarioID);
-        fetchSavedScenarios();
+        updateSavedScenarios();
       }}
     />
   );

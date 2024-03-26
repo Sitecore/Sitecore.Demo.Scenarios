@@ -11,15 +11,14 @@ import React, {
   useEffect,
 } from 'react';
 
-// Create a context to hold the saved scenarios and the fetch function
 interface SavedScenariosContextType {
+  isLoading: boolean;
   savedScenarios: Scenario[];
-  fetchSavedScenarios: () => void;
+  updateSavedScenarios: () => void;
 }
 
 const SavedScenariosContext = createContext<SavedScenariosContextType | undefined>(undefined);
 
-// Custom hook to use the saved scenarios context
 export const useSavedScenarios = (): SavedScenariosContextType => {
   const context = useContext(SavedScenariosContext);
   if (!context) {
@@ -28,30 +27,31 @@ export const useSavedScenarios = (): SavedScenariosContextType => {
   return context;
 };
 
-// Provider component to manage saved scenarios state and provide the fetch function
 interface SavedScenariosProviderProps {
   children: ReactNode;
   scenarios: Scenario[] | null;
 }
 
 export const SavedScenariosProvider = ({ children, scenarios }: SavedScenariosProviderProps) => {
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   const [savedScenarios, setSavedScenarios] = useState<Scenario[]>([]);
 
   useEffect(() => {
-    fetchSavedScenarios();
+    updateSavedScenarios();
   }, []);
 
-  // Function to fetch saved scenarios
-  const fetchSavedScenarios = useCallback(() => {
+  const updateSavedScenarios = useCallback(() => {
+    setIsLoading(true);
     const savedScenarioIDs = localStorage.getItem(SAVED_SCENARIOS_KEY)?.split(',') ?? [];
     const filteredScenarios =
       scenarios?.filter((scenario) => savedScenarioIDs.includes(scenario.id)) ?? [];
 
     setSavedScenarios(filteredScenarios);
+    setIsLoading(false);
   }, []);
 
   return (
-    <SavedScenariosContext.Provider value={{ savedScenarios, fetchSavedScenarios }}>
+    <SavedScenariosContext.Provider value={{ isLoading, savedScenarios, updateSavedScenarios }}>
       {children}
     </SavedScenariosContext.Provider>
   );

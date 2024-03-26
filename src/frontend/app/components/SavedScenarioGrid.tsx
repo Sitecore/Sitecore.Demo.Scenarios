@@ -8,6 +8,8 @@ import { useSidebarContext } from '../context/sidebar';
 import { useParams } from 'next/navigation';
 import ScenarioGridWrapper from './ScenarioGridWrapper';
 import { useSavedScenarios } from '../context/savedScenarios';
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
 
 type SavedScenarioGridProps = {
   scenarios: Scenario[];
@@ -19,12 +21,25 @@ export default function SavedScenarioGrid({ scenarios }: SavedScenarioGridProps)
   const scrollRef = useRef<HTMLAnchorElement>(null);
   const params = useParams<{ id: string }>();
   const { scrollPos } = useSidebarContext();
-  const { savedScenarios } = useSavedScenarios();
+  const { isLoading, savedScenarios } = useSavedScenarios();
 
   useEffect(() => {
     if (!scrollRef.current || !params) return;
     scrollRef.current.scrollTo({ top: scrollPos.saved });
   }, [params, scenarios, scrollPos.saved]);
+
+  if (isLoading) {
+    return (
+      <div className="grid-container">
+        <Skeleton
+          count={5}
+          className="h-72"
+          containerClassName="grid grid-cols-3 gap-6 py-4"
+          inline={true}
+        />
+      </div>
+    );
+  }
 
   return (
     <ScenarioGridWrapper
