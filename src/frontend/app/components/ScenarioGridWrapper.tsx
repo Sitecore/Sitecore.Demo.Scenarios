@@ -15,16 +15,16 @@ export default function ScenarioGridWrapper({
 }) {
   const scrollRef = useRef<HTMLAnchorElement>(null);
   const params = useParams<{ id: string }>();
-  const { scrollPos, setScrollPos } = useSidebarContext();
+  const { page, scrollPos, setScrollPos } = useSidebarContext();
 
   useEffect(() => {
     if (!scrollRef.current || !params) return;
-    scrollRef.current.scrollTo({ top: scrollPos.saved });
-  }, [params, scenarios, scrollPos.saved]);
+    scrollRef.current.scrollTo({ top: scrollPos[page] });
+  }, [params]);
 
   const handleScroll = useCallback(() => {
     if (!scrollRef.current || !params) return;
-    setScrollPos({ ...scrollPos, saved: scrollRef.current.scrollTop });
+    setScrollPos({ ...scrollPos, [page]: scrollRef.current.scrollTop });
   }, []);
 
   return (

@@ -12,7 +12,7 @@ import Link from 'next/link';
 
 export default function ScenarioContent({ scenario }: { scenario: Scenario }) {
   const customScrollbarRef = useRef<HTMLDivElement>(null);
-  const { page, setScrollPos } = useSidebarContext();
+  const { page, resetScrollPos } = useSidebarContext();
 
   const scrollToTop = () => {
     if (customScrollbarRef.current) {
@@ -35,7 +35,7 @@ export default function ScenarioContent({ scenario }: { scenario: Scenario }) {
       </div>
       <Link
         href={page === 'home' ? '/' : '/saved'}
-        onClick={() => setScrollPos({ home: 0, saved: 0 })}
+        onClick={resetScrollPos}
         className="button-round fixed top-8 right-6"
       >
         <FontAwesomeIcon icon={faClose} />

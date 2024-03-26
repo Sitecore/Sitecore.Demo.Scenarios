@@ -1,11 +1,11 @@
 'use client';
 
-import React, { ReactNode, createContext, useContext, useState } from 'react';
+import React, { ReactNode, createContext, useCallback, useContext, useState } from 'react';
 
 type Page = 'home' | 'saved';
 type ScrollPos = {
-  home: number;
-  saved: number;
+  home: number | undefined;
+  saved: number | undefined;
 };
 
 interface ISidebarContext {
@@ -13,13 +13,18 @@ interface ISidebarContext {
   setPage: React.Dispatch<React.SetStateAction<Page>>;
   scrollPos: ScrollPos;
   setScrollPos: React.Dispatch<React.SetStateAction<ScrollPos>>;
+  resetScrollPos: () => void;
 }
 
 const SidebarContext = createContext<ISidebarContext | undefined>(undefined);
 
 export const SidebarContextProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [page, setPage] = useState<Page>('home');
-  const [scrollPos, setScrollPos] = useState<ScrollPos>({ home: 0, saved: 0 });
+  const [scrollPos, setScrollPos] = useState<ScrollPos>({ home: undefined, saved: undefined });
+
+  const resetScrollPos = useCallback(() => {
+    setScrollPos({ home: undefined, saved: undefined });
+  }, []);
 
   return (
     <SidebarContext.Provider
@@ -28,6 +33,7 @@ export const SidebarContextProvider: React.FC<{ children: ReactNode }> = ({ chil
         setPage,
         scrollPos,
         setScrollPos,
+        resetScrollPos,
       }}
     >
       {children}

@@ -19,19 +19,22 @@ export default function ScenarioGrid({ scenarios }: ScenarioGridProps) {
   const scrollRef = useRef<HTMLAnchorElement>(null);
   const { page, scrollPos, setScrollPos } = useSidebarContext();
 
+  // Adjust sidebar scroll to show the selected scenario after page reload
   useEffect(() => {
-    const scenarioCard = scrollRef.current;
-    const scrollContainer = scenarioCard?.parentElement?.parentElement;
+    if (scrollPos[page] === undefined) {
+      const scenarioCard = scrollRef.current;
+      const scrollContainer = scenarioCard?.parentElement?.parentElement;
 
-    if (!scenarioCard || !scrollContainer || !params) return;
+      if (!scenarioCard || !scrollContainer || !params.id) return;
 
-    const isScenarioInView = isElementInView(scenarioCard, scrollContainer);
+      const isScenarioInView = isElementInView(scenarioCard, scrollContainer);
 
-    if (!isScenarioInView) {
-      const _scrollPos = getElementPosition(scenarioCard, scrollContainer);
-      setScrollPos({ ...scrollPos, [page]: _scrollPos });
+      if (!isScenarioInView) {
+        const _scrollPos = getElementPosition(scenarioCard, scrollContainer);
+        setScrollPos({ ...scrollPos, [page]: _scrollPos });
+      }
     }
-  }, [params, scenarios]);
+  }, []);
 
   const handleScenarioClick = useCallback((e: MouseEvent) => {
     e.preventDefault();
