@@ -13,6 +13,7 @@
     "@fortawesome/free-regular-svg-icons": "^6.5.1",
     "@fortawesome/free-solid-svg-icons": "^6.5.1",
     "@fortawesome/react-fontawesome": "^0.2.0",
+    "@sitecore-search/react": "^2.2.3",
     "@tiptap/extension-blockquote": "^2.0.0-beta.202",
     "@tiptap/extension-bold": "^2.0.0-beta.202",
     "@tiptap/extension-bullet-list": "^2.0.0-beta.202",
