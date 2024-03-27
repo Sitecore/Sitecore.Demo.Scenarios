@@ -5,19 +5,16 @@ import { faBookmark } from '@fortawesome/free-regular-svg-icons';
 import { faBookmark as faBookmarkSolid } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useEffect, useState } from 'react';
+import { useSavedScenariosContext } from '../context/savedScenarios';
 
 type BookmarkIconProps = {
   scenarioID: string;
-  onClick?: () => void;
   className?: string;
 };
 
-export default function BookmarkIcon({
-  scenarioID,
-  onClick = () => undefined,
-  className,
-}: BookmarkIconProps) {
+export default function BookmarkIcon({ scenarioID, className }: BookmarkIconProps) {
   const [isScenarioBookmarked, setIsScenarioBookmarked] = useState(false);
+  const { updateSavedScenarios } = useSavedScenariosContext();
 
   useEffect(() => setIsScenarioBookmarked(isSavedScenario(scenarioID)), []);
 
@@ -28,7 +25,7 @@ export default function BookmarkIcon({
       onClick={() => {
         setIsScenarioBookmarked(!isScenarioBookmarked);
         unsaveScenarioID(scenarioID);
-        onClick();
+        updateSavedScenarios();
       }}
     />
   ) : (
@@ -38,7 +35,7 @@ export default function BookmarkIcon({
       onClick={() => {
         setIsScenarioBookmarked(!isScenarioBookmarked);
         saveScenarioID(scenarioID);
-        onClick();
+        updateSavedScenarios();
       }}
     />
   );

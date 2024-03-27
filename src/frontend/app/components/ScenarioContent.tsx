@@ -12,7 +12,7 @@ import Link from 'next/link';
 
 export default function ScenarioContent({ scenario }: { scenario: Scenario }) {
   const customScrollbarRef = useRef<HTMLDivElement>(null);
-  const { page } = useSidebarContext();
+  const { page, resetScrollPos } = useSidebarContext();
 
   const scrollToTop = () => {
     if (customScrollbarRef.current) {
@@ -33,7 +33,11 @@ export default function ScenarioContent({ scenario }: { scenario: Scenario }) {
         <TagList scenario={scenario} />
         <ScenarioContentBody scenario={scenario} />
       </div>
-      <Link href={page === 'home' ? '/' : '/saved'} className="button-round fixed top-8 right-6">
+      <Link
+        href={page === 'home' ? '/' : '/saved'}
+        onClick={resetScrollPos}
+        className="button-round fixed top-8 right-6"
+      >
         <FontAwesomeIcon icon={faClose} />
       </Link>
       <div className="fixed bottom-8 right-6">
