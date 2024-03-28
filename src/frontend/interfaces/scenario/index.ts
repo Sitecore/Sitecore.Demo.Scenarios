@@ -57,6 +57,25 @@ export interface Persona {
   id: keyof typeof PersonaOptions;
 }
 
+export enum IntegrationOptions {
+  taxonomy_integrationOptions_vercel = 'Vercel',
+  taxonomy_integrationOptions_github = 'GitHub',
+  taxonomy_integrationOptions_xmCloud = 'XM Cloud',
+  taxonomy_integrationOptions_cdp = 'CDP',
+  taxonomy_integrationOptions_connect = 'Connect',
+  taxonomy_integrationOptions_contentHub = 'Content Hub',
+  taxonomy_integrationOptions_contentHubOne = 'Content Hub One',
+  taxonomy_integrationOptions_discover = 'Discover',
+  taxonomy_integrationOptions_ordercloud = 'OrderCloud',
+  taxonomy_integrationOptions_personalize = 'Personalize',
+  taxonomy_integrationOptions_search = 'Search',
+  taxonomy_integrationOptions_send = 'Send',
+}
+
+export interface Integration {
+  id: keyof typeof IntegrationOptions;
+}
+
 export interface ScenarioImage {
   id: string;
   name: string;
@@ -86,6 +105,9 @@ export interface Scenario {
   };
   personas: {
     results: Persona[];
+  };
+  integrations: {
+    results: Integration[];
   };
   text1: TextField;
   images1: ImagesField;

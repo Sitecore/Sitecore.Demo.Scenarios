@@ -95,6 +95,11 @@ const getScenarioByIDQuery = (id: string) => `
           id
         }
       }
+      integrations {
+        results {
+          id
+        }
+      }
       ${getFieldsQuery()}
       scenarioSection {
         results {

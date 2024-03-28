@@ -49,6 +49,11 @@ body {
     }
   }
 
+  .notification-card {
+    @apply bg-white shadow-element py-6 px-9 rounded-lg overflow-hidden;
+    @apply before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:h-full before:bg-violet;
+  }
+
   .navbutton {
     @apply relative;
 
