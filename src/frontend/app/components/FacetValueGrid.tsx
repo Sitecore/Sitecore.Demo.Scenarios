@@ -9,14 +9,14 @@ type FacetValueGrid = {
   facet: SearchResponseFacet;
   facetIndex: number;
   selectedFacets: (SearchResultsStoreSelectedFacet & { type: FacetPayloadType })[];
-  onFacetValueClick?: (payload: FacetChangedPayload) => void;
+  onFacetValueClick: (payload: FacetChangedPayload) => void;
 };
 
 export default function FacetValueGrid({
   facet,
   facetIndex,
   selectedFacets,
-  onFacetValueClick = () => null,
+  onFacetValueClick,
 }: FacetValueGrid) {
   const limit = 5;
   const [showAll, setShowAll] = useState(false);
@@ -36,8 +36,9 @@ export default function FacetValueGrid({
           <FacetValue
             key={value.id}
             facetId={facet.name}
-            facetIndex={facetIndex}
             facetValueId={value.id}
+            type="valueId"
+            facetIndex={facetIndex}
             facetValueIndex={facetValueIndex}
             facetValueLabel={value.text}
             isSelected={selectedFacets.map((facet) => facet.valueLabel).includes(value.text)}
