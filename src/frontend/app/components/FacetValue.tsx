@@ -29,7 +29,7 @@ export default function FacetValue({
 }: FacetValueProps) {
   return (
     <div
-      className={`flex flex-row gap-1 items-center rounded-full bg-white-darkest px-4 py-[0.375rem] ${!showRemoveIcon && 'cursor-pointer'} ${isSelected && 'bg-violet-dark text-white'}`}
+      className={`flex flex-row gap-1 items-center rounded-full px-4 py-[0.375rem] ${!showRemoveIcon && 'cursor-pointer'} ${isSelected ? 'bg-violet-dark text-white' : 'bg-white-darkest'}`}
     >
       <span
         onClick={() =>
