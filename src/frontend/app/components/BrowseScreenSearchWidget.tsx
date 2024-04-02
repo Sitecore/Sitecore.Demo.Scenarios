@@ -127,7 +127,7 @@ const SearchResults = ({
   useEffect(() => {
     if (isLoading) return;
 
-    onFilterScenarios(items.map((item) => item.scenarioID));
+    onFilterScenarios(items.map((item) => item.scenario_id));
   }, [items]);
 
   return (
