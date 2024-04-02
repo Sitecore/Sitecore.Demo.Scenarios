@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faQuestionCircle } from '@fortawesome/free-regular-svg-icons';
 
 export default function ScenarioIntegrations({ scenario }: { scenario: Scenario }) {
-  return (
+  return !!scenario.integrations.results.length ? (
     <>
       <hr className="text-gray-light mb-6" />
       <div className="flex flex-row items-center flex-wrap gap-2">
@@ -39,5 +39,7 @@ export default function ScenarioIntegrations({ scenario }: { scenario: Scenario 
         </div>
       </div>
     </>
+  ) : (
+    <></>
   );
 }

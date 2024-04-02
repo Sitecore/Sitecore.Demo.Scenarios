@@ -1,7 +1,7 @@
 'use client';
 
 import { Scenario } from '@/interfaces/scenario';
-import { useMemo, useRef } from 'react';
+import { useRef } from 'react';
 import TagList from './TagList';
 import ScenarioContentBody from './ScenarioContentBody';
 import BookmarkIcon from './BookmarkIcon';
@@ -21,14 +21,6 @@ export default function ScenarioContent({ scenario }: { scenario: Scenario }) {
     }
   };
 
-  const scenarioIntegrations = useMemo(() => {
-    return !!scenario.integrations.results.length ? (
-      <ScenarioIntegrations scenario={scenario} />
-    ) : (
-      <></>
-    );
-  }, [scenario]);
-
   return (
     <section
       ref={customScrollbarRef}
@@ -40,7 +32,7 @@ export default function ScenarioContent({ scenario }: { scenario: Scenario }) {
         </div>
         <p className="text-2xl leading-9 mb-4">{scenario.summary}</p>
         <TagList scenario={scenario} />
-        {scenarioIntegrations}
+        <ScenarioIntegrations scenario={scenario} />
         <ScenarioContentBody scenario={scenario} />
       </div>
       <Link
