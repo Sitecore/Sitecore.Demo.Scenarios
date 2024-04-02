@@ -4,7 +4,7 @@ import Tag from './Tag';
 
 export default function TagList({ scenario }: { scenario: Scenario }) {
   return (
-    <div className="flex flex-row flex-wrap gap-2">
+    <div className="flex flex-row flex-wrap gap-2 mb-10">
       {scenario.products.results.map((product) => (
         <Tag
           key={product.id}

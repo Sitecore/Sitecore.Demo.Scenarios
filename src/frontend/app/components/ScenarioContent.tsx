@@ -9,6 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUp, faClose } from '@fortawesome/free-solid-svg-icons';
 import { useSidebarContext } from '../context/sidebar';
 import Link from 'next/link';
+import ScenarioIntegrations from './ScenarioIntegrations';
 
 export default function ScenarioContent({ scenario }: { scenario: Scenario }) {
   const customScrollbarRef = useRef<HTMLDivElement>(null);
@@ -31,6 +32,7 @@ export default function ScenarioContent({ scenario }: { scenario: Scenario }) {
         </div>
         <p className="text-2xl leading-9 mb-4">{scenario.summary}</p>
         <TagList scenario={scenario} />
+        <ScenarioIntegrations scenario={scenario} />
         <ScenarioContentBody scenario={scenario} />
       </div>
       <Link

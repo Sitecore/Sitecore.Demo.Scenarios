@@ -48,9 +48,9 @@ export default function ScenarioContentBody({ scenario }: { scenario: Scenario }
   }, [scenario]);
 
   return (
-    <div className="rich-text">
-      <hr />
-      {parse(`${fieldsHtml}${sectionsHtml}`, options)}
-    </div>
+    <>
+      <hr className="text-gray-light mt-6 mb-10" />
+      <div className="rich-text">{parse(`${fieldsHtml}${sectionsHtml}`, options)}</div>
+    </>
   );
 }
