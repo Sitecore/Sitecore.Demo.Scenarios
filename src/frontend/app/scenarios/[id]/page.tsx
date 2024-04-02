@@ -48,6 +48,7 @@ export async function generateMetadata(
       products: products,
       personas: personas,
       templates: templates,
+      scenarioID: scenario?.id,
     },
   };
 }
