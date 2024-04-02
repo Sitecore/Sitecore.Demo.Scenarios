@@ -36,7 +36,7 @@ type ContentItemModel = {
   type: string;
   name: string;
   url: string;
-  scenarioID: string;
+  scenario_id: string;
   description: string;
   categories: Category[];
   personas: Persona[];
