@@ -190,15 +190,18 @@ const SearchResults = ({
                 </div>
               </>
             )}
-            {facets.map((facet, facetIndex) => (
-              <FacetValueGrid
-                key={facet.label}
-                facet={facet}
-                facetIndex={facetIndex}
-                selectedFacets={selectedFacets}
-                onFacetValueClick={onFacetClick}
-              />
-            ))}
+            {/* Filtering 'type' facet out not possible in Search CEC */}
+            {facets
+              .filter((facet) => facet.name !== 'type')
+              .map((facet, facetIndex) => (
+                <FacetValueGrid
+                  key={facet.label}
+                  facet={facet}
+                  facetIndex={facetIndex}
+                  selectedFacets={selectedFacets}
+                  onFacetValueClick={onFacetClick}
+                />
+              ))}
           </div>
         )}
       </div>
