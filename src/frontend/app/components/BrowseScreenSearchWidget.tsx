@@ -106,7 +106,7 @@ const SearchResults = ({
 
   const handleAutocomplete = useCallback(() => {
     const searchInput = document.getElementById('search-input') as HTMLInputElement;
-    searchInput.value = suggestions?.[0].text;
+    searchInput.value = suggestions?.[0]?.text;
   }, []);
 
   const handleKeyDown = useCallback((e: KeyboardEvent<HTMLInputElement>): void => {
