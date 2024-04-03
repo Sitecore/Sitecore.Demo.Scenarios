@@ -9,10 +9,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUp, faClose } from '@fortawesome/free-solid-svg-icons';
 import { useSidebarContext } from '../context/sidebar';
 import Link from 'next/link';
+import ScenarioIntegrations from './ScenarioIntegrations';
 
 export default function ScenarioContent({ scenario }: { scenario: Scenario }) {
   const customScrollbarRef = useRef<HTMLDivElement>(null);
-  const { page } = useSidebarContext();
+  const { page, resetScrollPos } = useSidebarContext();
 
   const scrollToTop = () => {
     if (customScrollbarRef.current) {
@@ -31,9 +32,14 @@ export default function ScenarioContent({ scenario }: { scenario: Scenario }) {
         </div>
         <p className="text-2xl leading-9 mb-4">{scenario.summary}</p>
         <TagList scenario={scenario} />
+        <ScenarioIntegrations scenario={scenario} />
         <ScenarioContentBody scenario={scenario} />
       </div>
-      <Link href={page === 'home' ? '/' : '/saved'} className="button-round fixed top-8 right-6">
+      <Link
+        href={page === 'home' ? '/' : '/saved'}
+        onClick={resetScrollPos}
+        className="button-round fixed top-8 right-6"
+      >
         <FontAwesomeIcon icon={faClose} />
       </Link>
       <div className="fixed bottom-8 right-6">
