@@ -2,6 +2,7 @@
 
 import React, { useCallback, useEffect, useMemo, KeyboardEvent } from 'react';
 import {
+  FacetChangedPayload,
   FacetPayloadType,
   SearchResultsInitialState,
   SearchResultsStoreState,
@@ -69,6 +70,7 @@ const SearchResults = ({
     actions: { onFacetClick, onRemoveFilter, onClearFilters, onKeyphraseChange },
     queryResult: {
       isLoading,
+      isInitialLoading,
       data: {
         facet: facets = [],
         content: items = [],
@@ -123,6 +125,40 @@ const SearchResults = ({
     },
     [onKeyphraseChangeDebounced]
   );
+
+  // Transform the querystring parameters into suitable Search facet objects and apply them on load
+  useEffect(() => {
+    if (isInitialLoading) return;
+
+    const initialFacets = [] as FacetChoiceChangedPayload[];
+
+    Array.from(searchParams.keys())
+      .filter((key) => key !== 'q')
+      .map((key: string) => {
+        const values = searchParams.get(key) as string;
+
+        values?.split(',').map((value) =>
+          initialFacets.push({
+            facetId: key.toLowerCase(),
+            facetIndex: facets.findIndex((facet) => facet.name.toLowerCase() === key),
+            facetValueId:
+              facets
+                .find((facet) => facet.name.toLowerCase() === key)
+                ?.value.find((facetValue) => facetValue.text.toLowerCase() === value)?.id ?? '',
+            facetValueIndex:
+              facets
+                .find((facet) => facet.name.toLowerCase() === key)
+                ?.value.findIndex((facetValue) => facetValue.text.toLowerCase() === value) ?? -1,
+            type: 'valueId',
+            checked: true,
+          })
+        );
+      });
+
+    initialFacets.forEach(
+      (initialFacet) => initialFacet.facetValueId && onFacetClick(initialFacet)
+    );
+  }, [isInitialLoading]);
 
   useEffect(() => {
     if (isLoading) return;
