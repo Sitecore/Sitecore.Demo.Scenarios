@@ -32,6 +32,7 @@ export default function ScenarioContent({ scenario }: { scenario: Scenario }) {
         </div>
         <p className="text-2xl leading-9 mb-4">{scenario.summary}</p>
         <TagList scenario={scenario} />
+        <hr className="text-gray-light mt-10 mb-6" />
         <ScenarioIntegrations scenario={scenario} />
         <ScenarioContentBody scenario={scenario} />
       </div>

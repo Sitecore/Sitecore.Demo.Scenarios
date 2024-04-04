@@ -7,7 +7,6 @@ import { faQuestionCircle } from '@fortawesome/free-regular-svg-icons';
 export default function ScenarioIntegrations({ scenario }: { scenario: Scenario }) {
   return !!scenario.integrations.results.length ? (
     <>
-      <hr className="text-gray-light mb-6" />
       <div className="flex flex-row items-center flex-wrap gap-2">
         <p className="relative uppercase text-xs font-semibold text-charcoal tracking-wide mr-8">
           Required integrations
@@ -38,6 +37,7 @@ export default function ScenarioIntegrations({ scenario }: { scenario: Scenario 
           ))}
         </div>
       </div>
+      <hr className="text-gray-light mt-6 mb-10" />
     </>
   ) : (
     <></>

@@ -131,81 +131,79 @@ const SearchResults = ({
   }, [items]);
 
   return (
-    <>
-      <div ref={containerRef}>
-        <div className="flex flex-row flex-wrap gap-5 mb-8">
-          <div className="relative max-w-96 w-full">
-            <input
-              id="search-input"
-              className="w-full rounded-full pl-5 pr-10 pt-1 h-10 shadow-element cursor-pointer focus:outline-none placeholder:text-black-light"
-              type="text"
-              defaultValue={q}
-              placeholder="Search"
-              onFocus={() => setIsSearchWidgetVisible(true)}
-              onKeyUp={handleKeyUp}
-              onKeyDown={handleKeyDown}
-              autoComplete="off"
-            />
-            <FontAwesomeIcon icon={faSearch} className="absolute h-4 right-4 bottom-3" />
-          </div>
-          {selectedFacets.length > 0 && (
-            <div className="flex flex-row flex-wrap gap-2 items-center">
-              {selectedFacets.map((facet, index) => (
-                <FacetValue
-                  key={index}
-                  facetId={facet.facetId}
-                  facetValueId={facet.facetValueId}
-                  type="valueId"
-                  facetValueLabel={facet.valueLabel ?? ''}
-                  showRemoveIcon
-                  onRemoveIconClick={onRemoveFilter}
-                />
-              ))}
-              <button className="ml-3 text-violet-dark" onClick={onClearFilters}>
-                Clear all
-              </button>
-            </div>
-          )}
+    <div ref={containerRef} className="relative">
+      <div className="flex flex-row flex-wrap gap-5">
+        <div className="relative max-w-96 w-full">
+          <input
+            id="search-input"
+            className="w-full rounded-full pl-5 pr-10 pt-1 h-10 shadow-element cursor-pointer focus:outline-none placeholder:text-black-light"
+            type="text"
+            defaultValue={q}
+            placeholder="Search"
+            onFocus={() => setIsSearchWidgetVisible(true)}
+            onKeyUp={handleKeyUp}
+            onKeyDown={handleKeyDown}
+            autoComplete="off"
+          />
+          <FontAwesomeIcon icon={faSearch} className="absolute h-4 right-4 bottom-3" />
         </div>
-        {isSearchWidgetVisible && (
-          <div
-            ref={widgetRef}
-            className={`absolute max-w-4xl ${isScenarioDetailsPage && 'max-w-96 w-full'} bg-white text-black-light p-10 rounded-lg z-50 shadow-element mr-14`}
-          >
-            <h1 className="text-2xl font-bold mb-8">Try searching for...</h1>
-            {suggestions.length > 0 && (
-              <>
-                <h3 className="text-base font-bold mb-3">KEYWORDS</h3>
-                <div className="flex flex-row flex-wrap gap-2 mb-8 capitalize">
-                  {suggestions.length > 0 &&
-                    suggestions.map((suggestion) => (
-                      <div
-                        key={suggestion.text}
-                        className="rounded-full bg-white-darkest px-4 py-[0.375rem] cursor-pointer"
-                        onClick={() => handleKeyphraseChange(suggestion.text)}
-                      >
-                        <span className="text-base">{suggestion.text}</span>
-                      </div>
-                    ))}
-                </div>
-              </>
-            )}
-            {/* Filtering 'type' facet out not possible in Search CEC */}
-            {facets
-              .filter((facet) => facet.name !== 'type')
-              .map((facet, facetIndex) => (
-                <FacetValueGrid
-                  key={facet.label}
-                  facet={facet}
-                  facetIndex={facetIndex}
-                  selectedFacets={selectedFacets}
-                  onFacetValueClick={onFacetClick}
-                />
-              ))}
+        {selectedFacets.length > 0 && (
+          <div className="flex flex-row flex-wrap gap-2 items-center">
+            {selectedFacets.map((facet, index) => (
+              <FacetValue
+                key={index}
+                facetId={facet.facetId}
+                facetValueId={facet.facetValueId}
+                type="valueId"
+                facetValueLabel={facet.valueLabel ?? ''}
+                showRemoveIcon
+                onRemoveIconClick={onRemoveFilter}
+              />
+            ))}
+            <button className="ml-3 text-violet-dark" onClick={onClearFilters}>
+              Clear all
+            </button>
           </div>
         )}
       </div>
-    </>
+      {isSearchWidgetVisible && (
+        <div
+          ref={widgetRef}
+          className={`absolute top-16 max-w-full max-h-[calc(100vh-15rem)] overflow-auto custom-scrollbar w-[60rem] ${isScenarioDetailsPage && ''} bg-white text-black-light p-10 rounded-lg z-50 shadow-card-large`}
+        >
+          <h1 className="text-2xl font-bold">Try searching for...</h1>
+          {suggestions.length > 0 && (
+            <div className="mt-7">
+              <h3 className="text-base font-bold mb-2 uppercase">Keywords</h3>
+              <div className="flex flex-row flex-wrap gap-2 capitalize">
+                {suggestions.length > 0 &&
+                  suggestions.map((suggestion) => (
+                    <div
+                      key={suggestion.text}
+                      className="rounded-full bg-white-darkest border border-gray-lightest px-4 py-[0.375rem] cursor-pointer"
+                      onClick={() => handleKeyphraseChange(suggestion.text)}
+                    >
+                      <span className="text-base">{suggestion.text}</span>
+                    </div>
+                  ))}
+              </div>
+            </div>
+          )}
+          {/* Filtering 'type' facet out not possible in Search CEC */}
+          {facets
+            .filter((facet) => facet.name !== 'type')
+            .map((facet, facetIndex) => (
+              <FacetValueGrid
+                key={facet.label}
+                facet={facet}
+                facetIndex={facetIndex}
+                selectedFacets={selectedFacets}
+                onFacetValueClick={onFacetClick}
+              />
+            ))}
+        </div>
+      )}
+    </div>
   );
 };
 
