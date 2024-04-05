@@ -3,6 +3,7 @@
 import React, { useCallback, useEffect, KeyboardEvent } from 'react';
 import {
   FacetChoiceChangedPayload,
+  RemoveFilterPayload,
   SearchResultsInitialState,
   SearchResultsStoreState,
   SearchResultsWidgetQuery,
@@ -158,6 +159,22 @@ const SearchResults = ({
     [router, facets, selectedFacets, onFacetClick]
   );
 
+  const handleRemoveFilter = useCallback(
+    (payload: RemoveFilterPayload) => {
+      const facetId = payload.facetId.toLowerCase();
+      const facetValueText =
+        selectedFacets
+          .find((facet) => facet.facetValueId === payload.facetValueId)
+          ?.valueLabel?.toLowerCase() ?? '';
+
+      const queryParams = updateQueryString(facetId, facetValueText, searchParams, true);
+      router.push(`${pathname}?${queryParams}`);
+
+      onRemoveFilter(payload);
+    },
+    [router, selectedFacets, onRemoveFilter]
+  );
+
   // Clear all should not remove the keyphrase input by the user
   const handleClearAllFilters = useCallback(() => {
     const searchInput = document.getElementById('search-input') as HTMLInputElement;
@@ -234,7 +251,7 @@ const SearchResults = ({
                   type="valueId"
                   facetValueLabel={facet.valueLabel ?? ''}
                   showRemoveIcon
-                  onRemoveIconClick={onRemoveFilter}
+                  onRemoveIconClick={handleRemoveFilter}
                 />
               ))}
               <button className="ml-3 text-violet-dark" onClick={handleClearAllFilters}>
