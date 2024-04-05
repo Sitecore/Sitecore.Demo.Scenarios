@@ -30,7 +30,7 @@ type SearchResultsProps = {
   defaultItemsPerPage?: SearchResultsStoreState['itemsPerPage'];
 };
 
-type ContentItemModel = {
+export type ContentItemModel = {
   id: string;
   source_id: string;
   type: string;
@@ -44,7 +44,7 @@ type ContentItemModel = {
   templates: Template[];
 };
 
-type InitialState = SearchResultsInitialState<'itemsPerPage' | 'keyphrase' | 'page'>;
+export type InitialState = SearchResultsInitialState<'itemsPerPage' | 'keyphrase' | 'page'>;
 
 const SearchResults = ({
   onFilterScenarios,
@@ -174,13 +174,13 @@ const SearchResults = ({
           <h1 className="text-2xl font-bold">Try searching for...</h1>
           {suggestions.length > 0 && (
             <div className="mt-7">
-              <h3 className="text-base font-bold mb-2 uppercase">Keywords</h3>
+              <h3 className="text-base font-bold mb-2 uppercase tracking-wider">Keywords</h3>
               <div className="flex flex-row flex-wrap gap-2 capitalize">
                 {suggestions.length > 0 &&
                   suggestions.map((suggestion) => (
                     <div
                       key={suggestion.text}
-                      className="rounded-full bg-white-darkest border border-gray-lightest px-4 py-[0.375rem] cursor-pointer"
+                      className="rounded-full bg-white-darkest px-4 py-[0.375rem] cursor-pointer"
                       onClick={() => handleKeyphraseChange(suggestion.text)}
                     >
                       <span className="text-base">{suggestion.text}</span>

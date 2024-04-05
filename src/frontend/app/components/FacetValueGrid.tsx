@@ -30,7 +30,7 @@ export default function FacetValueGrid({
 
   return (
     <div key={facet.label} className="mt-7">
-      <h3 className="text-base font-bold mb-2 uppercase">{facet.label}</h3>
+      <h3 className="text-base font-bold mb-2 uppercase tracking-wider">{facet.label}</h3>
       <div className="flex flex-row flex-wrap gap-2">
         {visibleFacetValues.map((value, facetValueIndex) => (
           <FacetValue

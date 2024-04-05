@@ -284,7 +284,6 @@ body {
 }
 
 .fold-down {
-  transform-origin: top;
   transform: scaleY(0);
   animation: foldDown 0.5s forwards;
   animation-delay: 0.3s;
