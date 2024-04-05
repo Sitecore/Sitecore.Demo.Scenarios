@@ -7,5 +7,6 @@
     "plugin:prettier/recommended"
   ],
   "plugins": ["@typescript-eslint", "prettier"],
-  "ignorePatterns": ["**/*.d.ts"]
+  "ignorePatterns": ["**/*.d.ts"],
+  "rules": { "react-hooks/rules-of-hooks": "error", "react-hooks/exhaustive-deps": "error" }
 }
