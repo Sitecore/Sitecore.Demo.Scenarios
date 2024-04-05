@@ -180,8 +180,13 @@ const SearchResults = ({
 
   // Clear all should not remove the keyphrase input by the user
   const handleClearAllFilters = useCallback(() => {
-    const searchInput = document.getElementById('search-input') as HTMLInputElement;
-    router.push(`${pathname}?q=${searchInput.value}`);
+    const searchInputValue = (document.getElementById('search-input') as HTMLInputElement).value;
+
+    if (searchInputValue) {
+      router.push(`${pathname}?q=${searchInputValue}`);
+    } else {
+      router.push(pathname);
+    }
 
     onClearFilters();
   }, [router, pathname, onClearFilters]);
