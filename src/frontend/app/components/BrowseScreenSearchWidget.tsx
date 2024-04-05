@@ -106,7 +106,7 @@ const SearchResults = ({
       const searchInput = document.getElementById('search-input') as HTMLInputElement;
       searchInput.value = value;
     },
-    [router, onKeyphraseChange]
+    [onKeyphraseChange, router, pathname]
   );
 
   const onKeyphraseChangeDebounced = debounce((value: string) => handleKeyphraseChange(value), 500);
@@ -114,14 +114,17 @@ const SearchResults = ({
   const handleAutocomplete = useCallback(() => {
     const searchInput = document.getElementById('search-input') as HTMLInputElement;
     searchInput.value = suggestions?.[0]?.text;
-  }, []);
+  }, [suggestions]);
 
-  const handleKeyDown = useCallback((e: KeyboardEvent<HTMLInputElement>): void => {
-    if (e.key === 'Tab') {
-      e.preventDefault();
-      handleAutocomplete();
-    }
-  }, []);
+  const handleKeyDown = useCallback(
+    (e: KeyboardEvent<HTMLInputElement>): void => {
+      if (e.key === 'Tab') {
+        e.preventDefault();
+        handleAutocomplete();
+      }
+    },
+    [handleAutocomplete]
+  );
 
   const handleKeyUp = useCallback(
     (e: KeyboardEvent<HTMLInputElement>): void => {
@@ -156,7 +159,7 @@ const SearchResults = ({
 
       onFacetClick(payload);
     },
-    [router, facets, selectedFacets, onFacetClick]
+    [facets, selectedFacets, searchParams, router, pathname, onFacetClick]
   );
 
   const handleRemoveFilter = useCallback(
@@ -172,7 +175,7 @@ const SearchResults = ({
 
       onRemoveFilter(payload);
     },
-    [router, selectedFacets, onRemoveFilter]
+    [selectedFacets, searchParams, router, pathname, onRemoveFilter]
   );
 
   // Clear all should not remove the keyphrase input by the user
@@ -181,7 +184,7 @@ const SearchResults = ({
     router.push(`${pathname}?q=${searchInput.value}`);
 
     onClearFilters();
-  }, [router, onClearFilters]);
+  }, [router, pathname, onClearFilters]);
 
   // Transform the querystring parameters into suitable Search facet objects and apply them on load
   useEffect(() => {
@@ -215,13 +218,14 @@ const SearchResults = ({
     initialFacets.forEach(
       (initialFacet) => initialFacet.facetValueId && onFacetClick(initialFacet)
     );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isInitialLoading]);
 
   useEffect(() => {
     if (isLoading) return;
 
     onFilterScenarios(items.map((item) => item.scenario_id));
-  }, [items]);
+  }, [isLoading, items, onFilterScenarios]);
 
   return (
     <>

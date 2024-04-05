@@ -34,20 +34,23 @@ export default function ScenarioGrid({ scenarios }: ScenarioGridProps) {
         setScrollPos({ ...scrollPos, [page]: _scrollPos });
       }
     }
-  }, []);
+  }, [page, params.id, scrollPos, setScrollPos]);
 
-  const handleScenarioClick = useCallback((e: MouseEvent) => {
-    e.preventDefault();
+  const handleScenarioClick = useCallback(
+    (e: MouseEvent) => {
+      e.preventDefault();
 
-    // Check if bookmark icon was clicked and return with no redirect
-    const tagName = (e.target as HTMLElement).tagName;
-    if (tagName === 'path' || tagName === 'svg') {
-      return;
-    }
+      // Check if bookmark icon was clicked and return with no redirect
+      const tagName = (e.target as HTMLElement).tagName;
+      if (tagName === 'path' || tagName === 'svg') {
+        return;
+      }
 
-    const href = (e?.currentTarget as HTMLAnchorElement).href;
-    router.push(href);
-  }, []);
+      const href = (e?.currentTarget as HTMLAnchorElement).href;
+      router.push(href);
+    },
+    [router]
+  );
 
   return (
     <div className="flex flex-wrap gap-6 py-4 grid-container">

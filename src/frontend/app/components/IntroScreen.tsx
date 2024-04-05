@@ -8,10 +8,13 @@ import { useRouter } from 'next/navigation';
 export default function IntroScreen() {
   const router = useRouter();
 
-  const handleClick = useCallback((href: string) => {
-    createHasVisitedCookie();
-    router.push(href);
-  }, []);
+  const handleClick = useCallback(
+    (href: string) => {
+      createHasVisitedCookie();
+      router.push(href);
+    },
+    [router]
+  );
 
   return (
     <main className="main-grid-layout-vivid py-16">

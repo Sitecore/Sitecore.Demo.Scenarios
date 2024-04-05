@@ -26,7 +26,7 @@ export default function FacetValueGrid({
     if (showAll) {
       setVisibleFacetValues(facet.value);
     }
-  }, [showAll]);
+  }, [facet.value, showAll]);
 
   return (
     <div key={facet.label}>

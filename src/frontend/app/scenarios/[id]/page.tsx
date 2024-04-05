@@ -7,15 +7,12 @@ import {
   ProductOptions,
   TemplateOptions,
 } from '@/interfaces/scenario';
-import { Metadata, ResolvingMetadata } from 'next';
+import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import BrowseScreen from '@/app/components/BrowseScreen';
 import SavedScreen from '@/app/components/SavedScreen';
 
-export async function generateMetadata(
-  { params }: { params: { id: string } },
-  parent: ResolvingMetadata
-): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
   const scenario = await getScenarioByID(params.id);
   if (!scenario) {
     return {};

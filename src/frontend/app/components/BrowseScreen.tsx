@@ -14,11 +14,14 @@ import BrowseScreenSearchWidget from './BrowseScreenSearchWidget';
 export default function BrowseScreen({ scenarios }: { scenarios: Scenario[] | null }) {
   const [filteredScenarios, setFilteredScenarios] = useState(scenarios ?? []);
 
-  const updateFilteredScenarios = useCallback((filteredScenarioIDs: string[]) => {
-    setFilteredScenarios(
-      scenarios?.filter((scenario) => filteredScenarioIDs.includes(scenario.id)) ?? []
-    );
-  }, []);
+  const updateFilteredScenarios = useCallback(
+    (filteredScenarioIDs: string[]) => {
+      setFilteredScenarios(
+        scenarios?.filter((scenario) => filteredScenarioIDs.includes(scenario.id)) ?? []
+      );
+    },
+    [scenarios]
+  );
 
   useEffect(() => {
     createHasVisitedCookie();

@@ -15,11 +15,14 @@ export default function NavBar({ noPageChange }: { noPageChange?: boolean }) {
 
   useEffect(() => {
     pathname.includes('/saved') && setPage('saved');
-  }, []);
+  }, [pathname, setPage]);
 
-  const handleLinkClick = useCallback((page: 'home' | 'saved') => {
-    setPage(page);
-  }, []);
+  const handleLinkClick = useCallback(
+    (page: 'home' | 'saved') => {
+      setPage(page);
+    },
+    [setPage]
+  );
 
   return (
     <aside className="w-24 h-full bg-white">

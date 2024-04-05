@@ -20,12 +20,12 @@ export default function ScenarioGridWrapper({
   useEffect(() => {
     if (!scrollRef.current || !params) return;
     scrollRef.current.scrollTo({ top: scrollPos[page] });
-  }, [params]);
+  }, [page, params, scrollPos]);
 
   const handleScroll = useCallback(() => {
     if (!scrollRef.current || !params) return;
     setScrollPos({ ...scrollPos, [page]: scrollRef.current.scrollTop });
-  }, []);
+  }, [page, params, scrollPos, setScrollPos]);
 
   return (
     <section
