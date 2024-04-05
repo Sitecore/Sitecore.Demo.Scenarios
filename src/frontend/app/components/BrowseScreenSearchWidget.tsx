@@ -126,6 +126,13 @@ const SearchResults = ({
     [onKeyphraseChangeDebounced]
   );
 
+  const handleClearAllFilters = useCallback(() => {
+    const searchInput = document.getElementById('search-input') as HTMLInputElement;
+    router.push(`${pathname}?q=${searchInput.value}`);
+
+    onClearFilters();
+  }, [router, onClearFilters]);
+
   // Transform the querystring parameters into suitable Search facet objects and apply them on load
   useEffect(() => {
     if (isInitialLoading) return;
@@ -197,7 +204,7 @@ const SearchResults = ({
                   onRemoveIconClick={onRemoveFilter}
                 />
               ))}
-              <button className="ml-3 text-violet-dark" onClick={onClearFilters}>
+              <button className="ml-3 text-violet-dark" onClick={handleClearAllFilters}>
                 Clear all
               </button>
             </div>
