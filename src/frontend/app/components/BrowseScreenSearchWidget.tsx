@@ -92,9 +92,14 @@ const SearchResults = ({
       type: 'valueId';
     })[];
 
+  // Changing the keyphrase removes all other facets
   const handleKeyphraseChange = useCallback(
     (value: string) => {
-      router.push(`${pathname}?q=${value}`);
+      if (value) {
+        router.push(`${pathname}?q=${value}`);
+      } else {
+        router.push(pathname);
+      }
       onKeyphraseChange({ keyphrase: value });
 
       const searchInput = document.getElementById('search-input') as HTMLInputElement;
