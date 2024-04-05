@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { FacetChangedPayload, SearchResponseFacet } from '@sitecore-search/react';
+import { FacetChoiceChangedPayload, SearchResponseFacet } from '@sitecore-search/react';
 import type { SearchResultsStoreSelectedFacet } from '@sitecore-search/widgets';
 import type { FacetPayloadType } from '@sitecore-search/models';
 
@@ -9,7 +9,7 @@ type FacetValueGrid = {
   facet: SearchResponseFacet;
   facetIndex: number;
   selectedFacets: (SearchResultsStoreSelectedFacet & { type: FacetPayloadType })[];
-  onFacetValueClick: (payload: FacetChangedPayload) => void;
+  onFacetValueClick: (payload: FacetChoiceChangedPayload) => void;
 };
 
 export default function FacetValueGrid({

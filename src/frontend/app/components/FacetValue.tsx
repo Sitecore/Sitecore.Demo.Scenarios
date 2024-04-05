@@ -1,6 +1,6 @@
 import { faRemove } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { FacetChangedPayload, RemoveFilterPayload } from '@sitecore-search/react';
+import { FacetChoiceChangedPayload, RemoveFilterPayload } from '@sitecore-search/react';
 
 type FacetValueProps = {
   facetId: string;
@@ -11,7 +11,7 @@ type FacetValueProps = {
   facetValueIndex?: number;
   isSelected?: boolean;
   showRemoveIcon?: boolean;
-  onFacetValueClick?: (payload: FacetChangedPayload) => void;
+  onFacetValueClick?: (payload: FacetChoiceChangedPayload) => void;
   onRemoveIconClick?: (payload: RemoveFilterPayload) => void;
 };
 

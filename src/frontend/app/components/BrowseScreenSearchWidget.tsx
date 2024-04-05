@@ -2,8 +2,7 @@
 
 import React, { useCallback, useEffect, useMemo, KeyboardEvent } from 'react';
 import {
-  FacetChangedPayload,
-  FacetPayloadType,
+  FacetChoiceChangedPayload,
   SearchResultsInitialState,
   SearchResultsStoreState,
   SearchResultsWidgetQuery,
@@ -126,6 +125,32 @@ const SearchResults = ({
     [onKeyphraseChangeDebounced]
   );
 
+  const handleFacetClick = useCallback(
+    (payload: FacetChoiceChangedPayload): void => {
+      const facetId = payload.facetId.toLowerCase();
+      const facetValueText =
+        facets
+          .find((facet) => facet.name.toLowerCase() === payload.facetId.toLowerCase())
+          ?.value.find((facetValue) => facetValue.id === payload.facetValueId)
+          ?.text.toLowerCase() ?? '';
+
+      const shouldRemoveFacet = selectedFacets
+        .map((facet) => facet.facetValueId)
+        .includes(payload.facetValueId);
+
+      const queryParams = updateQueryString(
+        facetId,
+        facetValueText,
+        searchParams,
+        shouldRemoveFacet
+      );
+      router.push(`${pathname}?${queryParams}`);
+
+      onFacetClick(payload);
+    },
+    [router, facets, onFacetClick]
+  );
+
   const handleClearAllFilters = useCallback(() => {
     const searchInput = document.getElementById('search-input') as HTMLInputElement;
     router.push(`${pathname}?q=${searchInput.value}`);
@@ -242,7 +267,7 @@ const SearchResults = ({
                   facet={facet}
                   facetIndex={facetIndex}
                   selectedFacets={selectedFacets}
-                  onFacetValueClick={onFacetClick}
+                  onFacetValueClick={handleFacetClick}
                 />
               ))}
           </div>
