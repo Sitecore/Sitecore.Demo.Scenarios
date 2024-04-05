@@ -22,7 +22,7 @@ import { Category, Persona, Product, Template } from '@/interfaces/scenario';
 import useComponentVisible from '@/hooks/useComponentVisible';
 import FacetValue from './FacetValue';
 import FacetValueGrid from './FacetValueGrid';
-import { debounce } from '@/helpers/debounce';
+import { debounce, updateQueryString } from '@/helpers/searchWidget';
 
 type SearchResultsProps = {
   onFilterScenarios: (filteredScenarioTitles: string[]) => void;
@@ -130,6 +130,7 @@ const SearchResults = ({
     [onKeyphraseChangeDebounced]
   );
 
+  // Update the querystring and toggle the facet
   const handleFacetClick = useCallback(
     (payload: FacetChoiceChangedPayload): void => {
       const facetId = payload.facetId.toLowerCase();
@@ -139,6 +140,7 @@ const SearchResults = ({
           ?.value.find((facetValue) => facetValue.id === payload.facetValueId)
           ?.text.toLowerCase() ?? '';
 
+      // If the facet is already selected it should be removed from the querystring
       const shouldRemoveFacet = selectedFacets
         .map((facet) => facet.facetValueId)
         .includes(payload.facetValueId);
@@ -153,7 +155,7 @@ const SearchResults = ({
 
       onFacetClick(payload);
     },
-    [router, facets, onFacetClick]
+    [router, facets, selectedFacets, onFacetClick]
   );
 
   const handleClearAllFilters = useCallback(() => {
