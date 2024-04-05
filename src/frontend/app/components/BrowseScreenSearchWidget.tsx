@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useCallback, useEffect, useMemo, KeyboardEvent } from 'react';
+import React, { useCallback, useEffect, KeyboardEvent } from 'react';
 import {
   FacetChoiceChangedPayload,
   SearchResultsInitialState,
@@ -60,7 +60,7 @@ const SearchResults = ({
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  const q = useMemo(() => searchParams.get('q') ?? '', []);
+  const q = searchParams.get('q') ?? '';
 
   const isScenarioDetailsPage = pathname.includes('/scenarios');
 
@@ -89,7 +89,7 @@ const SearchResults = ({
 
   const selectedFacets =
     useSearchResultsSelectedFilters() as (SearchResultsStoreValueIdSelectedFacet & {
-      type: FacetPayloadType;
+      type: 'valueId';
     })[];
 
   const handleKeyphraseChange = useCallback(
