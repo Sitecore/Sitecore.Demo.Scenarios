@@ -5,13 +5,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useSidebarContext } from '../context/sidebar';
 import { useCallback, useEffect } from 'react';
-import { usePathname } from 'next/navigation';
+import { usePathname, useSearchParams } from 'next/navigation';
+
+import { useSidebarContext } from '../context/sidebar';
 
 export default function NavBar({ noPageChange }: { noPageChange?: boolean }) {
   const { page, setPage } = useSidebarContext();
   const pathname = usePathname();
+  const searchParams = useSearchParams();
 
   useEffect(() => {
     pathname.includes('/saved') && setPage('saved');
@@ -26,14 +28,16 @@ export default function NavBar({ noPageChange }: { noPageChange?: boolean }) {
 
   return (
     <aside className="w-24 h-full bg-white">
-      <Image
-        src="/sitecore.svg"
-        alt="Sitecore Logo"
-        width={40}
-        height={40}
-        className="absolute mt-16 mx-7"
-        priority
-      />
+      <Link href={`/?${searchParams.toString()}`}>
+        <Image
+          src="/sitecore.svg"
+          alt="Sitecore Logo"
+          width={40}
+          height={40}
+          className="absolute mt-16 mx-7"
+          priority
+        />
+      </Link>
       <div className="flex flex-col items-center justify-center h-full">
         {noPageChange ? (
           <>
