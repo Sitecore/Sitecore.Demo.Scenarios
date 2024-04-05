@@ -158,6 +158,7 @@ const SearchResults = ({
     [router, facets, selectedFacets, onFacetClick]
   );
 
+  // Clear all should not remove the keyphrase input by the user
   const handleClearAllFilters = useCallback(() => {
     const searchInput = document.getElementById('search-input') as HTMLInputElement;
     router.push(`${pathname}?q=${searchInput.value}`);
