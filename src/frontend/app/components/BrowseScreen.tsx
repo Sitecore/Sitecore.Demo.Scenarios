@@ -2,8 +2,9 @@
 
 import { useCallback, useEffect, useState } from 'react';
 import { WidgetsProvider } from '@sitecore-search/react';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 
-import { CONTACT_US_URL } from '@/constants/scenario';
+import { BROWSE_SCREEN_QUERYSTRING_KEY, CONTACT_US_URL } from '@/constants/scenario';
 import ErrorCard from '../components/ErrorCard';
 import { Scenario } from '@/interfaces/scenario';
 import { createHasVisitedCookie } from '../actions';
@@ -12,6 +13,10 @@ import { config } from '../../services/searchSDK';
 import BrowseScreenSearchWidget from './BrowseScreenSearchWidget';
 
 export default function BrowseScreen({ scenarios }: { scenarios: Scenario[] | null }) {
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+
   const [filteredScenarios, setFilteredScenarios] = useState(scenarios ?? []);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -27,6 +32,17 @@ export default function BrowseScreen({ scenarios }: { scenarios: Scenario[] | nu
 
   useEffect(() => {
     createHasVisitedCookie();
+  }, []);
+
+  // Retrieve querystring params from localStorage, if not already present in the URL
+  useEffect(() => {
+    if (searchParams.toString()) return;
+
+    const queryParams = localStorage.getItem(BROWSE_SCREEN_QUERYSTRING_KEY);
+    if (queryParams) {
+      router.push(`${pathname}?${queryParams}`);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

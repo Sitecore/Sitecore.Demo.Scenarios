@@ -3,15 +3,19 @@
 import { faBookmark } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { useCallback, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname, useSearchParams } from 'next/navigation';
+
 import { useSidebarContext } from '../context/sidebar';
-import { useCallback, useEffect } from 'react';
-import { usePathname } from 'next/navigation';
+import { BROWSE_SCREEN_QUERYSTRING_KEY } from '@/constants/scenario';
 
 export default function NavBar({ noPageChange }: { noPageChange?: boolean }) {
   const { page, setPage } = useSidebarContext();
+
   const pathname = usePathname();
+  const searchParams = useSearchParams();
 
   useEffect(() => {
     pathname.includes('/saved') && setPage('saved');
@@ -20,8 +24,13 @@ export default function NavBar({ noPageChange }: { noPageChange?: boolean }) {
   const handleLinkClick = useCallback(
     (page: 'home' | 'saved') => {
       setPage(page);
+
+      // Save querystring params to localStorage
+      if (page === 'saved') {
+        localStorage.setItem(BROWSE_SCREEN_QUERYSTRING_KEY, searchParams.toString());
+      }
     },
-    [setPage]
+    [searchParams, setPage]
   );
 
   return (
