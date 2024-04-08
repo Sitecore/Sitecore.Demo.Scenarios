@@ -24,6 +24,7 @@ import useComponentVisible from '@/hooks/useComponentVisible';
 import FacetValue from './FacetValue';
 import FacetValueGrid from './FacetValueGrid';
 import { debounce, updateQueryString } from '@/helpers/searchWidget';
+import { BROWSE_SCREEN_QUERYSTRING_KEY } from '@/constants/scenario';
 
 type SearchResultsProps = {
   onFilterScenarios: (filteredScenarioTitles: string[]) => void;
@@ -185,6 +186,7 @@ const SearchResults = ({
     if (searchInputValue) {
       router.push(`${pathname}?q=${searchInputValue}`);
     } else {
+      localStorage.setItem(BROWSE_SCREEN_QUERYSTRING_KEY, '');
       router.push(pathname);
     }
 
