@@ -35,14 +35,16 @@ export default function NavBar({ noPageChange }: { noPageChange?: boolean }) {
 
   return (
     <aside className="w-24 h-full bg-white">
-      <Image
-        src="/sitecore.svg"
-        alt="Sitecore Logo"
-        width={40}
-        height={40}
-        className="absolute mt-16 mx-7"
-        priority
-      />
+      <Link href={`/?${searchParams.toString()}`} onClick={() => handleLinkClick('home')}>
+        <Image
+          src="/sitecore.svg"
+          alt="Sitecore Logo"
+          width={40}
+          height={40}
+          className="absolute mt-16 mx-7"
+          priority
+        />
+      </Link>
       <div className="flex flex-col items-center justify-center h-full">
         {noPageChange ? (
           <>
