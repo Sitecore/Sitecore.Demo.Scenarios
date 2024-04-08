@@ -3,10 +3,10 @@
 import { faBookmark } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import { useCallback, useEffect } from 'react';
+import { useCallback, useEffect, MouseEvent } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { usePathname, useSearchParams } from 'next/navigation';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 
 import { useSidebarContext } from '../context/sidebar';
 import { BROWSE_SCREEN_QUERYSTRING_KEY } from '@/constants/scenario';
@@ -14,6 +14,7 @@ import { BROWSE_SCREEN_QUERYSTRING_KEY } from '@/constants/scenario';
 export default function NavBar({ noPageChange }: { noPageChange?: boolean }) {
   const { page, setPage } = useSidebarContext();
 
+  const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
@@ -33,9 +34,23 @@ export default function NavBar({ noPageChange }: { noPageChange?: boolean }) {
     [searchParams, setPage]
   );
 
+  const handleLogoClick = useCallback(
+    (e: MouseEvent) => {
+      e.preventDefault();
+
+      setPage('home');
+
+      const href = (e?.currentTarget as HTMLAnchorElement).href;
+
+      // Timeout required for highlighting the correct nav item
+      setTimeout(() => router.push(href), 0);
+    },
+    [router, setPage]
+  );
+
   return (
     <aside className="w-24 h-full bg-white">
-      <Link href={`/?${searchParams.toString()}`} onClick={() => handleLinkClick('home')}>
+      <Link href={`/?${searchParams.toString()}`} onClick={handleLogoClick}>
         <Image
           src="/sitecore.svg"
           alt="Sitecore Logo"
