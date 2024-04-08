@@ -156,6 +156,7 @@ const SearchResults = ({
         searchParams,
         shouldRemoveFacet
       );
+      localStorage.setItem(BROWSE_SCREEN_QUERYSTRING_KEY, queryParams);
       router.push(`${pathname}?${queryParams}`);
 
       onFacetClick(payload);
@@ -172,6 +173,7 @@ const SearchResults = ({
           ?.valueLabel?.toLowerCase() ?? '';
 
       const queryParams = updateQueryString(facetId, facetValueText, searchParams, true);
+      localStorage.setItem(BROWSE_SCREEN_QUERYSTRING_KEY, queryParams);
       router.push(`${pathname}?${queryParams}`);
 
       onRemoveFilter(payload);
@@ -184,6 +186,7 @@ const SearchResults = ({
     const searchInputValue = (document.getElementById('search-input') as HTMLInputElement).value;
 
     if (searchInputValue) {
+      localStorage.setItem(BROWSE_SCREEN_QUERYSTRING_KEY, `q=${searchInputValue}`);
       router.push(`${pathname}?q=${searchInputValue}`);
     } else {
       localStorage.setItem(BROWSE_SCREEN_QUERYSTRING_KEY, '');
