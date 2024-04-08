@@ -1,7 +1,7 @@
 'use client';
 
 import { ReactNode, useCallback, useEffect, useRef } from 'react';
-import { useParams } from 'next/navigation';
+import { useParams, usePathname } from 'next/navigation';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 
@@ -22,6 +22,9 @@ export default function ScenarioGridWrapper({
   const params = useParams<{ id: string }>();
   const { page, scrollPos, setScrollPos } = useSidebarContext();
 
+  const pathname = usePathname();
+  const isScenarioDetailsPage = pathname.includes('/scenarios');
+
   useEffect(() => {
     if (!scrollRef.current || !params) return;
     scrollRef.current.scrollTo({ top: scrollPos[page] });
@@ -33,7 +36,11 @@ export default function ScenarioGridWrapper({
   }, [page, params, scrollPos, setScrollPos]);
 
   if (isLoading) {
-    return (
+    return isScenarioDetailsPage ? (
+      <div className="grid-container">
+        <Skeleton count={1} className="h-72" />
+      </div>
+    ) : (
       <div className="grid-container">
         <Skeleton
           count={5}
