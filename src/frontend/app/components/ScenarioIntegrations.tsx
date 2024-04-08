@@ -15,10 +15,10 @@ export default function ScenarioIntegrations({ scenario }: { scenario: Scenario 
               icon={faQuestionCircle}
               className="absolute -top-2 left-[calc(100%+0.25rem)] cursor-pointer"
             />
-            <p className="notification-card hidden group-hover:block absolute w-[170%] bottom-[calc(100%+1rem)] left-1/4 py-4 px-6 normal-case text-sm tracking-normal font-medium">
+            <span className="notification-card hidden group-hover:block absolute w-[170%] bottom-[calc(100%+1rem)] left-1/4 py-4 px-6 normal-case text-sm tracking-normal font-medium">
               You need to configure your own connections for the following integrations in order to
               replicate this scenario.
-            </p>
+            </span>
           </span>
         </p>
         <div className="flex flex-wrap gap-4">

@@ -180,7 +180,7 @@ const SearchResults = ({
                   suggestions.map((suggestion) => (
                     <div
                       key={suggestion.text}
-                      className="rounded-full bg-white-darkest px-4 py-[0.375rem] cursor-pointer"
+                      className="rounded-full bg-white-darkest hover:bg-gray-lightest px-4 py-[0.375rem] transition-colors cursor-pointer"
                       onClick={() => handleKeyphraseChange(suggestion.text)}
                     >
                       <span className="text-base">{suggestion.text}</span>

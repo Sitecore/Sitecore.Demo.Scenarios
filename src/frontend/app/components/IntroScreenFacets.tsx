@@ -73,7 +73,6 @@ function IntroScreenFacets({
 
   return (
     <div className="flex gap-8 my-auto transition-all duration-300 fold-down">
-      <p>{queryString}</p>
       {facets
         .filter((facet) => filterArray.includes(facet.name.toLowerCase()))
         .sort(

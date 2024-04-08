@@ -24,7 +24,7 @@ export default function IntroScreenFacet({
 
   return (
     <button
-      className={`flex flex-row gap-2 items-center rounded-full px-4 py-[0.375rem] ${isSelected ? 'bg-violet-dark text-white' : 'bg-white-darkest '} transition-colors`}
+      className={`flex flex-row gap-2 items-center rounded-full px-4 py-[0.375rem] ${isSelected ? 'bg-violet-dark text-white' : 'bg-white-darkest hover:bg-gray-lightest'} transition-colors`}
       onClick={() => {
         setIsSelected(!isSelected);
         onFacetValueClick({
