@@ -35,8 +35,12 @@ export default function BrowseScreen({ scenarios }: { scenarios: Scenario[] | nu
   }, []);
 
   // Retrieve querystring params from localStorage, if not already present in the URL
+  // If already present in the URL, update localStorage and return
   useEffect(() => {
-    if (searchParams.toString()) return;
+    if (searchParams.toString()) {
+      localStorage.setItem(BROWSE_SCREEN_QUERYSTRING_KEY, searchParams.toString());
+      return;
+    }
 
     const queryParams = localStorage.getItem(BROWSE_SCREEN_QUERYSTRING_KEY);
     if (queryParams) {
