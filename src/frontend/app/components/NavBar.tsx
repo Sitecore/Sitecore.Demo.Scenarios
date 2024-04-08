@@ -28,7 +28,7 @@ export default function NavBar({ noPageChange }: { noPageChange?: boolean }) {
 
   return (
     <aside className="w-24 h-full bg-white">
-      <Link href={`/?${searchParams.toString()}`}>
+      <Link href={`/?${searchParams.toString()}`} onClick={() => handleLinkClick('home')}>
         <Image
           src="/sitecore.svg"
           alt="Sitecore Logo"
