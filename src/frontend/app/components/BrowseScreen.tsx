@@ -13,12 +13,14 @@ import BrowseScreenSearchWidget from './BrowseScreenSearchWidget';
 
 export default function BrowseScreen({ scenarios }: { scenarios: Scenario[] | null }) {
   const [filteredScenarios, setFilteredScenarios] = useState(scenarios ?? []);
+  const [isLoading, setIsLoading] = useState(true);
 
   const updateFilteredScenarios = useCallback(
     (filteredScenarioIDs: string[]) => {
       setFilteredScenarios(
         scenarios?.filter((scenario) => filteredScenarioIDs.includes(scenario.id)) ?? []
       );
+      setIsLoading(false);
     },
     [scenarios]
   );
@@ -44,6 +46,7 @@ export default function BrowseScreen({ scenarios }: { scenarios: Scenario[] | nu
                 button={{ text: 'Contact us', href: CONTACT_US_URL, target: '_blank' }}
               />
             }
+            isLoading={isLoading}
           />
         </div>
       </main>

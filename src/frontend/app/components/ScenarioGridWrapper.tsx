@@ -2,6 +2,9 @@
 
 import { ReactNode, useCallback, useEffect, useRef } from 'react';
 import { useParams } from 'next/navigation';
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
+
 import { Scenario } from '@/interfaces/scenario';
 import { useSidebarContext } from '../context/sidebar';
 import ScenarioGrid from './ScenarioGrid';
@@ -9,9 +12,11 @@ import ScenarioGrid from './ScenarioGrid';
 export default function ScenarioGridWrapper({
   scenarios,
   errorCard,
+  isLoading = false,
 }: {
   scenarios: Scenario[] | null;
   errorCard: ReactNode;
+  isLoading?: boolean;
 }) {
   const scrollRef = useRef<HTMLAnchorElement>(null);
   const params = useParams<{ id: string }>();
@@ -26,6 +31,19 @@ export default function ScenarioGridWrapper({
     if (!scrollRef.current || !params) return;
     setScrollPos({ ...scrollPos, [page]: scrollRef.current.scrollTop });
   }, [page, params, scrollPos, setScrollPos]);
+
+  if (isLoading) {
+    return (
+      <div className="grid-container">
+        <Skeleton
+          count={5}
+          className="h-72"
+          containerClassName="grid grid-cols-3 gap-6 py-4"
+          inline={true}
+        />
+      </div>
+    );
+  }
 
   return (
     <section
