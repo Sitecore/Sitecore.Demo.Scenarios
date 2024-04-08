@@ -20,7 +20,7 @@ export default function BrowseScreen({ scenarios }: { scenarios: Scenario[] | nu
       setFilteredScenarios(
         scenarios?.filter((scenario) => filteredScenarioIDs.includes(scenario.id)) ?? []
       );
-      setIsLoading(false);
+      setTimeout(() => setIsLoading(false), 1000);
     },
     [scenarios]
   );
