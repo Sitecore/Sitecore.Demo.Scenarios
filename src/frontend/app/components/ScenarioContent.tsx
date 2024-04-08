@@ -40,9 +40,7 @@ export default function ScenarioContent({ scenario }: { scenario: Scenario }) {
         <ScenarioContentBody scenario={scenario} />
       </div>
       <Link
-        href={
-          page === 'home' ? `/?${searchParams.toString()}` : `/saved?${searchParams.toString()}`
-        }
+        href={page === 'home' ? `/?${searchParams.toString()}` : `/saved`}
         onClick={resetScrollPos}
         className="button-round fixed top-8 right-6"
       >
