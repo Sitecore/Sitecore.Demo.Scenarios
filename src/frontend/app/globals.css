@@ -283,3 +283,31 @@ body {
     animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
   }
 }
+@keyframes foldDown {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes expandWidth {
+  from {
+    width: 28rem;
+  }
+  to {
+    width: 80rem;
+  }
+}
+
+.fold-down {
+  transform: scaleY(0);
+  animation: foldDown 0.5s forwards;
+  animation-delay: 0.3s;
+}
+
+.expand-width {
+  width: 28rem;
+  animation: expandWidth 0.5s forwards;
+}

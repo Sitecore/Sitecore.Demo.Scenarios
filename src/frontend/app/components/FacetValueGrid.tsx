@@ -29,9 +29,9 @@ export default function FacetValueGrid({
   }, [facet.value, showAll]);
 
   return (
-    <div key={facet.label}>
-      <h3 className="text-base font-bold mb-3 uppercase">{facet.label}</h3>
-      <div className="flex flex-row flex-wrap gap-2 mb-8">
+    <div key={facet.label} className="mt-7">
+      <h3 className="text-base font-bold mb-2 uppercase tracking-wider">{facet.label}</h3>
+      <div className="flex flex-row flex-wrap gap-2">
         {visibleFacetValues.map((value, facetValueIndex) => (
           <FacetValue
             key={value.id}
