@@ -96,7 +96,7 @@ const SearchResults = ({
 
   // Changing the keyphrase removes all other facets
   const handleKeyphraseChange = useCallback(
-    (value: string) => {
+    (value: string, isSuggestion = false) => {
       if (value) {
         router.push(`${pathname}?q=${value}`);
       } else {
@@ -104,8 +104,11 @@ const SearchResults = ({
       }
       onKeyphraseChange({ keyphrase: value });
 
-      const searchInput = document.getElementById('search-input') as HTMLInputElement;
-      searchInput.value = value;
+      // Set the input value manually when user clicks on a keyword suggestion
+      if (isSuggestion) {
+        const searchInput = document.getElementById('search-input') as HTMLInputElement;
+        searchInput.value = value;
+      }
     },
     [onKeyphraseChange, router, pathname]
   );
@@ -288,7 +291,7 @@ const SearchResults = ({
                     <div
                       key={suggestion.text}
                       className="rounded-full bg-white-darkest hover:bg-gray-lightest px-4 py-[0.375rem] transition-colors cursor-pointer"
-                      onClick={() => handleKeyphraseChange(suggestion.text)}
+                      onClick={() => handleKeyphraseChange(suggestion.text, true)}
                     >
                       <span className="text-base">{suggestion.text}</span>
                     </div>
