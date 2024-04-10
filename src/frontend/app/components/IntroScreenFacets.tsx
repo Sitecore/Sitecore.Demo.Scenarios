@@ -52,7 +52,10 @@ function IntroScreenFacets({
 
   const queryString = useMemo(() => {
     const queryString = Object.entries(selectedFacets)
-      .map(([facetId, facetValueLabels]) => `${facetId}=${facetValueLabels.join(',')}`)
+      .map(
+        ([facetId, facetValueLabels]) =>
+          `${facetId}=${facetValueLabels.map((label) => label.toLowerCase()).join(',')}`
+      )
       .join('&');
 
     return queryString ? `?${queryString}` : '/';

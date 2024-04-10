@@ -221,11 +221,14 @@ const SearchResults = ({
             facetValueId:
               facets
                 .find((facet) => facet.name.toLowerCase() === key)
-                ?.value.find((facetValue) => facetValue.text.toLowerCase() === value)?.id ?? '',
+                ?.value.find((facetValue) => facetValue.text.toLowerCase() === value.toLowerCase())
+                ?.id ?? '',
             facetValueIndex:
               facets
                 .find((facet) => facet.name.toLowerCase() === key)
-                ?.value.findIndex((facetValue) => facetValue.text.toLowerCase() === value) ?? -1,
+                ?.value.findIndex(
+                  (facetValue) => facetValue.text.toLowerCase() === value.toLowerCase()
+                ) ?? -1,
             type: 'valueId',
             checked: true,
           })
