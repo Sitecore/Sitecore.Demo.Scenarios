@@ -2,7 +2,8 @@
 
 import { MouseEvent, useCallback, useEffect, useRef } from 'react';
 import Link from 'next/link';
-import { useParams, useRouter } from 'next/navigation';
+import { useParams, useRouter, useSearchParams } from 'next/navigation';
+
 import { CategoryOptions, Scenario } from '@/interfaces/scenario';
 import BookmarkIcon from './BookmarkIcon';
 import TagList from './TagList';
@@ -15,6 +16,7 @@ type ScenarioGridProps = {
 
 export default function ScenarioGrid({ scenarios }: ScenarioGridProps) {
   const router = useRouter();
+  const searchParams = useSearchParams();
   const params = useParams<{ id: string }>();
   const scrollRef = useRef<HTMLAnchorElement>(null);
   const { page, scrollPos, setScrollPos } = useSidebarContext();
@@ -34,20 +36,23 @@ export default function ScenarioGrid({ scenarios }: ScenarioGridProps) {
         setScrollPos({ ...scrollPos, [page]: _scrollPos });
       }
     }
-  }, []);
+  }, [page, params.id, scrollPos, setScrollPos]);
 
-  const handleScenarioClick = useCallback((e: MouseEvent) => {
-    e.preventDefault();
+  const handleScenarioClick = useCallback(
+    (e: MouseEvent) => {
+      e.preventDefault();
 
-    // Check if bookmark icon was clicked and return with no redirect
-    const tagName = (e.target as HTMLElement).tagName;
-    if (tagName === 'path' || tagName === 'svg') {
-      return;
-    }
+      // Check if bookmark icon was clicked and return with no redirect
+      const tagName = (e.target as HTMLElement).tagName;
+      if (tagName === 'path' || tagName === 'svg') {
+        return;
+      }
 
-    const href = (e?.currentTarget as HTMLAnchorElement).href;
-    router.push(href);
-  }, []);
+      const href = (e?.currentTarget as HTMLAnchorElement).href;
+      router.push(href);
+    },
+    [router]
+  );
 
   return (
     <div className="flex flex-wrap gap-6 py-4 grid-container">
@@ -55,7 +60,7 @@ export default function ScenarioGrid({ scenarios }: ScenarioGridProps) {
         <Link
           key={scenario.id}
           className="group relative bg-white rounded-lg shadow-card py-10 px-8 basis-[calc(33.33%-1rem)] flex-grow min-w-96 transition-all cursor-pointer hover:shadow-card-hover"
-          href={`/scenarios/${scenario.id}`}
+          href={`/scenarios/${scenario.id}?${searchParams.toString()}`}
           ref={scenario.id === params.id ? scrollRef : undefined}
           onClick={handleScenarioClick}
         >
