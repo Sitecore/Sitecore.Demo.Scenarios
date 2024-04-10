@@ -1,8 +1,8 @@
 import { ReadonlyURLSearchParams } from 'next/navigation';
 
-export const debounce = (fn: Function, ms = 300) => {
+export const debounce = (fn: (value: string) => void, ms = 300) => {
   let timeoutId: ReturnType<typeof setTimeout>;
-  return function (this: any, ...args: any[]) {
+  return function (this: unknown, ...args: [value: string]) {
     clearTimeout(timeoutId);
     timeoutId = setTimeout(() => fn.apply(this, args), ms);
   };
