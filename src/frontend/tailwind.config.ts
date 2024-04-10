@@ -40,6 +40,7 @@ const config: Config = {
         dark: '#212621',
       },
       gray: {
+        lightest: '#DFDFDF',
         light: '#C8C8C8',
         DEFAULT: '#969696',
       },
