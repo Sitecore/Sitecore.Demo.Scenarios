@@ -44,7 +44,7 @@ export default function BrowseScreen({ scenarios }: { scenarios: Scenario[] | nu
             <BrowseScreenSearchWidget rfkId="rfkid_7" onFilterScenarios={updateFilteredScenarios} />
           </section>
           {showDemoPortalNotification && (
-            <section className="absolute top-6 right-6 px-9 py-6 rounded-lg bg-white text-black-light border-l-4 border-l-violet animate-[bounce_2s_ease-in-out_2]">
+            <section className="absolute top-6 right-6 notification-card animate-[bounceDown_2s_ease-out_1]">
               <h3 className="font-bold text-xl">You seem to be coming from the Demo Portal!</h3>
               <p>We&apos;ve added some filters to help you get started with your demo.</p>
               <FontAwesomeIcon
