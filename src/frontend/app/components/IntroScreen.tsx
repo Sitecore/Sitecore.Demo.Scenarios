@@ -9,7 +9,7 @@ import { WidgetsProvider } from '@sitecore-search/react';
 import { config } from '@/services/searchSDK';
 
 export default function IntroScreen() {
-  const [expanded, setExpanded] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
   const [queryString, setQueryString] = useState('/');
   const router = useRouter();
@@ -24,10 +24,10 @@ export default function IntroScreen() {
   return (
     <WidgetsProvider {...config}>
       <main className="main-grid-layout-vivid py-16 h-full overflow-auto custom-scrollbar">
-        {expanded && (
+        {isExpanded && (
           <div
             className="bg-black bg-opacity-10 absolute top-0 left-0 right-0 bottom-0 cursor-pointer"
-            onClick={() => setExpanded(false)}
+            onClick={() => setIsExpanded(false)}
           ></div>
         )}
         <div className="h-full flex flex-col items-center">
@@ -44,32 +44,32 @@ export default function IntroScreen() {
           </section>
           <section className="m-auto grid-container">
             <div
-              className={`relative w-full flex flex-col items-center justify-between py-4 lg:flex-row ${!expanded && 'gap-16 xl:gap-32'}`}
+              className={`relative w-full flex flex-col items-center justify-between py-4 lg:flex-row ${!isExpanded && 'gap-16 xl:gap-32'}`}
             >
               <div
-                className={`${commonCardStyles} ${isAnimating && 'h-[31rem]'} ${expanded && 'flex flex-col items-stretch expand-width !py-10 !cursor-auto shadow-card-large-hover'}`}
+                className={`${commonCardStyles} ${isAnimating && 'h-[31rem]'} ${isExpanded && 'flex flex-col items-stretch expand-width !py-10 !cursor-auto shadow-card-large-hover'}`}
                 onClick={() => {
-                  if (!expanded) {
+                  if (!isExpanded) {
                     setIsAnimating(true);
-                    setExpanded(true);
+                    setIsExpanded(true);
                   }
                 }}
                 onAnimationEnd={() => setIsAnimating(false)}
               >
                 <div className={`flex items-center flex-row flex-wrap`}>
                   <Image
-                    className={`max-w-full h-auto transition-all duration-500 ${expanded ? 'ml-0 mr-8' : 'mx-auto mt-14 mb-20'}`}
+                    className={`max-w-full h-auto transition-all duration-500 ${isExpanded ? 'ml-0 mr-8' : 'mx-auto mt-14 mb-20'}`}
                     src="/undraw_preferences_re_49in.svg"
                     alt="Personalize your experience logo"
-                    height={expanded ? 65 : 176}
-                    width={expanded ? 78 : 211}
+                    height={isExpanded ? 65 : 176}
+                    width={isExpanded ? 78 : 211}
                     unoptimized
                   />
-                  <div className={`${expanded && 'text-left'} transition-all duration-300`}>
+                  <div className={`${isExpanded && 'text-left'} transition-all duration-300`}>
                     <h2 className="font-bold text-2xl">Personalize your experience</h2>
                     <p className="text-lg">by selecting topics that you are interested in</p>
                   </div>
-                  {expanded && (
+                  {isExpanded && (
                     <button
                       className="button ml-auto fold-down"
                       onClick={() => handleClick(queryString)}
@@ -78,7 +78,7 @@ export default function IntroScreen() {
                     </button>
                   )}
                 </div>
-                {expanded && (
+                {isExpanded && (
                   <IntroScreenFacets
                     rfkId="rfkid_7"
                     onSelectedFacetsChange={(q) => setQueryString(q)}
@@ -87,13 +87,13 @@ export default function IntroScreen() {
               </div>
 
               <span
-                className={`text-black-light font-bold text-2xl self-center ${expanded && 'hidden'}`}
+                className={`text-black-light font-bold text-2xl self-center ${isExpanded && 'hidden'}`}
               >
                 or
               </span>
 
               <button
-                className={`${commonCardStyles} flex flex-col items-center justify-end text-center ${expanded && 'hidden'}`}
+                className={`${commonCardStyles} flex flex-col items-center justify-end text-center ${isExpanded && 'hidden'}`}
                 onClick={() => handleClick('/')}
               >
                 <Image
