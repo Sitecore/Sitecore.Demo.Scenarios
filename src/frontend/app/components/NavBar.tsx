@@ -3,34 +3,63 @@
 import { faBookmark } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { useCallback, useEffect, MouseEvent } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+
 import { useSidebarContext } from '../context/sidebar';
-import { useCallback, useEffect } from 'react';
-import { usePathname } from 'next/navigation';
+import { BROWSE_SCREEN_QUERYSTRING_KEY } from '@/constants/scenario';
 
 export default function NavBar({ noPageChange }: { noPageChange?: boolean }) {
   const { page, setPage } = useSidebarContext();
+
+  const router = useRouter();
   const pathname = usePathname();
+  const searchParams = useSearchParams();
 
   useEffect(() => {
     pathname.includes('/saved') && setPage('saved');
-  }, []);
+  }, [pathname, setPage]);
 
-  const handleLinkClick = useCallback((page: 'home' | 'saved') => {
-    setPage(page);
-  }, []);
+  const handleLinkClick = useCallback(
+    (page: 'home' | 'saved') => {
+      setPage(page);
+
+      // Save querystring params to localStorage
+      if (page === 'saved') {
+        localStorage.setItem(BROWSE_SCREEN_QUERYSTRING_KEY, searchParams.toString());
+      }
+    },
+    [searchParams, setPage]
+  );
+
+  const handleLogoClick = useCallback(
+    (e: MouseEvent) => {
+      e.preventDefault();
+
+      setPage('home');
+
+      const href = (e?.currentTarget as HTMLAnchorElement).href;
+
+      // Timeout required for highlighting the correct nav item
+      setTimeout(() => router.push(href), 0);
+    },
+    [router, setPage]
+  );
 
   return (
     <aside className="w-24 h-full bg-white">
-      <Image
-        src="/sitecore.svg"
-        alt="Sitecore Logo"
-        width={40}
-        height={40}
-        className="absolute mt-16 mx-7"
-        priority
-      />
+      <Link href={`/?${searchParams.toString()}`} onClick={handleLogoClick}>
+        <Image
+          src="/sitecore.svg"
+          alt="Sitecore Logo"
+          width={40}
+          height={40}
+          className="absolute mt-16 mx-7"
+          priority
+        />
+      </Link>
       <div className="flex flex-col items-center justify-center h-full">
         {noPageChange ? (
           <>

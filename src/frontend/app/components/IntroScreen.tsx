@@ -16,10 +16,13 @@ export default function IntroScreen() {
 
   const commonCardStyles = `max-w-full w-[28rem] min-h-[31rem] px-10 py-16 bg-white rounded-lg text-center shadow-card-large hover:shadow-card-large-hover cursor-pointer transition-all duration-300`;
 
-  const handleClick = useCallback((href: string) => {
-    createHasVisitedCookie();
-    router.push(href);
-  }, []);
+  const handleClick = useCallback(
+    (href: string) => {
+      createHasVisitedCookie();
+      router.push(href);
+    },
+    [router]
+  );
 
   return (
     <WidgetsProvider {...config}>
