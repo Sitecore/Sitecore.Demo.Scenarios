@@ -47,7 +47,11 @@ export default function BrowseScreen({ scenarios }: { scenarios: Scenario[] | nu
   // If already present in the URL, update localStorage and return
   useEffect(() => {
     if (searchParams.toString()) {
-      localStorage.setItem(BROWSE_SCREEN_QUERYSTRING_KEY, searchParams.toString());
+      // Remove isDemoPortalUser param so that we don't constantly display the notification
+      const queryParams = new URLSearchParams(searchParams.toString());
+      queryParams.delete(DEMO_PORTAL_USER_KEY);
+      localStorage.setItem(BROWSE_SCREEN_QUERYSTRING_KEY, queryParams.toString());
+      router.push(`${pathname}?${queryParams}`);
       return;
     }
 
