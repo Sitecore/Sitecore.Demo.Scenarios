@@ -1,17 +1,21 @@
 'use client';
 
-import { Scenario } from '@/interfaces/scenario';
 import { useRef } from 'react';
+import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowUp, faClose } from '@fortawesome/free-solid-svg-icons';
+
+import { Scenario } from '@/interfaces/scenario';
 import TagList from './TagList';
 import ScenarioContentBody from './ScenarioContentBody';
 import BookmarkIcon from './BookmarkIcon';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowUp, faClose } from '@fortawesome/free-solid-svg-icons';
 import { useSidebarContext } from '../context/sidebar';
-import Link from 'next/link';
 import ScenarioIntegrations from './ScenarioIntegrations';
 
 export default function ScenarioContent({ scenario }: { scenario: Scenario }) {
+  const searchParams = useSearchParams();
+
   const customScrollbarRef = useRef<HTMLDivElement>(null);
   const { page, resetScrollPos } = useSidebarContext();
 
@@ -36,7 +40,7 @@ export default function ScenarioContent({ scenario }: { scenario: Scenario }) {
         <ScenarioContentBody scenario={scenario} />
       </div>
       <Link
-        href={page === 'home' ? '/' : '/saved'}
+        href={page === 'home' ? `/?${searchParams.toString()}` : `/saved`}
         onClick={resetScrollPos}
         className="button-round fixed top-8 right-6"
       >

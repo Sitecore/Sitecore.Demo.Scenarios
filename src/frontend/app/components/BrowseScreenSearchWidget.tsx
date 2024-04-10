@@ -24,6 +24,7 @@ import useComponentVisible from '@/hooks/useComponentVisible';
 import FacetValue from './FacetValue';
 import FacetValueGrid from './FacetValueGrid';
 import { debounce, updateQueryString } from '@/helpers/searchWidget';
+import { BROWSE_SCREEN_QUERYSTRING_KEY } from '@/constants/scenario';
 
 type SearchResultsProps = {
   onFilterScenarios: (filteredScenarioTitles: string[]) => void;
@@ -155,6 +156,7 @@ const SearchResults = ({
         searchParams,
         shouldRemoveFacet
       );
+      localStorage.setItem(BROWSE_SCREEN_QUERYSTRING_KEY, queryParams);
       router.push(`${pathname}?${queryParams}`);
 
       onFacetClick(payload);
@@ -171,6 +173,7 @@ const SearchResults = ({
           ?.valueLabel?.toLowerCase() ?? '';
 
       const queryParams = updateQueryString(facetId, facetValueText, searchParams, true);
+      localStorage.setItem(BROWSE_SCREEN_QUERYSTRING_KEY, queryParams);
       router.push(`${pathname}?${queryParams}`);
 
       onRemoveFilter(payload);
@@ -180,8 +183,15 @@ const SearchResults = ({
 
   // Clear all should not remove the keyphrase input by the user
   const handleClearAllFilters = useCallback(() => {
-    const searchInput = document.getElementById('search-input') as HTMLInputElement;
-    router.push(`${pathname}?q=${searchInput.value}`);
+    const searchInputValue = (document.getElementById('search-input') as HTMLInputElement).value;
+
+    if (searchInputValue) {
+      localStorage.setItem(BROWSE_SCREEN_QUERYSTRING_KEY, `q=${searchInputValue}`);
+      router.push(`${pathname}?q=${searchInputValue}`);
+    } else {
+      localStorage.setItem(BROWSE_SCREEN_QUERYSTRING_KEY, '');
+      router.push(pathname);
+    }
 
     onClearFilters();
   }, [router, pathname, onClearFilters]);
