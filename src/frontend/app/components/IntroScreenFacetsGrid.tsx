@@ -19,7 +19,7 @@ export default function IntroScreenFacetsGrid({
     if (showAll) {
       setVisibleFacetValues(facet.value);
     }
-  }, [showAll]);
+  }, [facet.value, showAll]);
 
   return (
     <div key={facet.label} className="flex-1">

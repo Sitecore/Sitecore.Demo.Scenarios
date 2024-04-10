@@ -60,7 +60,7 @@ function IntroScreenFacets({
 
   useEffect(() => {
     onSelectedFacetsChange(queryString);
-  }, [selectedFacets]);
+  }, [onSelectedFacetsChange, queryString]);
 
   const filterArray = useMemo(() => ['products', 'templates', 'categories'], []);
 
