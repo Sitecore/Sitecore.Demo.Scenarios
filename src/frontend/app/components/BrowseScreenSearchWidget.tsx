@@ -199,12 +199,16 @@ const SearchResults = ({
     onClearFilters();
   }, [router, pathname, onClearFilters]);
 
-  // Transform the querystring parameters into suitable Search facet objects and apply them on load
+  // Transform the querystring parameters into suitable Search objects in order to update the keyphrase
+  // and the selected facets and apply them on load
   useEffect(() => {
     if (isInitialLoading) return;
 
-    const initialFacets = [] as FacetChoiceChangedPayload[];
+    // Apply the keyphrase
+    onKeyphraseChange({ keyphrase: searchParams.get('q') ?? '' });
 
+    // Apply the facets
+    const initialFacets = [] as FacetChoiceChangedPayload[];
     Array.from(searchParams.keys())
       .filter((key) => key !== 'q')
       .map((key: string) => {
