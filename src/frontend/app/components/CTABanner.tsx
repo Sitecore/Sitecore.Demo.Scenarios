@@ -1,13 +1,9 @@
-import Link from 'next/link';
-
 type CTABannerProps = {
   title: string;
   subtitle: string;
   button: {
     text: string;
     href: string;
-    target?: '_blank';
-    onClick?: () => void;
   };
 };
 
@@ -22,14 +18,9 @@ export default function CTABanner({ title, subtitle, button }: CTABannerProps) {
           </h2>
           <p className="text-lg">{subtitle}</p>
         </div>
-        <Link
-          className="button"
-          href={button.href}
-          target={button.target || '_self'}
-          onClick={button.onClick}
-        >
+        <a className="button" href={button.href}>
           {button.text}
-        </Link>
+        </a>
       </div>
     </div>
   );
