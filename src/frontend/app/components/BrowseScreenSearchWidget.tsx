@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useCallback, useEffect, KeyboardEvent } from 'react';
+import React, { useCallback, useEffect, KeyboardEvent, useMemo } from 'react';
 import {
   FacetChoiceChangedPayload,
   RemoveFilterPayload,
@@ -115,10 +115,14 @@ const SearchResults = ({
 
   const onKeyphraseChangeDebounced = debounce((value: string) => handleKeyphraseChange(value), 500);
 
+  const autocompleteSuggestion = useMemo(() => {
+    return !!suggestions.length && suggestions?.[0].text;
+  }, [suggestions]);
+
   const handleAutocomplete = useCallback(() => {
     const searchInput = document.getElementById('search-input') as HTMLInputElement;
-    searchInput.value = suggestions?.[0]?.text;
-  }, [suggestions]);
+    searchInput.value = !!autocompleteSuggestion ? autocompleteSuggestion : searchInput.value;
+  }, [autocompleteSuggestion]);
 
   const handleKeyDown = useCallback(
     (e: KeyboardEvent<HTMLInputElement>): void => {
@@ -249,11 +253,19 @@ const SearchResults = ({
 
   return (
     <div ref={containerRef} className="relative">
-      <div className="flex flex-row flex-wrap gap-5">
-        <div className="relative max-w-96 w-full">
+      <div className="flex flex-row flex-wrap gap-5 mb-8">
+        <div className="relative max-w-96 w-full bg-white rounded-full">
+          {isSearchWidgetVisible && !!autocompleteSuggestion && (
+            <p className="absolute top-0 bottom-0 left-5 right-10 flex items-center pt-1 whitespace-nowrap text-ellipsis text-gray z-10">
+              {autocompleteSuggestion}
+              <span className="inline-block bg-white-dark text-[8px] pt-[1px] px-1 ml-2 mb-[3px] rounded-[4px] border border-gray-light">
+                Tab
+              </span>
+            </p>
+          )}
           <input
             id="search-input"
-            className="w-full rounded-full pl-5 pr-10 pt-1 h-10 shadow-element cursor-pointer focus:outline-none placeholder:text-black-light"
+            className="relative w-full rounded-full pl-5 pr-10 pt-1 h-10 bg-transparent shadow-element cursor-pointer focus:outline-none placeholder:text-black-light z-20"
             type="text"
             defaultValue={q}
             placeholder="Search"
@@ -262,7 +274,7 @@ const SearchResults = ({
             onKeyDown={handleKeyDown}
             autoComplete="off"
           />
-          <FontAwesomeIcon icon={faSearch} className="absolute h-4 right-4 bottom-3" />
+          <FontAwesomeIcon icon={faSearch} className="absolute h-4 right-4 bottom-3 z-10" />
         </div>
         {selectedFacets.length > 0 && (
           <div className="flex flex-row flex-wrap gap-2 items-center">
