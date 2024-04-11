@@ -98,10 +98,13 @@ const SearchResults = ({
   const handleKeyphraseChange = useCallback(
     (value: string, isSuggestion = false) => {
       if (value) {
+        localStorage.setItem(BROWSE_SCREEN_QUERYSTRING_KEY, `q=${value}`);
         router.push(`${pathname}?q=${value}`);
       } else {
+        localStorage.setItem(BROWSE_SCREEN_QUERYSTRING_KEY, '');
         router.push(pathname);
       }
+
       onKeyphraseChange({ keyphrase: value });
 
       // Set the input value manually when user clicks on a keyword suggestion
