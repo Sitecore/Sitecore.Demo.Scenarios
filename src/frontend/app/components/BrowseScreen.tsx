@@ -2,8 +2,6 @@
 
 import { useCallback, useEffect, useState } from 'react';
 import { WidgetsProvider } from '@sitecore-search/react';
-import { faRemove } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 
 import {
@@ -17,6 +15,7 @@ import { createHasVisitedCookie } from '../actions';
 import ScenarioGridWrapper from './ScenarioGridWrapper';
 import { config } from '../../services/searchSDK';
 import BrowseScreenSearchWidget from './BrowseScreenSearchWidget';
+import NotificationCard from './NotificationCard';
 
 export default function BrowseScreen({ scenarios }: { scenarios: Scenario[] | null }) {
   const router = useRouter();
@@ -28,6 +27,7 @@ export default function BrowseScreen({ scenarios }: { scenarios: Scenario[] | nu
   const [showDemoPortalNotification, setShowDemoPortalNotification] = useState(
     searchParams.get(DEMO_PORTAL_USER_KEY) === 'true'
   );
+  const [showReturningUserNotification, setShowReturningUserNotification] = useState(false);
 
   const updateFilteredScenarios = useCallback(
     (filteredScenarioIDs: string[]) => {
@@ -38,6 +38,13 @@ export default function BrowseScreen({ scenarios }: { scenarios: Scenario[] | nu
     },
     [scenarios]
   );
+
+  const handleStartOverClick = useCallback(() => {
+    localStorage.setItem(BROWSE_SCREEN_QUERYSTRING_KEY, '');
+
+    // In order for BrowseScreenSearchWidget to refresh
+    window.location.href = '/';
+  }, []);
 
   useEffect(() => {
     createHasVisitedCookie();
@@ -57,6 +64,7 @@ export default function BrowseScreen({ scenarios }: { scenarios: Scenario[] | nu
 
     const queryParams = localStorage.getItem(BROWSE_SCREEN_QUERYSTRING_KEY);
     if (queryParams) {
+      setShowReturningUserNotification(true);
       router.push(`${pathname}?${queryParams}`);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -71,15 +79,28 @@ export default function BrowseScreen({ scenarios }: { scenarios: Scenario[] | nu
             <BrowseScreenSearchWidget rfkId="rfkid_7" onFilterScenarios={updateFilteredScenarios} />
           </section>
           {showDemoPortalNotification && (
-            <section className="absolute top-6 right-6 notification-card animate-[bounceDown_2s_ease-out_1]">
-              <h3 className="font-bold text-xl">You seem to be coming from the Demo Portal!</h3>
-              <p>We&apos;ve added some filters to help you get started with your demo.</p>
-              <FontAwesomeIcon
-                className="h-4 w-4 align-middle absolute top-3 right-3 cursor-pointer"
-                icon={faRemove}
-                onClick={() => setShowDemoPortalNotification(false)}
-              />
-            </section>
+            <NotificationCard
+              title="You seem to be coming from the Demo Portal!"
+              subtitle={
+                <p>We&apos;ve added some filters to help you get started with your demo.</p>
+              }
+              onRemoveIconClick={() => setShowDemoPortalNotification(false)}
+            />
+          )}
+          {showReturningUserNotification && (
+            <NotificationCard
+              title="Continue where you left off..."
+              subtitle={
+                <p>
+                  We&apos;ve kept your search from last time but you can also{' '}
+                  <span className="cursor-pointer underline" onClick={handleStartOverClick}>
+                    start over
+                  </span>
+                  .
+                </p>
+              }
+              onRemoveIconClick={() => setShowReturningUserNotification(false)}
+            />
           )}
           <ScenarioGridWrapper
             scenarios={filteredScenarios}
