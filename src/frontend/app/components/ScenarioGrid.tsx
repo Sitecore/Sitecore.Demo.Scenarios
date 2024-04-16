@@ -14,6 +14,7 @@ type ScenarioGridProps = {
   scenarios: Scenario[];
 };
 
+// Split the scenario array into two parts to insert the banner between them
 function splitItems(items: Scenario[]) {
   const totalLength = items.length;
 
