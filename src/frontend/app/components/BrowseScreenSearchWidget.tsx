@@ -120,8 +120,6 @@ const SearchResults = ({
     [onKeyphraseChange, router, pathname]
   );
 
-  // const onKeyphraseChangeDebounced = debounce((value: string) => handleKeyphraseChange(value), 500);
-
   const autocompleteSuggestion = useMemo(() => {
     return !!suggestions.length && suggestions?.[0].text;
   }, [suggestions]);
