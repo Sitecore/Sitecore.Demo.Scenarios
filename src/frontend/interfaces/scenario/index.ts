@@ -1,13 +1,13 @@
 import { JSONContent } from '@tiptap/react';
 
 export enum CategoryOptions {
-  taxonomy_categoryoptions_commerce = 'Commerce',
-  taxonomy_categoryoptions_content = 'Content',
-  taxonomy_categoryoptions_experimentation = 'Experimentation',
-  taxonomy_categoryoptions_integration = 'Integration',
-  taxonomy_categoryoptions_marketingAutomation = 'Marketing Automation',
-  taxonomy_categoryoptions_personalization = 'Personalization',
-  taxonomy_categoryoptions_search = 'Search',
+  taxonomy_categoryOptions_commerce = 'Commerce',
+  taxonomy_categoryOptions_content = 'Content',
+  taxonomy_categoryOptions_experimentation = 'Experimentation',
+  taxonomy_categoryOptions_integration = 'Integration',
+  taxonomy_categoryOptions_marketingAutomation = 'Marketing Automation',
+  taxonomy_categoryOptions_personalization = 'Personalization',
+  taxonomy_categoryOptions_search = 'Search',
 }
 
 export interface Category {
@@ -15,16 +15,16 @@ export interface Category {
 }
 
 export enum ProductOptions {
-  taxonomy_productoptions_cdp = 'CDP',
-  taxonomy_productoptions_connect = 'Connect',
-  taxonomy_productoptions_contentHub = 'Content Hub',
-  taxonomy_productoptions_contentHubOne = 'Content Hub ONE',
-  taxonomy_productoptions_discover = 'Discover',
-  taxonomy_productoptions_ordercloud = 'OrderCloud',
-  taxonomy_productoptions_personalize = 'Personalize',
-  taxonomy_productoptions_search = 'Search',
-  taxonomy_productoptions_send = 'Send',
-  taxonomy_productoptions_xmCloud = 'XM Cloud',
+  taxonomy_productOptions_cdp = 'CDP',
+  taxonomy_productOptions_connect = 'Connect',
+  taxonomy_productOptions_contentHub = 'Content Hub',
+  taxonomy_productOptions_contentHubOne = 'Content Hub ONE',
+  taxonomy_productOptions_discover = 'Discover',
+  taxonomy_productOptions_ordercloud = 'OrderCloud',
+  taxonomy_productOptions_personalize = 'Personalize',
+  taxonomy_productOptions_search = 'Search',
+  taxonomy_productOptions_send = 'Send',
+  taxonomy_productOptions_xmCloud = 'XM Cloud',
 }
 
 export interface Product {
@@ -32,13 +32,13 @@ export interface Product {
 }
 
 export enum TemplateOptions {
-  taxonomy_templateoptions_brandPortal = 'Brand Portal',
-  taxonomy_templateoptions_lighthousexp = 'Lighthouse (XP)',
-  taxonomy_templateoptions_playMedia = 'PLAY! Media',
-  taxonomy_templateoptions_playShop = 'PLAY! Shop',
-  taxonomy_templateoptions_playSummit = 'PLAY! Summit',
-  taxonomy_templateoptions_playSummitxmCloudPlus = 'PLAY! Summit (XM Cloud Plus)',
-  taxonomy_templateoptions_sitecoreSend = 'Sitecore Send',
+  taxonomy_templateOptions_brandPortal = 'Brand Portal',
+  taxonomy_templateOptions_lighthousexp = 'Lighthouse (XP)',
+  taxonomy_templateOptions_playMedia = 'PLAY! Media',
+  taxonomy_templateOptions_playShop = 'PLAY! Shop',
+  taxonomy_templateOptions_playSummit = 'PLAY! Summit',
+  taxonomy_templateOptions_playSummitxmCloudPlus = 'PLAY! Summit (XM Cloud Plus)',
+  taxonomy_templateOptions_sitecoreSend = 'Sitecore Send',
 }
 
 export interface Template {
