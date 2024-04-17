@@ -50,7 +50,7 @@ body {
   }
 
   .notification-card {
-    @apply bg-white shadow-element py-6 px-9 rounded-lg overflow-hidden;
+    @apply bg-white shadow-card-large py-6 px-9 rounded-lg overflow-hidden;
     @apply before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:h-full before:bg-violet;
   }
 
@@ -263,4 +263,51 @@ body {
       @apply w-5 h-5;
     }
   }
+}
+
+@keyframes bounceDown {
+  0% {
+    transform: translateY(-25%);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: none;
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+  75% {
+    transform: translateY(-15%);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  100% {
+    transform: none;
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+@keyframes foldDown {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes expandWidth {
+  from {
+    width: 28rem;
+  }
+  to {
+    width: 80rem;
+  }
+}
+
+.fold-down {
+  transform: scaleY(0);
+  animation: foldDown 0.5s forwards;
+  animation-delay: 0.3s;
+}
+
+.expand-width {
+  width: 28rem;
+  animation: expandWidth 0.5s forwards;
 }

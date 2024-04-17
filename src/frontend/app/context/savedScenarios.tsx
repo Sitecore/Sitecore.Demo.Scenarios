@@ -39,10 +39,6 @@ export const SavedScenariosContextProvider = ({
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [savedScenarios, setSavedScenarios] = useState<Scenario[]>([]);
 
-  useEffect(() => {
-    updateSavedScenarios();
-  }, []);
-
   const updateSavedScenarios = useCallback(() => {
     setIsLoading(true);
     const savedScenarioIDs = localStorage.getItem(SAVED_SCENARIOS_KEY)?.split(',') ?? [];
@@ -51,7 +47,11 @@ export const SavedScenariosContextProvider = ({
 
     setSavedScenarios(filteredScenarios);
     setIsLoading(false);
-  }, []);
+  }, [scenarios]);
+
+  useEffect(() => {
+    updateSavedScenarios();
+  }, [updateSavedScenarios]);
 
   return (
     <SavedScenariosContext.Provider value={{ isLoading, savedScenarios, updateSavedScenarios }}>

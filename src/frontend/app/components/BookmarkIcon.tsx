@@ -16,7 +16,7 @@ export default function BookmarkIcon({ scenarioID, className }: BookmarkIconProp
   const [isScenarioBookmarked, setIsScenarioBookmarked] = useState(false);
   const { updateSavedScenarios } = useSavedScenariosContext();
 
-  useEffect(() => setIsScenarioBookmarked(isSavedScenario(scenarioID)), []);
+  useEffect(() => setIsScenarioBookmarked(isSavedScenario(scenarioID)), [scenarioID]);
 
   return isScenarioBookmarked ? (
     <FontAwesomeIcon

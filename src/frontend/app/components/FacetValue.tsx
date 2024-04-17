@@ -1,6 +1,6 @@
 import { faRemove } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { FacetChangedPayload, RemoveFilterPayload } from '@sitecore-search/react';
+import { FacetChoiceChangedPayload, RemoveFilterPayload } from '@sitecore-search/react';
 
 type FacetValueProps = {
   facetId: string;
@@ -11,7 +11,7 @@ type FacetValueProps = {
   facetValueIndex?: number;
   isSelected?: boolean;
   showRemoveIcon?: boolean;
-  onFacetValueClick?: (payload: FacetChangedPayload) => void;
+  onFacetValueClick?: (payload: FacetChoiceChangedPayload) => void;
   onRemoveIconClick?: (payload: RemoveFilterPayload) => void;
 };
 
@@ -29,7 +29,7 @@ export default function FacetValue({
 }: FacetValueProps) {
   return (
     <div
-      className={`flex flex-row gap-1 items-center rounded-full px-4 py-[0.375rem] ${!showRemoveIcon && 'cursor-pointer'} ${isSelected ? 'bg-violet-dark text-white' : 'bg-white-darkest'}`}
+      className={`flex flex-row gap-2 items-center rounded-full px-4 py-[0.375rem] ${showRemoveIcon ? 'border border-gray-lightest' : 'cursor-pointer'} ${isSelected ? 'bg-violet-dark text-white' : 'bg-white-darkest hover:bg-gray-lightest'} transition-colors`}
     >
       <span
         onClick={() =>
