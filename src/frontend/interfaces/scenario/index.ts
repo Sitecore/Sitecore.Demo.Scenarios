@@ -25,6 +25,8 @@ export enum ProductOptions {
   taxonomy_productOptions_search = 'Search',
   taxonomy_productOptions_send = 'Send',
   taxonomy_productOptions_xmCloud = 'XM Cloud',
+  taxonomy_productOptions_experienceManagerxm = 'Experience Manager (XM)',
+  taxonomy_productOptions_experiencePlatformxp = 'Experience Platform (XP)',
 }
 
 export interface Product {

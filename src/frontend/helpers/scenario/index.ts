@@ -22,6 +22,10 @@ export const productIcons = {
     'https://ch.sitecoredemo.com/api/public/content/1394ed8cd2a04895902768c43a3b14bb?v=b5e09410',
   [ProductOptions.taxonomy_productOptions_xmCloud]:
     'https://ch.sitecoredemo.com/api/public/content/4eab402a23724aafb9813fe73adcc826?v=0381a9f3',
+  [ProductOptions.taxonomy_productOptions_experienceManagerxm]:
+    'https://ch.sitecoredemo.com/api/public/content/19233a85457848dc805bdbd9dc7276f9?v=b911d836',
+  [ProductOptions.taxonomy_productOptions_experiencePlatformxp]:
+    'https://ch.sitecoredemo.com/api/public/content/2d7beb60e5ee4b60a019c59d4b99c3c3?v=40b864c3',
 };
 
 export const integrationIcons = {
