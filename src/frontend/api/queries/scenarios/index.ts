@@ -28,7 +28,7 @@ const getFieldsQuery = () => {
 
 const scenariosQuery = `
   {
-    allScenario {
+    allScenario(first: 1000) {
       total
       results {
         id
