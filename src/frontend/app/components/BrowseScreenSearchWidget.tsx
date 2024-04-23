@@ -1,6 +1,13 @@
 'use client';
 
-import React, { useCallback, useEffect, KeyboardEvent, useMemo } from 'react';
+import React, {
+  useCallback,
+  useEffect,
+  KeyboardEvent,
+  useMemo,
+  useState,
+  ChangeEvent,
+} from 'react';
 import {
   FacetChoiceChangedPayload,
   RemoveFilterPayload,
@@ -64,6 +71,9 @@ const SearchResults = ({
   const searchParams = useSearchParams();
   const q = searchParams.get('q') ?? '';
 
+  const [inputValue, setInputValue] = useState(q);
+  const [showAutocomplete, setShowAutocomplete] = useState(true);
+
   const isScenarioDetailsPage = pathname.includes('/scenarios');
 
   const {
@@ -94,9 +104,16 @@ const SearchResults = ({
       type: 'valueId';
     })[];
 
+  const onKeyphraseChangeDebounced = debounce(
+    (value: string) => onKeyphraseChange({ keyphrase: value }),
+    500
+  );
+
   // Changing the keyphrase removes all other facets
   const handleKeyphraseChange = useCallback(
-    (value: string, isSuggestion = false) => {
+    (value: string) => {
+      setInputValue(value);
+
       if (value) {
         localStorage.setItem(BROWSE_SCREEN_QUERYSTRING_KEY, `q=${value}`);
         router.push(`${pathname}?q=${value}`);
@@ -105,44 +122,43 @@ const SearchResults = ({
         router.push(pathname);
       }
 
-      onKeyphraseChange({ keyphrase: value });
-
-      // Set the input value manually when user clicks on a keyword suggestion
-      if (isSuggestion) {
-        const searchInput = document.getElementById('search-input') as HTMLInputElement;
-        searchInput.value = value;
-      }
+      onKeyphraseChangeDebounced(value);
     },
-    [onKeyphraseChange, router, pathname]
+    [onKeyphraseChangeDebounced, router, pathname]
   );
-
-  const onKeyphraseChangeDebounced = debounce((value: string) => handleKeyphraseChange(value), 500);
 
   const autocompleteSuggestion = useMemo(() => {
     return !!suggestions.length && suggestions?.[0].text;
   }, [suggestions]);
 
   const handleAutocomplete = useCallback(() => {
-    const searchInput = document.getElementById('search-input') as HTMLInputElement;
-    searchInput.value = !!autocompleteSuggestion ? autocompleteSuggestion : searchInput.value;
-  }, [autocompleteSuggestion]);
+    if (!!autocompleteSuggestion) {
+      handleKeyphraseChange(autocompleteSuggestion);
+    }
+  }, [autocompleteSuggestion, handleKeyphraseChange]);
 
   const handleKeyDown = useCallback(
     (e: KeyboardEvent<HTMLInputElement>): void => {
-      if (e.key === 'Tab') {
+      if (e.key === 'Tab' && !!autocompleteSuggestion) {
         e.preventDefault();
         handleAutocomplete();
       }
     },
-    [handleAutocomplete]
+    [autocompleteSuggestion, handleAutocomplete]
   );
 
-  const handleKeyUp = useCallback(
-    (e: KeyboardEvent<HTMLInputElement>): void => {
+  const handleChange = useCallback(
+    (e: ChangeEvent<HTMLInputElement>): void => {
       const value = (e.target as HTMLInputElement).value;
-      onKeyphraseChangeDebounced(value);
+      if (!value) {
+        setShowAutocomplete(false);
+      } else {
+        setShowAutocomplete(true);
+      }
+
+      handleKeyphraseChange(value);
     },
-    [onKeyphraseChangeDebounced]
+    [handleKeyphraseChange]
   );
 
   // Update the querystring and toggle the facet
@@ -193,18 +209,16 @@ const SearchResults = ({
 
   // Clear all should not remove the keyphrase input by the user
   const handleClearAllFilters = useCallback(() => {
-    const searchInputValue = (document.getElementById('search-input') as HTMLInputElement).value;
-
-    if (searchInputValue) {
-      localStorage.setItem(BROWSE_SCREEN_QUERYSTRING_KEY, `q=${searchInputValue}`);
-      router.push(`${pathname}?q=${searchInputValue}`);
+    if (!!inputValue) {
+      localStorage.setItem(BROWSE_SCREEN_QUERYSTRING_KEY, `q=${inputValue}`);
+      router.push(`${pathname}?q=${inputValue}`);
     } else {
       localStorage.setItem(BROWSE_SCREEN_QUERYSTRING_KEY, '');
       router.push(pathname);
     }
 
     onClearFilters();
-  }, [router, pathname, onClearFilters]);
+  }, [inputValue, onClearFilters, router, pathname]);
 
   // Transform the querystring parameters into suitable Search objects in order to update the keyphrase
   // and the selected facets and apply them on load
@@ -212,7 +226,11 @@ const SearchResults = ({
     if (isInitialLoading) return;
 
     // Apply the keyphrase
-    onKeyphraseChange({ keyphrase: searchParams.get('q') ?? '' });
+    const initialKeyphrase = searchParams.get('q');
+    if (initialKeyphrase) {
+      setInputValue(initialKeyphrase);
+      onKeyphraseChange({ keyphrase: initialKeyphrase });
+    }
 
     // Apply the facets
     const initialFacets = [] as FacetChoiceChangedPayload[];
@@ -258,7 +276,7 @@ const SearchResults = ({
     <div ref={containerRef} className="relative">
       <div className="flex flex-row flex-wrap gap-5 mb-8">
         <div className="relative max-w-96 w-full bg-white rounded-full">
-          {isSearchWidgetVisible && !!autocompleteSuggestion && (
+          {isSearchWidgetVisible && !!autocompleteSuggestion && showAutocomplete && (
             <p className="absolute top-0 bottom-0 left-5 right-10 flex items-center pt-1 whitespace-nowrap text-ellipsis text-gray z-10">
               {autocompleteSuggestion}
               <span className="inline-block bg-white-dark text-[8px] pt-[1px] px-1 ml-2 mb-[3px] rounded-[4px] border border-gray-light">
@@ -270,10 +288,10 @@ const SearchResults = ({
             id="search-input"
             className="relative w-full rounded-full pl-5 pr-10 pt-1 h-10 bg-transparent shadow-element cursor-pointer focus:outline-none placeholder:text-black-light z-20"
             type="text"
-            defaultValue={q}
+            value={inputValue}
+            onChange={handleChange}
             placeholder="Search"
             onFocus={() => setIsSearchWidgetVisible(true)}
-            onKeyUp={handleKeyUp}
             onKeyDown={handleKeyDown}
             autoComplete="off"
           />
@@ -313,7 +331,7 @@ const SearchResults = ({
                     <div
                       key={suggestion.text}
                       className="rounded-full bg-white-darkest hover:bg-gray-lightest px-4 py-[0.375rem] transition-colors cursor-pointer"
-                      onClick={() => handleKeyphraseChange(suggestion.text, true)}
+                      onClick={() => handleKeyphraseChange(suggestion.text)}
                     >
                       <span className="text-base">{suggestion.text}</span>
                     </div>
