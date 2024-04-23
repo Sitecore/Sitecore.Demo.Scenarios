@@ -30,7 +30,7 @@ import { Category, Persona, Product, Template } from '@/interfaces/scenario';
 import useComponentVisible from '@/hooks/useComponentVisible';
 import FacetValue from './FacetValue';
 import FacetValueGrid from './FacetValueGrid';
-import { updateQueryString } from '@/helpers/searchWidget';
+import { debounce, updateQueryString } from '@/helpers/searchWidget';
 import { BROWSE_SCREEN_QUERYSTRING_KEY } from '@/constants/scenario';
 
 type SearchResultsProps = {
@@ -70,7 +70,9 @@ const SearchResults = ({
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const q = searchParams.get('q') ?? '';
+
   const [inputValue, setInputValue] = useState(q);
+  const [showAutocomplete, setShowAutocomplete] = useState(true);
 
   const isScenarioDetailsPage = pathname.includes('/scenarios');
 
@@ -102,6 +104,11 @@ const SearchResults = ({
       type: 'valueId';
     })[];
 
+  const onKeyphraseChangeDebounced = debounce(
+    (value: string) => onKeyphraseChange({ keyphrase: value }),
+    500
+  );
+
   // Changing the keyphrase removes all other facets
   const handleKeyphraseChange = useCallback(
     (value: string) => {
@@ -115,9 +122,9 @@ const SearchResults = ({
         router.push(pathname);
       }
 
-      onKeyphraseChange({ keyphrase: value });
+      onKeyphraseChangeDebounced(value);
     },
-    [onKeyphraseChange, router, pathname]
+    [onKeyphraseChangeDebounced, router, pathname]
   );
 
   const autocompleteSuggestion = useMemo(() => {
@@ -126,7 +133,6 @@ const SearchResults = ({
 
   const handleAutocomplete = useCallback(() => {
     if (!!autocompleteSuggestion) {
-      setInputValue(autocompleteSuggestion);
       handleKeyphraseChange(autocompleteSuggestion);
     }
   }, [autocompleteSuggestion, handleKeyphraseChange]);
@@ -144,6 +150,12 @@ const SearchResults = ({
   const handleChange = useCallback(
     (e: ChangeEvent<HTMLInputElement>): void => {
       const value = (e.target as HTMLInputElement).value;
+      if (!value) {
+        setShowAutocomplete(false);
+      } else {
+        setShowAutocomplete(true);
+      }
+
       handleKeyphraseChange(value);
     },
     [handleKeyphraseChange]
@@ -214,7 +226,11 @@ const SearchResults = ({
     if (isInitialLoading) return;
 
     // Apply the keyphrase
-    onKeyphraseChange({ keyphrase: searchParams.get('q') ?? '' });
+    const initialKeyphrase = searchParams.get('q');
+    if (initialKeyphrase) {
+      setInputValue(initialKeyphrase);
+      onKeyphraseChange({ keyphrase: initialKeyphrase });
+    }
 
     // Apply the facets
     const initialFacets = [] as FacetChoiceChangedPayload[];
@@ -260,7 +276,7 @@ const SearchResults = ({
     <div ref={containerRef} className="relative">
       <div className="flex flex-row flex-wrap gap-5 mb-8">
         <div className="relative max-w-96 w-full bg-white rounded-full">
-          {isSearchWidgetVisible && !!autocompleteSuggestion && (
+          {isSearchWidgetVisible && !!autocompleteSuggestion && showAutocomplete && (
             <p className="absolute top-0 bottom-0 left-5 right-10 flex items-center pt-1 whitespace-nowrap text-ellipsis text-gray z-10">
               {autocompleteSuggestion}
               <span className="inline-block bg-white-dark text-[8px] pt-[1px] px-1 ml-2 mb-[3px] rounded-[4px] border border-gray-light">
