@@ -102,7 +102,7 @@ export default function ScenarioGrid({ scenarios }: ScenarioGridProps) {
   );
 
   return (
-    <div className="flex flex-wrap gap-6 py-4 grid-container">
+    <div className="flex flex-wrap gap-6 py-4 mb-8 grid-container">
       {firstScenarios.map((scenario) => scenarioCard(scenario))}
       <CTABanner
         title="Looking for something that's not here?"
