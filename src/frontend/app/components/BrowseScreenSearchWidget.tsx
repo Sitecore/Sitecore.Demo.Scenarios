@@ -25,6 +25,8 @@ import { usePathname } from 'next/navigation';
 import { useSearchParams } from 'next/navigation';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
 
 import { Category, Persona, Product, Template } from '@/interfaces/scenario';
 import useComponentVisible from '@/hooks/useComponentVisible';
@@ -74,11 +76,21 @@ const SearchResults = ({
   const [inputValue, setInputValue] = useState(q);
   const [showAutocomplete, setShowAutocomplete] = useState(true);
 
+  const [loadedItemIDs, setLoadedItemIDs] = useState([] as string[]);
+  const [isLoadingMoreItems, setIsLoadingMoreItems] = useState(false);
+
   const isScenarioDetailsPage = pathname.includes('/scenarios');
 
   const {
     widgetRef,
-    actions: { onFacetClick, onRemoveFilter, onClearFilters, onKeyphraseChange },
+    actions: {
+      onFacetClick,
+      onRemoveFilter,
+      onClearFilters,
+      onKeyphraseChange,
+      onPageNumberChange,
+    },
+    state: { page, itemsPerPage },
     queryResult: {
       isLoading,
       isInitialLoading,
@@ -86,6 +98,7 @@ const SearchResults = ({
         facet: facets = [],
         content: items = [],
         suggestion: { content_name_context_aware: suggestions = [] } = {},
+        total_item: totalItems = 0,
       } = {},
     },
   } = useSearchResults<ContentItemModel, InitialState>({
@@ -98,6 +111,8 @@ const SearchResults = ({
       keyphrase: q,
     },
   });
+
+  const totalPages = Math.ceil(totalItems / itemsPerPage);
 
   const selectedFacets =
     useSearchResultsSelectedFilters() as (SearchResultsStoreValueIdSelectedFacet & {
@@ -220,6 +235,11 @@ const SearchResults = ({
     onClearFilters();
   }, [inputValue, onClearFilters, router, pathname]);
 
+  const handleLoadMoreClick = useCallback(() => {
+    setIsLoadingMoreItems(true);
+    onPageNumberChange({ page: page + 1 });
+  }, [onPageNumberChange, page]);
+
   // Transform the querystring parameters into suitable Search objects in order to update the keyphrase
   // and the selected facets and apply them on load
   useEffect(() => {
@@ -266,10 +286,23 @@ const SearchResults = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isInitialLoading]);
 
+  // Calculate all the loaded item IDs depending on whether it is the first page or not,
+  // update the state variable and filter the scenarios
   useEffect(() => {
     if (isLoading) return;
 
-    onFilterScenarios(items.map((item) => item.scenario_id));
+    let itemIDs: string[];
+    if (page > 1) {
+      itemIDs = [...loadedItemIDs, ...items.map((item) => item.scenario_id)];
+      setIsLoadingMoreItems(false);
+    } else {
+      itemIDs = items.map((item) => item.scenario_id);
+    }
+    setLoadedItemIDs(itemIDs);
+
+    onFilterScenarios(itemIDs);
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isLoading, items, onFilterScenarios]);
 
   return (
@@ -351,6 +384,28 @@ const SearchResults = ({
                 onFacetValueClick={handleFacetClick}
               />
             ))}
+        </div>
+      )}
+      {page < totalPages && !isLoadingMoreItems && (
+        <div className="flex justify-center">
+          <button className="button fixed bottom-2 z-50" onClick={handleLoadMoreClick}>
+            Load More
+          </button>
+        </div>
+      )}
+      {isLoadingMoreItems && isScenarioDetailsPage && (
+        <div className="w-1/3 max-w-lg pr-32 fixed bottom-2">
+          <Skeleton count={1} className="h-8" />
+        </div>
+      )}
+      {isLoadingMoreItems && !isScenarioDetailsPage && (
+        <div className="w-full max-w-grid-container pr-32 fixed bottom-2">
+          <Skeleton
+            count={3}
+            className="h-8"
+            containerClassName="grid grid-cols-3 gap-6 py-4"
+            inline={true}
+          />
         </div>
       )}
     </div>
