@@ -26,12 +26,13 @@ export default function ScenarioGridWrapper({
   const isScenarioDetailsPage = pathname.includes('/scenarios');
 
   useEffect(() => {
-    if (!scrollRef.current || !params) return;
+    if (!scrollRef.current || !params?.id) return;
     scrollRef.current.scrollTo({ top: scrollPos[page] });
-  }, [page, params, scrollPos]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const handleScroll = useCallback(() => {
-    if (!scrollRef.current || !params) return;
+    if (!scrollRef.current || !params?.id) return;
     setScrollPos({ ...scrollPos, [page]: scrollRef.current.scrollTop });
   }, [page, params, scrollPos, setScrollPos]);
 
@@ -56,7 +57,7 @@ export default function ScenarioGridWrapper({
     <section
       className="h-full overflow-auto custom-scrollbar"
       ref={scrollRef}
-      onScroll={!!params && handleScroll}
+      onScroll={handleScroll}
     >
       {scenarios && scenarios?.length > 0 ? <ScenarioGrid scenarios={scenarios} /> : errorCard}
     </section>
